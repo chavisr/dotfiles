@@ -1,20 +1,21 @@
-#! /bin/sh
+#!/bin/bash
 
-pgrep -x sxhkd > /dev/null || sxhkd &
-#pgrep -x lxsession > /dev/null || lxsession -n -a &
-pgrep -x picom > /dev/null || picom --backend xrender &
+# autostart programs
+sxhkd &
+picom --backend xrender &
+$HOME/.config/polybar/launch &
+feh --no-fehbg --bg-fill $HOME/.config/wallpaper/mountain.jpg &
+(greenclip clear && greenclip daemon) &
 
-feh --no-fehbg --bg-fill '/home/chavi/.config/wallpaper/mountain.jpg' &
-$HOME/.config/polybar/launch.sh &
-
+# bspwm configs
 bspc monitor -d I II III IV V VI VII
-
 bspc config border_width	2
 bspc config window_gap		6
 bspc config normal_border_color "#2e2e2e"
 bspc config focused_border_color "#808184"
 bspc config swallow_first_click  false
-
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
+bspc rule -a Pavucontrol state=floating
+bspc rule -a Lxappearance state=floating

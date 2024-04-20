@@ -3,7 +3,7 @@
 #
 
 super + v
-	clipmenu
+	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 # terminal emulator
 super + Return
@@ -23,7 +23,7 @@ super + Escape
 
 # browser
 super + b
-	google-chrome
+	google-chrome-stable
 
 # volume up-down
 XF86Audio{Raise,Lower}Volume
@@ -39,11 +39,11 @@ XF86AudioMute
 
 # brightness down
 XF86MonBrightnessDown
-	xbacklight -5	
+	light -U 5	
 
 # brightness up
 XF86MonBrightnessUp
-	xbacklight +5
+	light -A 5
 
 # screenshot
 {Print, super + Print, XF86Launch2}

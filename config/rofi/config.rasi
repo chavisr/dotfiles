@@ -7,7 +7,7 @@ configuration {
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
-	yoffset: -200;
+	yoffset: -80;
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
 	show-icons: true;
@@ -146,4 +146,5 @@ configuration {
 }
 @import "/home/chavi/.local/share/rofi/themes/squared-material-red.rasi"
 //@theme "/usr/share/rofi/themes/android_notification.rasi"
+//@theme "/home/chavi/.local/share/rofi/themes/squared-material-red.rasi"
 @theme "/home/chavi/.local/share/rofi/themes/squared-material-red.rasi"

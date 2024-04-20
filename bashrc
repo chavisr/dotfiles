@@ -1,4 +1,4 @@
-# git prompt
+# git stuff
 __git_branch() {
   if git rev-parse --git-dir >/dev/null 2>&1; then
     local BRANCH=$(
@@ -20,10 +20,6 @@ __git_status() {
 }
 export PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_branch)$(__git_status) \[\e[1;35m\]λ\[\e[0m\] '
 
-# custom alias
-alias cya="systemctl poweroff"
-alias reboot="systemctl reboot"
+# alias
 alias rand="openssl rand -hex 16"
 alias code="exec code"
-#alias hdmi-connect="xrandr --output HDMI-1 --mode 1920x1080 --output eDP-1 --mode 1920x1080 --brightness 0"
-#alias hdmi-disconnect="xrandr --output HDMI-1 --off --output eDP-1 --mode 1920x1200 --brightness 1"

@@ -69,7 +69,7 @@ font-0 = FiraCode Nerd Font:style=Regular:size=11;1
 
 modules-left = bspwm
 ;modules-center = mpd
-modules-right = openvpn3 openvpn3-session xkeyboard pulseaudio wlan battery date powermenu
+modules-right = openvpn3 xkeyboard pulseaudio wlan battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -97,7 +97,7 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-prefix-underline = ${colors.secondary}
 
@@ -381,19 +381,9 @@ label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
+menu-0-0-exec = dunstify todo
 menu-0-1 = poweroff
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = systemctl reboot
-
-menu-2-0 = power off
-menu-2-0-exec = systemctl poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+menu-0-1-exec = dunstify todo
 
 [module/openvpn3]
 type = custom/menu
