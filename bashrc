@@ -20,6 +20,6 @@ __git_status() {
 }
 export PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_branch)$(__git_status) \[\e[1;35m\]λ\[\e[0m\] '
 
-# alias
+# lifestyle stuff
 alias rand="openssl rand -hex 16"
 alias code="exec code"
