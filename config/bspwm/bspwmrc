@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # autostart programs
-sxhkd
-picom --backend xrender
-$HOME/.config/polybar/launch
-feh --no-fehbg --bg-fill $HOME/.config/wallpaper/mountain.jpg
-greenclip clear && greenclip daemon
+sxhkd &
+picom --backend xrender &
+$HOME/.config/polybar/launch &
+feh --no-fehbg --bg-fill $HOME/.config/wallpaper/mountain.jpg &
+greenclip clear && greenclip daemon &
 
 # bspwm configs
 bspc monitor -d I II III IV V VI VII
