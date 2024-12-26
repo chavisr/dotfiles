@@ -2,6 +2,10 @@
 # wm independent hotkeys
 #
 
+#super + t
+#	{DEVICE=$(xinput list --id-only 'ELAN1203:00 04F3:307A Touchpad'); xinput --disable $DEVICE,
+#	DEVICE=$(xinput list --id-only 'ELAN1203:00 04F3:307A Touchpad'); xinput --enable $DEVICE}
+
 super + v
 	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 

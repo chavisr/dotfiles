@@ -147,4 +147,5 @@ configuration {
 @import "/home/chavi/.local/share/rofi/themes/squared-material-red.rasi"
 //@theme "/usr/share/rofi/themes/android_notification.rasi"
 //@theme "/home/chavi/.local/share/rofi/themes/squared-material-red.rasi"
+//@theme "/home/chavi/.local/share/rofi/themes/squared-material-red.rasi"
 @theme "/home/chavi/.local/share/rofi/themes/squared-material-red.rasi"

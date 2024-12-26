@@ -19,4 +19,4 @@ mods = "Control"
 save_to_clipboard = false
 
 [window]
-opacity = 0.85
+opacity = 0.8
