@@ -95,3 +95,10 @@ exit    # exit chroot environment
 umount -R /mnt
 reboot
 ```
+
+# ethernet
+```sh
+sudo ip link set eth0 up
+sudo ip addr add 192.168.0.249/24 dev eth0
+sudo ip route add default via 192.168.0.1
+```
