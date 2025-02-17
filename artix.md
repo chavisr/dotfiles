@@ -27,7 +27,7 @@ swapon /dev/sdb2
 ```
 ## post-install
 ```sh
-pacman -S os-prober iwd-dinit resolvconf linux-firmware linux-headers nano amd-ucode pulseaudio pavucontrol river wideriver waybar alacritty polkit-gnome
+pacman -S os-prober iwd-dinit resolvconf linux-firmware linux-headers nano amd-ucode pulseaudio pavucontrol river wideriver waybar alacritty polkit-gnome git
 
 passwd
 
