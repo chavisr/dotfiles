@@ -86,10 +86,10 @@ riverctl focus-follows-cursor always
 riverctl set-cursor-warp on-focus-change
 
 # keyboard character repeat rate
-riverctl set-repeat 50 300
+# riverctl set-repeat 50 300
 
 # serverside decorations
-riverctl rule-add ssd
+# riverctl rule-add ssd
 
 # wideriver layout generator
 riverctl default-layout wideriver
@@ -97,7 +97,7 @@ riverctl default-layout wideriver
 # fix a few issues (i forgot which lol)
 dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
 
-riverctl spawn waybar
+riverctl spawn "waybar -c $HOME/.config/waybar/river/config.jsonc -s $HOME/.config/waybar/river/style.css"
 
 riverctl spawn "wideriver \
 	--layout left \
