@@ -97,7 +97,7 @@ riverctl default-layout wideriver
 # fix a few issues (i forgot which lol)
 dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
 
-riverctl spawn "waybar -c $HOME/.config/waybar/river/config.jsonc -s $HOME/.config/waybar/river/style.css"
+riverctl spawn "waybar -c $HOME/.config/waybar/config.jsonc -s $HOME/.config/waybar/style.css"
 
 riverctl spawn "wideriver \
 	--layout left \
