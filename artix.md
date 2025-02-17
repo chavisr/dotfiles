@@ -38,6 +38,7 @@ EDITOR=nano visudo
 
 mkdir /etc/iwd
 nano /etc/iwd/main.conf
+```
 ```sh
 [General]
 EnableNetworkConfiguration=true
