@@ -1,4 +1,4 @@
-# connect wifi
+## connect wifi
 ```sh
 rfkill unblock wifi
 ip link set wlan0 up
@@ -10,7 +10,7 @@ connmanctl
     quit
 pacman -Syy
 ```
-# partitioning
+## partitioning
 ```sh
 lsblk
 
@@ -25,9 +25,9 @@ mkdir -p /mnt/boot/efi
 mount /dev/sdb1 /mnt/boot/efi
 swapon /dev/sdb2
 ```
-# post install
+## post-install
 ```sh
-pacman -S os-prober iwd-dinit resolvconf linux-firmware linux-headers nano amd-ucode
+pacman -S os-prober iwd-dinit resolvconf linux-firmware linux-headers nano amd-ucode pulseaudio pavucontrol river wideriver waybar alacritty polkit-gnome
 
 passwd
 
@@ -45,7 +45,7 @@ EnableNetworkConfiguration=true
 RoutePriorityOffset=200
 NameResolvingService=resolvconf
 ```
-# connect ethernet
+## connect ethernet
 ```sh
 sudo ip link set eth0 up
 sudo ip addr add 192.168.0.249/24 dev eth0
