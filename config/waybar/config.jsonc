@@ -1,51 +1,116 @@
 {
-    // "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 5, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    // Choose the order of the modules
-    "modules-left": ["river/tags", "river/mode"],
-    "modules-center": ["river/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "clock", "tray"],
 
-    "river/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+
+    //--------------------------------------------------------------------------------
+    //    General
+    //--------------------------------------------------------------------------------
+
+    "layer": "top", 
+    "position": "top",
+    "height": 36,
+    "spacing": 0,
+    "margin-top": 7,
+    "margin-left": 50,
+    "margin-bottom": 1,
+    "margin-right": 50,
+
+
+
+    //--------------------------------------------------------------------------------
+    //    Left Modules
+    //--------------------------------------------------------------------------------
+
+    "modules-left": [
+	    "clock",
+        "river/tags",
+	    "river/mode"
+    ],
+
+
+
+    //--------------------------------------------------------------------------------
+    //    Center Modules
+    //--------------------------------------------------------------------------------
+
+    "modules-center": [
+    ],
+
+
+
+    //--------------------------------------------------------------------------------
+    //    Right Modules
+    //--------------------------------------------------------------------------------
+
+    "modules-right": [
+        "tray",        
+        "bluetooth",
+        "network",
+        "cpu",
+        "memory"
+    ],
+     
+    
+
+    //--------------------------------------------------------------------------------
+    //    Left Configuration
+    //--------------------------------------------------------------------------------
+     
+
+    "clock": {
+        "format": "{:%d-%m-%Y  | %I:%M}",
+	    "tooltip-format": "{:%A}"
     },
+
     "river/tags": {
-        "num-tags": 3,
+        "num-tags": 3
     },
+
+
+    //--------------------------------------------------------------------------------
+    //    Right Configuration
+    //--------------------------------------------------------------------------------
+
     "tray": {
         // "icon-size": 21,
         "spacing": 10
     },
-    "clock": {
-        "format": "{:%I:%M }",
-        "format-alt": "{:%Y-%m-%d}"
 
+    "bluetooth": {
+	    "format": "󰂲",
+        "format-on": "",
+	    "format-connected": " {num_connections}",
+	    "tooltip-format": "{status}",
+	    "tooltip-format-connected": "{device_alias}",
+	    "on-click": "kitty --class bluetui -e bluetui",
+	    "interval": 1
     },
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
+        
     "memory": {
-        "format": "{}% "
+        "interval": 1,
+        "format": "{}% "
     },
+        
+    "cpu": {
+        "format": "{usage}% ",
+        "interval": 1
+    },
+
+    "battery": {
+        "states": {
+            "good": 90,
+            "warning": 15,
+            "critical": 5
+        },
+        "format": "{capacity}  {icon}",
+        "format-full": "{capacity} {icon}",
+        "format-charging": "{capacity}  ",
+        "format-plugged": "{capacity}  ",
+        "format-icons": ["", "", "", "", ""]
+    },
+
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}%  {format_source}",
-        "format-bluetooth": "{volume}%  {format_source}",
-        "format-bluetooth-muted": " {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "on-click": "pavucontrol"
-    },
+        "format-wifi": "",
+        "format-disconnected": "⚠",
+	    "tooltip-format": "{essid}"
+    }
 }
