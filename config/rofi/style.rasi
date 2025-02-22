@@ -37,7 +37,7 @@ window {
 
     /* properties for all widgets */
     enabled:                     true;
-    border:                      3px;
+    border:                      1px;
     border-color:                @background-alt;
     cursor:                      "default";
     background-color:            @background;
