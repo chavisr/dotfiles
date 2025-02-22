@@ -1,12 +1,15 @@
 #!/bin/sh
 
-# startup
+# kill
+killall -q greenclip polybar picom polkitd
+
+# autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
 feh --no-fehbg --bg-fill $HOME/.config/wallpaper/wall_s.jpg &
-killall -q polkitd && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-killall -q picom && picom --backend xrender &
-killall -q polybar && polybar -c ~/.config/polybar/config.ini main &
-killall -q greenclip && greenclip clear && greenclip daemon &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+picom --backend xrender &
+polybar -c ~/.config/polybar/config.ini main &
+greenclip clear && greenclip daemon &
 
 # bspwm
 bspc monitor -d 1 2 3 4 5
