@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # kill
-killall -q greenclip polybar picom polkitd
+killall -q greenclip polybar picom polkitd dunst
 
 # autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
@@ -10,6 +10,7 @@ feh --no-fehbg --bg-fill $HOME/.config/wallpaper/wall_s.jpg &
 picom --backend xrender &
 polybar -c ~/.config/polybar/config.ini main &
 greenclip clear && greenclip daemon &
+dunst &
 
 # bspwm
 bspc monitor -d 1 2 3 4 5
