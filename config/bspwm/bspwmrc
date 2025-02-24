@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # kill
-killall -q greenclip polybar picom polkitd dunst
+killall -q sxhkd greenclip polybar picom polkit-gnome-authentication-agent-1 dunst
 
 # autostart
-pgrep -x sxhkd > /dev/null || sxhkd &
+sxhkd &
 feh --no-fehbg --bg-fill $HOME/.config/wallpaper/wall_s.jpg &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 picom &

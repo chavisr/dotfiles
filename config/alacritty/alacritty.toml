@@ -9,7 +9,7 @@ family = "JetBrains Mono Nerd Font"
 [[hints.enabled]]
 command = "xdg-open"
 hyperlinks = true
-regex = "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+regex = "(https:|http:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
 
 [hints.enabled.mouse]
 enabled = true
@@ -19,8 +19,8 @@ mods = "Control"
 save_to_clipboard = false
 
 [window]
-opacity = 0.8
+opacity = 0.85
 dynamic_padding = true
 
-# [general]
-# import = ["~/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml"]
+[general]
+import = ["~/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml"]
