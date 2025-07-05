@@ -1,0 +1,26 @@
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 16
+[font.normal]
+family = "JetBrains Mono Nerd Font"
+
+[[hints.enabled]]
+command = "xdg-open"
+hyperlinks = true
+regex = "(https:|http:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "Control"
+
+[selection]
+save_to_clipboard = false
+
+[window]
+opacity = 0.96
+dynamic_padding = true
+
+[general]
+import = ["~/.config/alacritty/themes/gruvbox_material_medium_dark.toml"]
