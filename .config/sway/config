@@ -46,6 +46,7 @@ client.unfocused #2E2E2E #2E2E2E #2E2E2E #2E2E2E #2E2E2E
 client.focused_inactive #2E2E2E #2E2E2E #2E2E2E #2E2E2E #2E2E2E
 # client.urgent
 # client.placeholder
+for_window [app_id="com.saivert.pwvucontrol"] floating enable
 
 ### Output configuration
 #

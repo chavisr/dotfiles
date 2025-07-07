@@ -56,6 +56,11 @@ button:hover {
     color: #282828;
 }
 
+#wireplumber:hover {
+    background-color: #D8A657;
+    color: #282828;
+}
+
 #network:hover {
     background-color: #D8A657;
     color: #282828;
@@ -254,12 +259,12 @@ label:focus {
 }
 
 #wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
+    background-color: transparent;
+    color: #EBDBB2;
 }
 
 #wireplumber.muted {
-    background-color: #f53c3c;
+    background-color: transparent;
 }
 
 #custom-media {

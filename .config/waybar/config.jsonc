@@ -21,7 +21,7 @@
         "keyboard-state",
         "tray",
         "sway/language",
-        "pulseaudio",
+        "wireplumber",
         "network",
         // "power-profiles-daemon",
         "cpu",
@@ -197,6 +197,12 @@
         },
         "on-click": "pavucontrol"
     },
+    "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "on-click": "pwvucontrol",
+        "format-icons": ["", "", ""]
+    },
     "custom/media": {
         "format": "{icon} {text}",
         "return-type": "json",
@@ -213,12 +219,12 @@
         "format" : "   ",
 		"tooltip": false,
 		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
+		// "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		// "menu-actions": {
+		// 	"shutdown": "shutdown",
+		// 	"reboot": "reboot",
+		// 	"suspend": "systemctl suspend",
+		// 	"hibernate": "systemctl hibernate"
+		// }
     }
 }
