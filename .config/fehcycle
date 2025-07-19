@@ -4,7 +4,7 @@ WALLPAPER_DIR=~/.config/wallpaper
 INDEX_FILE=~/.current_wallpaper_index
 
 # Get all wallpapers in an array
-mapfile -t WALLPAPERS < <(find "$WALLPAPER_DIR" -type f \( -iname '*.jpg' -o -iname '*.png' \) | sort)
+mapfile -t WALLPAPERS < <(find "$WALLPAPER_DIR" -type f | sort)
 TOTAL=${#WALLPAPERS[@]}
 
 if [[ $TOTAL -eq 0 ]]; then
