@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pacman -Qen > ~/.config/pacman/native.txt
-pacman -Qem > ~/.config/pacman/foreign.txt
+pacman -Qne > ~/.config/pacman/native.txt
+pacman -Qme > ~/.config/pacman/foreign.txt
 
-echo 'pacman-lists generated'
+echo 'Package lists generated.'
