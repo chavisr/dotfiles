@@ -37,3 +37,8 @@ alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # completion
 #source <(flux completion bash)
 #source <(kubectl completion bash)
+
+# extra bin
+if [ -d "$HOME/bin" ]; then
+  export PATH="$HOME/bin:$PATH"
+fi

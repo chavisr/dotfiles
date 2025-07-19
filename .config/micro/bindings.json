@@ -1,4 +1,12 @@
 {
     "Alt-/": "lua:comment.comment",
-    "CtrlUnderscore": "lua:comment.comment"
+    "AltLeft": "WordLeft",
+    "AltRight": "WordRight",
+    "Ctrl-/": "lua:comment.comment",
+    "CtrlUnderscore": "lua:comment.comment",
+    "AltUp": "CursorUp",
+    "AltDown": "CursorDown",
+    "CtrlLeft": "StartOfText",
+    "CtrlRight": "EndOfLine",
+    "Alt-c": "Copy|CopyLine"
 }

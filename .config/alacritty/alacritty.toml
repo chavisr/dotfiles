@@ -23,4 +23,4 @@ opacity = 0.96
 dynamic_padding = true
 
 [general]
-import = ["~/.config/alacritty/themes/gruvbox_material_medium_dark.toml"]
+import = ["~/.config/alacritty/themes/theme.toml"]

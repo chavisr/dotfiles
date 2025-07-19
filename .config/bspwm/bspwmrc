@@ -7,7 +7,7 @@ pkill picom; picom &
 pkill greenclip; greenclip daemon &
 pkill dunst; dunst &
 pkill polybar; polybar -c ~/.config/polybar/config.ini main &
-feh --no-fehbg --bg-fill $HOME/.config/wallpaper/wall_s.jpg
+feh --no-fehbg --bg-fill $HOME/.config/wallpaper/wallpaper
 greenclip clear
 
 # bspwm config

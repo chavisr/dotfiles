@@ -1,0 +1,8 @@
+[general]
+import = ["~/.config/alacritty/alacritty.toml"]
+
+# a hack for micro editor
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+chars = "\u001bc"
