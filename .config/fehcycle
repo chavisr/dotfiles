@@ -34,7 +34,6 @@ esac
 
 # Set wallpaper
 feh --no-fehbg --bg-fill "${WALLPAPERS[$NEW_INDEX]}"
-dunstify "Wallpaper Updated" $(basename "${WALLPAPERS[$NEW_INDEX]}") -u low
 
 # Save new index
 echo $NEW_INDEX > "$INDEX_FILE"
