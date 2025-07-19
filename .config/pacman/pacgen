@@ -1,0 +1,6 @@
+#!/bin/sh
+
+pacman -Qen > ~/.config/pacman/native
+pacman -Qem > ~/.config/pacman/aur
+
+echo 'pacman-lists generated'

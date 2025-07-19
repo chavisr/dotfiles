@@ -1,6 +1,0 @@
-#!/bin/sh
-
-yay -Qne > ~/.config/pacman/native
-yay -Qme > ~/.config/pacman/aur
-
-echo 'package files generated'
