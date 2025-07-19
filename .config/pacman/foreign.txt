@@ -4,6 +4,7 @@ gruvbox-material-gtk-theme-git r25.bb306ae97-1
 gruvbox-material-icon-theme-git r25.bb306ae97-1
 iwmenu-git 0.2.0.r17.g7d32c1e-1
 lens-bin 2025.6.21515-1
+neovim-gruvbox-material-git 1.2.5.r78.g66cfeb7-1
 popsicle 1.3.3-1
 rofi-greenclip 4.2-3
 tableplus 0.1.264-1

@@ -43,9 +43,9 @@ linux-firmware 20250708-1
 linux-headers 6.15.6.artix1-1
 lxappearance 0.6.4-1
 man-db 2.13.1-1
-micro 2.0.14-1
 nano 8.5-1
 nano-syntax-highlighting 2022.11.02.r102.gbb94603-1
+neovim 0.11.3-1
 noto-fonts-cjk 20240730-1
 noto-fonts-emoji 1:2.048-1
 ntp-dinit 20211030-4
@@ -78,7 +78,6 @@ ttf-jetbrains-mono 2.304-2
 ttf-jetbrains-mono-nerd 3.4.0-1
 ueberzugpp 2.9.7-2
 unzip 6.0-22
-vim 9.1.1497-1
 virt-manager 5.0.0-1
 vlc 3.0.21-26
 vlc-plugin-ffmpeg 3.0.21-26
