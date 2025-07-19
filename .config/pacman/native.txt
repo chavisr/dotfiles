@@ -30,6 +30,7 @@ grub 2:2.12.r292.g73d1c959-1
 htop 3.4.1-1
 iwd-dinit 20240622-1
 jq 1.8.1-1
+kubectl 1.33.2-1
 kustomize 5.7.0-1
 libnotify 0.8.6-1
 libreoffice-still 24.8.7-4
