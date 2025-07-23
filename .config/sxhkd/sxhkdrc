@@ -10,12 +10,15 @@ super + v
 super + Return
 	alacritty
 
-# launcher
+# file manager
 super + f
-        pcmanfm
+    pcmanfm
 
 # launcher
 super + d
+	rofi -show drun
+
+button9
 	rofi -show drun
 
 # switch language input
@@ -64,6 +67,10 @@ super + shift + {q,r}
 
 # close
 super + backslash
+	bspc node -c
+
+# close
+button2
 	bspc node -c
 
 # kill

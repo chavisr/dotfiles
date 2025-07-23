@@ -19,7 +19,7 @@ mods = "Control"
 save_to_clipboard = false
 
 [window]
-opacity = 0.9
+opacity = 0.96
 dynamic_padding = true
 
 [general]
