@@ -18,9 +18,6 @@ super + f
 super + d
 	rofi -show drun
 
-button9
-	rofi -show drun
-
 # switch language input
 control + space
 	{setxkbmap th, setxkbmap us}
@@ -67,10 +64,6 @@ super + shift + {q,r}
 
 # close
 super + backslash
-	bspc node -c
-
-# close
-button2
 	bspc node -c
 
 # kill
