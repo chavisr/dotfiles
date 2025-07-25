@@ -64,7 +64,7 @@ super + shift + {q,r}
 
 # close
 super + backslash
-	bspc node -c
+	~/.config/sxhkd/confirm_close.sh
 
 # kill
 super + q
