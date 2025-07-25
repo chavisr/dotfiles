@@ -64,7 +64,7 @@ super + shift + {q,r}
 
 # close
 super + backslash
-	~/.config/sxhkd/confirm_close.sh
+	~/.config/script/confirm_close.sh
 
 # kill
 super + q
