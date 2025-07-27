@@ -5,4 +5,4 @@ import = ["~/.config/alacritty/alacritty.toml"]
 [[keyboard.bindings]]
 key = "C"
 mods = "Control|Shift"
-chars = "\u001bc"
+chars = "\u001bc" # Alt+c

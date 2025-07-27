@@ -33,6 +33,7 @@ alias rand="openssl rand -hex 16"
 alias code="exec code"
 alias rm="trash"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias nano="micro"
 
 # completion
 #source <(flux completion bash)

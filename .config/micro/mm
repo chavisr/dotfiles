@@ -1,3 +1,0 @@
-#!/bin/sh
-
-alacritty --config-file $HOME/.config/alacritty/micro.toml --command micro $1 &
