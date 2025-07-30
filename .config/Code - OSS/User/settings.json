@@ -1,0 +1,10 @@
+{
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'JetBrains Mono'",
+    "workbench.colorTheme": "Gruvbox Material Dark",
+    "zig.zls.enabled": "on",
+    "terminal.integrated.sendKeybindingsToShell": false,
+    "redhat.telemetry.enabled": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.fontSize": 16
+}

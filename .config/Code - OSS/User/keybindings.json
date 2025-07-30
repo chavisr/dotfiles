@@ -1,0 +1,98 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "alt+left",
+        "command": "cursorWordLeft",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "alt+right",
+        "command": "cursorWordRight",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "alt+backspace",
+        "command": "deleteWordLeft",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "alt+down",
+        "command": "cursorMove",
+        "when": "editorTextFocus",
+        "args": {
+            "to": "nextBlankLine"
+        }
+    },
+    {
+        "key": "alt+up",
+        "command": "cursorMove",
+        "when": "editorTextFocus",
+        "args": {
+            "to": "prevBlankLine"
+        }
+    },
+    // {
+    //     "key": "ctrl+enter",
+    //     "command": "workbench.action.terminal.focus",
+    //     "when": "!terminalFocus"
+    // },
+    // {
+    //     "key": "ctrl+enter",
+    //     "command": "workbench.action.focusFirstEditorGroup",
+    //     "when": "terminalFocus"
+    // },
+    {
+        "key": "alt+enter",
+        "command": "workbench.action.terminal.focus",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "alt+enter",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+down",
+        "command": "cursorMove",
+        "when": "editorTextFocus",
+        "args": {
+            "to": "nextBlankLine"
+        }
+    },
+    {
+        "key": "ctrl+up",
+        "command": "cursorMove",
+        "when": "editorTextFocus",
+        "args": {
+            "to": "prevBlankLine"
+        }
+    },
+    {
+        "key": "ctrl+shift+down",
+        "command": "cursorMove",
+        "when": "editorTextFocus",
+        "args": {
+            "to": "nextBlankLine",
+            "select": true
+        }
+    },
+    {
+        "key": "ctrl+shift+up",
+        "command": "cursorMove",
+        "when": "editorTextFocus",
+        "args": {
+            "to": "prevBlankLine",
+            "select": true
+        }
+    },
+    {
+        "key": "alt+shift+down",
+        "command": "editor.action.copyLinesDownAction",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "alt+shift+up",
+        "command": "editor.action.copyLinesUpAction",
+        "when": "textInputFocus"
+    }
+]
