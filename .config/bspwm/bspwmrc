@@ -21,6 +21,7 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc rule -a pavucontrol state=floating
 bspc rule -a Lxappearance state=floating
+bspc rule -a transmission-gtk state=floating
 bspc config swallow_first_click false
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
