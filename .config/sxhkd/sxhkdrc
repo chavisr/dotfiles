@@ -2,6 +2,10 @@
 # wm independent hotkeys
 #
 
+# manpdf
+super + p
+	$HOME/.config/script/manpdf.sh
+
 # greenclip
 super + v
 	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
