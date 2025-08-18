@@ -3,7 +3,7 @@
 COMFIRM_FILE='/tmp/confirm_close'
 DUNST_COUNT=$(dunstctl count | grep -i current | awk '{print $3}')
 
-if [ $DUNST_COUNT = '0' ]; then
+if [ "$DUNST_COUNT" = "0" ]; then
   rm $COMFIRM_FILE
 fi
 

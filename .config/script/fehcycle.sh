@@ -1,7 +1,7 @@
 #!/bin/bash
 
-WALLPAPER_DIR=~/.config/wallpaper
-INDEX_FILE=~/.current_wallpaper_index
+WALLPAPER_DIR="$HOME/.config/wallpaper"
+INDEX_FILE="$HOME/.current_wallpaper_index"
 
 # Get all wallpapers in an array
 mapfile -t WALLPAPERS < <(find "$WALLPAPER_DIR" -type f | sort)

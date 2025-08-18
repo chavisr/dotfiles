@@ -2,13 +2,17 @@
 # wm independent hotkeys
 #
 
+# mpv
+super + j
+	$HOME/.config/script/mpvrofi.sh
+
 # manpdf
 super + p
 	$HOME/.config/script/manpdf.sh
 
 # greenclip
 super + v
-	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+	rofi -i -config $HOME/.config/rofi/config.noicon.rasi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 # terminal emulator
 super + Return
@@ -20,7 +24,7 @@ super + f
 
 # launcher
 super + d
-	rofi -show drun
+	rofi -i -show drun -matching fuzzy
 
 # switch language input
 control + space
