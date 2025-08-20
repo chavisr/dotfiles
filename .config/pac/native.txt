@@ -22,6 +22,7 @@ elogind-dinit 20240527-1
 fastfetch 2.49.0-1
 feh 3.10.3-1
 firefox 141.0.3-1
+fish 4.0.2-1
 flameshot 13.1.0-1
 fuse2 2.9.9-5
 git 2.50.1-3

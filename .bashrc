@@ -16,7 +16,7 @@ __git_branch() {
   fi
 }
 __git_status() {
-  if [ -z $(__git_branch) ]; then
+  if [ -z "$(__git_branch)" ]; then
     return
   else
     STATUS=$(git status 2>&1)
@@ -29,9 +29,11 @@ __git_status() {
 PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_branch)$(__git_status) \[\e[1;35m\]>\[\e[0m\] '
 
 # alias
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -iv"
 alias rand="openssl rand -hex 16"
 alias code="exec code"
-alias rm="trash"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # completion

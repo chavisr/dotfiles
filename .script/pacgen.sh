@@ -3,4 +3,4 @@
 pacman -Qne > ~/.config/pac/native.txt
 pacman -Qme > ~/.config/pac/foreign.txt
 
-echo 'Package lists generated.'
+echo 'Packages list generated.'
