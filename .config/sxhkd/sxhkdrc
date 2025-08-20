@@ -4,11 +4,11 @@
 
 # mpv
 super + j
-	$HOME/.config/script/mpvrofi.sh
+	$HOME/.script/mpvrofi.sh
 
 # manpdf
 super + p
-	$HOME/.config/script/manpdf.sh
+	$HOME/.script/manpdf.sh
 
 # greenclip
 super + v
@@ -72,7 +72,7 @@ super + shift + {q,r}
 
 # close
 super + backslash
-	~/.config/script/confirm_close.sh
+	~/.script/confirm_close.sh
 
 # kill
 super + q
