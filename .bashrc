@@ -37,5 +37,4 @@ alias code="exec code"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # completion
-#source <(flux completion bash)
-#source <(kubectl completion bash)
+# source <(kubectl completion bash)
