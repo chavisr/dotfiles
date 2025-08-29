@@ -36,7 +36,7 @@ control + space
 
 # browser
 super + b
-	google-chrome-stable
+	brave
 
 # volume up-down
 # XF86Audio{Raise,Lower}Volume
