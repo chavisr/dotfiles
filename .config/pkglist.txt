@@ -67,7 +67,6 @@ solaar
 speedtest-cli
 steam
 sxhkd
-timeshift
 tldr
 transmission-gtk
 ttf-jetbrains-mono
