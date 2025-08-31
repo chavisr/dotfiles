@@ -37,3 +37,4 @@ feh --no-fehbg --bg-fill "${WALLPAPERS[$NEW_INDEX]}"
 
 # Save new index
 echo $NEW_INDEX > "$INDEX_FILE"
+ln -sf "${WALLPAPERS[$NEW_INDEX]}" "$WALLPAPER_DIR/wallpaper"

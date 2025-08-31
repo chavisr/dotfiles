@@ -1,7 +1,6 @@
 brave-bin
 dashbinsh
 downgrade
-google-chrome
 gruvbox-material-gtk-theme-git
 gruvbox-material-icon-theme-git
 iwmenu-git
@@ -9,4 +8,5 @@ lens-bin
 neovim-gruvbox-material-git
 popsicle
 rofi-greenclip
+todotxt
 yay

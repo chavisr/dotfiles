@@ -38,3 +38,4 @@ alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # completion
 # source <(kubectl completion bash)
+# source <(podman completion bash)

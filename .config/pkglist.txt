@@ -16,7 +16,6 @@ dhcpcd
 dinit
 discord
 dnsmasq-dinit
-docker-dinit
 dunst
 efibootmgr
 elogind-dinit
@@ -32,6 +31,7 @@ grub
 htop
 iwd-dinit
 jq
+kdenlive
 kubectl
 kustomize
 libnotify
@@ -58,6 +58,7 @@ os-prober
 pavucontrol
 pcmanfm
 picom
+podman
 polkit-gnome
 polybar
 pulseaudio
