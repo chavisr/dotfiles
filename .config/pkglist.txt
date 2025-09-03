@@ -1,4 +1,5 @@
 7zip
+adobe-source-code-pro-fonts
 alacritty
 amd-ucode
 artix-archlinux-support
@@ -10,6 +11,7 @@ blueman
 bluez-dinit
 bluez-utils
 bspwm
+cantarell-fonts
 code
 dash
 dhcpcd
@@ -29,6 +31,7 @@ gnome-screenshot
 go-yq
 grub
 htop
+inetutils
 iwd-dinit
 jq
 kdenlive

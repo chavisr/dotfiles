@@ -35,6 +35,6 @@ esac
 # Set wallpaper
 feh --no-fehbg --bg-fill "${WALLPAPERS[$NEW_INDEX]}"
 
-# Save new index
+# Save new index then symlink it to `wallpaper`
 echo $NEW_INDEX > "$INDEX_FILE"
 ln -sf "${WALLPAPERS[$NEW_INDEX]}" "$WALLPAPER_DIR/wallpaper"
