@@ -1,13 +1,6 @@
 {
     "Alt-/": "lua:comment.comment",
-    "Alt-a": "lua:snippets.Accept",
     "Alt-c": "Copy|CopyLine",
-    "Alt-d": "lua:snippets.Cancel",
-    "Alt-f": "command:format",
-    "Alt-k": "command:hover",
-    "Alt-r": "command:references",
-    "Alt-s": "lua:snippets.Insert",
-    "Alt-w": "lua:snippets.Next",
     "AltDown": "ParagraphNext",
     "AltLeft": "WordLeft",
     "AltRight": "WordRight",
@@ -18,9 +11,7 @@
     "Ctrl-x": "Quit",
     "CtrlDown": "ParagraphNext",
     "CtrlLeft": "StartOfText",
-    "CtrlP": "command:palettero",
     "CtrlRight": "EndOfLine",
-    "CtrlSpace": "command:lspcompletion",
     "CtrlUnderscore": "lua:comment.comment",
     "CtrlUp": "ParagraphPrevious"
 }
