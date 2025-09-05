@@ -67,6 +67,7 @@ polybar
 pulseaudio
 qemu-desktop
 rofi
+rofi-emoji
 solaar
 speedtest-cli
 steam

@@ -1,6 +1,5 @@
 brave-bin
 dashbinsh
-downgrade
 gruvbox-material-gtk-theme-git
 gruvbox-material-icon-theme-git
 iwmenu-git

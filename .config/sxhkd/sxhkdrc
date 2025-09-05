@@ -10,6 +10,10 @@ super + j
 super + p
 	$HOME/.script/manpdf.sh
 
+# emoji
+super + e
+	rofi -config $HOME/.config/rofi/config.noicon.rasi -modi emoji -show emoji
+
 # greenclip
 super + v
 	rofi -i -config $HOME/.config/rofi/config.noicon.rasi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'

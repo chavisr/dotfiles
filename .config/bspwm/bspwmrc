@@ -4,10 +4,9 @@
 pkill sxhkd; sxhkd &
 pkill polkit-gnome-au; /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 pkill picom; picom &
-pkill greenclip; greenclip daemon &
 pkill polybar; polybar -c ~/.config/polybar/config.ini main &
+pkill greenclip; greenclip clear; greenclip daemon &
 feh --no-fehbg --bg-fill $HOME/.config/wallpaper/wallpaper
-greenclip clear
 
 # bspwm config
 bspc monitor -d 1 2 3 4 5
