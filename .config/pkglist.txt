@@ -7,6 +7,7 @@ atop
 base
 base-devel
 bash-completion
+bat
 blueman
 bluez-dinit
 bluez-utils
@@ -18,6 +19,7 @@ dhcpcd
 dinit
 discord
 dnsmasq-dinit
+docker-dinit
 dunst
 efibootmgr
 elogind-dinit

@@ -5,6 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# xdg stuff
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+
 # git stuff
 __git_branch() {
   if git rev-parse --git-dir >/dev/null 2>&1; then
@@ -35,6 +41,9 @@ alias rm="rm -iv"
 alias rand="openssl rand -hex 16"
 alias code="exec code"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias nano="micro"
+alias vim="nvim"
+alias v="nvim"
 
 # completion
 # source <(kubectl completion bash)
