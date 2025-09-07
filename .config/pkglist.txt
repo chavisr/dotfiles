@@ -7,7 +7,6 @@ atop
 base
 base-devel
 bash-completion
-bat
 blueman
 bluez-dinit
 bluez-utils
