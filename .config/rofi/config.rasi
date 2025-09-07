@@ -12,7 +12,6 @@
 
 configuration {
     modi:                       "drun,window";
-    show-icons:                 true;
     drun-display-format:        "{name}";
     window-format:              "{w} · {t}";
     font-size: 10px;

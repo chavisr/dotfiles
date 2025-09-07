@@ -12,4 +12,4 @@ find "$SEARCH_DIR" -type f \( \
   -o -iname "*.webm" \
 \) > $FOUND_VIDEOS
 
-cat $FOUND_VIDEOS | xargs -I {} basename {} | rofi -i -dmenu -matching fuzzy -config "$HOME/.config/rofi/config.noicon.rasi" | xargs -I {} grep {} $FOUND_VIDEOS | xargs -I {} mpv "{}"
+cat $FOUND_VIDEOS | xargs -I {} basename {} | rofi -i -dmenu -matching fuzzy | xargs -I {} grep {} $FOUND_VIDEOS | xargs -I {} mpv "{}"
