@@ -31,7 +31,7 @@ super + d
 	rofi -i -show drun -matching fuzzy
 
 # switch language input
-control + space
+super + space
 	{setxkbmap th, setxkbmap us}
 
 # make sxhkd reload its configuration files:
