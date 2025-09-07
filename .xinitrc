@@ -4,4 +4,5 @@ xset s off
 xset r rate 300 50
 xrandr --output DP-2 --mode 1920x1080 --rate 144
 setxkbmap -option caps:escape,shift:both_capslock
-exec env XDG_CURRENT_DESKTOP=bspwm dbus-run-session bspwm
+exec bspwm
+
