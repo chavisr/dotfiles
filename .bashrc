@@ -11,18 +11,30 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 
+# alias
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -iv"
+alias rand="openssl rand -hex 16"
+alias code="exec code"
+alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias nano="nvim"
+alias vim="nvim"
+alias v="nvim"
+
 # git stuff
-__git_branch() {
+__git_ref() {
   if git rev-parse --git-dir >/dev/null 2>&1; then
-    local BRANCH=$(
-      git symbolic-ref --short HEAD | \
-      awk -v len=15 '{ if (length($0) > len) print substr($0, 1, len-3) ".."; else print; }'
+    local REF=$(
+      git symbolic-ref --short HEAD -q || \
+      git describe --tags --exact-match 2>/dev/null || \
+      git rev-parse --short HEAD
     )
-    echo " (${BRANCH})"
+    echo " (${REF})" | awk -v len=15 '{ if (length($0) > len) print substr($0, 1, len-3) ".."; else print; }'
   fi
 }
 __git_status() {
-  if [ -z "$(__git_branch)" ]; then
+  if [ -z "$(__git_ref)" ]; then
     return
   else
     STATUS=$(git status 2>&1)
@@ -32,18 +44,8 @@ __git_status() {
   fi
 }
 
-PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_branch)$(__git_status) \[\e[1;35m\]>\[\e[0m\] '
-
-# alias
-alias cp="cp -iv"
-alias mv="mv -iv"
-alias rm="rm -iv"
-alias rand="openssl rand -hex 16"
-alias code="exec code"
-alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias nano="micro"
-alias vim="nvim"
-alias v="nvim"
+# prompt
+PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_ref)$(__git_status) \[\e[1;35m\]>\[\e[0m\] '
 
 # completion
 # source <(kubectl completion bash)
