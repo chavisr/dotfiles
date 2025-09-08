@@ -36,7 +36,7 @@ __git_status() {
   if [ -z "$(__git_ref)" ]; then
     return
   else
-    STATUS=$(git status 2>&1)
+    local STATUS=$(git status 2>&1)
     if [[ $STATUS = *'Untracked files'* || $STATUS = *'Changes not staged for commit'* ]]; then echo -n "?"; fi
     if [[ $STATUS = *'Changes to be committed'* ]]; then echo -n "*"; fi
     if [[ $STATUS = *'Your branch is ahead'* ]]; then echo -n "^"; fi
