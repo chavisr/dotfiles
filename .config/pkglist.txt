@@ -89,7 +89,6 @@ xorg-xev
 xorg-xinit
 xorg-xrandr
 xorg-xsetroot
-yazi
 zathura
 zathura-pdf-poppler
 zig
