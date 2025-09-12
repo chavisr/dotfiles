@@ -12,7 +12,6 @@ bluez-dinit
 bluez-utils
 bspwm
 cantarell-fonts
-code
 dash
 dhcpcd
 dinit
@@ -52,9 +51,11 @@ mpv
 neovim
 noto-fonts-cjk
 noto-fonts-emoji
+nsxiv
 ntp-dinit
 nvidia-container-toolkit
 nvidia-open
+nvidia-utils
 obs-studio
 openresolv
 openssh
@@ -70,8 +71,6 @@ qemu-desktop
 rofi
 rofi-emoji
 solaar
-speedtest-cli
-steam
 sxhkd
 tldr
 transmission-gtk
