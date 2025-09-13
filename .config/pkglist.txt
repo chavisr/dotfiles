@@ -23,7 +23,6 @@ efibootmgr
 elogind-dinit
 fastfetch
 feh
-fish
 flameshot
 fuse2
 git
@@ -37,6 +36,7 @@ jq
 kdenlive
 kubectl
 kustomize
+lib32-nvidia-utils
 libnotify
 libreoffice-still
 libvirt-dinit
@@ -71,6 +71,7 @@ qemu-desktop
 rofi
 rofi-emoji
 solaar
+steam
 sxhkd
 tldr
 transmission-gtk
