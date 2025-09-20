@@ -7,6 +7,7 @@ atop
 base
 base-devel
 bash-completion
+bash-language-server
 blueman
 bluez-dinit
 bluez-utils
@@ -67,6 +68,7 @@ podman
 polkit-gnome
 polybar
 pulseaudio
+pyright
 qemu-desktop
 rofi
 rofi-emoji
@@ -92,3 +94,4 @@ xorg-xsetroot
 zathura
 zathura-pdf-poppler
 zig
+zls
