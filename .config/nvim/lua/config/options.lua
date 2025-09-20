@@ -5,5 +5,6 @@ vim.opt.tabstop = 2
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.cursorline = true
+vim.opt.signcolumn = "yes"
 -- vim.opt.termguicolors = true
 -- vim.opt.background = 'dark'
