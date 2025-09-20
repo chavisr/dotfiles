@@ -91,6 +91,7 @@ xorg-xev
 xorg-xinit
 xorg-xrandr
 xorg-xsetroot
+yaml-language-server
 zathura
 zathura-pdf-poppler
 zig
