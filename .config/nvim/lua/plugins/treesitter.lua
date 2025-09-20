@@ -1,5 +1,6 @@
 return {
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     build = ":TSUpdate",
     config = function()
 	local configs = require("nvim-treesitter.configs")
@@ -7,21 +8,30 @@ return {
 	    highlight = {
 		enable = true,
 	    },
+	    -- enable indentation
 	    indent = { enable = true },
-	    autotage = { enable = true },
+	    -- enable autotagging (w/ nvim-ts-autotag plugin)
+	    -- autotag = { enable = true },
+	    -- ensure these language parsers are installed
 	    ensure_installed = {
-		"lua",
+		"json",
+		"python",
+		"javascript",
+		"query",
+		"yaml",
+		"html",
+		"css",
 		"markdown",
 		"markdown_inline",
 		"bash",
-		"json",
-		"regex",
-		"yaml",
+		"lua",
 		"vim",
 		"vimdoc",
-		"python",
-		"html"
+		"c",
+		"dockerfile",
+		"gitignore",
 	    },
+	    -- auto install above language parsers
 	    auto_install = true,
 	})
     end
