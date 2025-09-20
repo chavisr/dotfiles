@@ -44,6 +44,7 @@ libvirt-dinit
 linux
 linux-firmware
 linux-headers
+lua-language-server
 lxappearance
 man-db
 micro
