@@ -11,7 +11,7 @@ return {
 			-- virtual_lines = true,
 			virtual_text = true,
 			underline = true,
-			update_in_insert = false,
+			-- update_in_insert = false,
 			severity_sort = true,
 			float = {
 				-- style = 'minimal',
