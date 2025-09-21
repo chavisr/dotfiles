@@ -7,7 +7,6 @@ atop
 base
 base-devel
 bash-completion
-bash-language-server
 blueman
 bluez-dinit
 bluez-utils
@@ -44,7 +43,6 @@ libvirt-dinit
 linux
 linux-firmware
 linux-headers
-lua-language-server
 lxappearance
 man-db
 micro
@@ -53,6 +51,7 @@ mpv
 neovim
 noto-fonts-cjk
 noto-fonts-emoji
+npm
 nsxiv
 ntp-dinit
 nvidia-container-toolkit
@@ -69,7 +68,6 @@ podman
 polkit-gnome
 polybar
 pulseaudio
-pyright
 qemu-desktop
 rofi
 rofi-emoji
@@ -92,8 +90,6 @@ xorg-xev
 xorg-xinit
 xorg-xrandr
 xorg-xsetroot
-yaml-language-server
 zathura
 zathura-pdf-poppler
 zig
-zls
