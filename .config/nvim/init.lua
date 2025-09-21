@@ -17,7 +17,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.swapfile = false
 vim.opt.cursorcolumn = false
 vim.opt.termguicolors = true
-vim.opt.background = 'dark'
+vim.opt.background = "dark"
 -- vim.opt.winborder = "rounded"
 
 -- cmds
