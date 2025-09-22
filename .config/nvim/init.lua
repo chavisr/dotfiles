@@ -1,7 +1,7 @@
 -- keymaps
 vim.g.mapleader = " "
 vim.keymap.set("i", "jj", "<Esc>")
-vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
+-- vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
@@ -38,19 +38,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-vim.api.nvim_create_autocmd('LspAttach', {
-	group = vim.api.nvim_create_augroup('my.lsp', {}),
-	callback = function(args)
-		local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-		if client:supports_method('textDocument/completion') then
-			-- Optional: trigger autocompletion on EVERY keypress. May be slow!
-			local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-			client.server_capabilities.completionProvider.triggerCharacters = chars
-			vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-		end
-	end,
-})
-
+-- vim.api.nvim_create_autocmd('LspAttach', {
+-- 	group = vim.api.nvim_create_augroup('my.lsp', {}),
+-- 	callback = function(args)
+-- 		local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+-- 		if client:supports_method('textDocument/completion') then
+-- 			-- Optional: trigger autocompletion on EVERY keypress. May be slow!
+-- 			local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+-- 			client.server_capabilities.completionProvider.triggerCharacters = chars
+-- 			vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+-- 		end
+-- 	end,
+-- })
+--
 vim.api.nvim_create_autocmd("User", {
 	pattern = "OpencodeEvent",
 	callback = function(args)
