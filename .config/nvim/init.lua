@@ -21,7 +21,7 @@ vim.opt.background = "dark"
 -- vim.opt.winborder = "rounded"
 
 -- cmds
-vim.cmd("set completeopt+=noselect")
+-- vim.cmd("set completeopt+=noselect")
 
 vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when yanking (copying) text',
