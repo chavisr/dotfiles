@@ -1,7 +1,7 @@
 -- keymaps
 vim.g.mapleader = " "
-vim.keymap.set("i", "jj", "<Esc>", { noremap = true })
-vim.keymap.set("i", "<C-Space>", "<C-x><C-o>", { noremap = true })
+vim.keymap.set("i", "jj", "<Esc>")
+vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
