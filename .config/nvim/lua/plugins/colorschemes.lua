@@ -18,6 +18,6 @@ return {
 		-- vim.g.gruvbox_material_statusline_style = "material"
 		-- vim.g.gruvbox_material_cursor = "auto"
 		vim.cmd.colorscheme('gruvbox-material')
-		enable_transparency()
+		-- enable_transparency()
 	end
 }

@@ -5,11 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# xdg
+# env
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
+export EDITOR=nvim
 
 # alias
 alias cp="cp -iv"
@@ -18,10 +19,7 @@ alias rm="rm -iv"
 alias rand="openssl rand -hex 16"
 alias code="exec code"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias vim="nvim"
-alias vi="nvim"
 alias v="nvim"
-alias nano="nvim"
 
 # quality of life
 __git_ref() {
@@ -34,6 +32,7 @@ __git_ref() {
     echo " (${REF})" | awk -v len=10 '{ if (length($0) > len) print substr($0, 1, len-3) ".."; else print; }'
   fi
 }
+
 __git_status() {
   if [ -z "$(__git_ref)" ]; then
     return

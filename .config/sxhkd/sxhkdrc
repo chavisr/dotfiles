@@ -8,7 +8,7 @@ super + Return
 
 # opencode
 super + o
-  alacritty --title opencode -e opencode
+  alacritty --title opencode --class opencode -e opencode 
 
 # program launcher
 super + d

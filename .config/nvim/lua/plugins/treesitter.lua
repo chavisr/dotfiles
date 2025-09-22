@@ -1,38 +1,24 @@
+-- return {}
+
 return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
 	build = ":TSUpdate",
 	config = function()
-		local configs = require("nvim-treesitter.configs")
-		configs.setup({
+		require 'nvim-treesitter.configs'.setup {
+			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+			auto_install = false,
 			highlight = {
 				enable = true,
+				disable = function(lang, buf)
+					local max_filesize = 100 * 1024 -- 100 KB
+					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+					if ok and stats and stats.size > max_filesize then
+						return true
+					end
+				end,
+				additional_vim_regex_highlighting = false,
 			},
-			-- enable indentation
-			indent = { enable = true },
-			-- enable autotagging (w/ nvim-ts-autotag plugin)
-			-- autotag = { enable = true },
-			-- ensure these language parsers are installed
-			ensure_installed = {
-				"json",
-				"python",
-				"javascript",
-				"query",
-				"yaml",
-				"html",
-				"css",
-				"markdown",
-				"markdown_inline",
-				"bash",
-				"lua",
-				"vim",
-				"vimdoc",
-				"c",
-				"dockerfile",
-				"gitignore",
-			},
-			-- auto install above language parsers
-			auto_install = true,
-		})
+		}
 	end
 }

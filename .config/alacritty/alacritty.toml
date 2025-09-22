@@ -24,9 +24,3 @@ padding = { x=5, y=5 }
 
 [general]
 import = ["~/.config/alacritty/themes/theme.toml"]
-
-# remapping ctrl+shift+c to alt+c for `micro editor`
-[[keyboard.bindings]]
-key = "C"
-mods = "Control|Shift"
-chars = "\u001bc"

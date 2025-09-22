@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 vim.keymap.set("i", "jj", "<Esc>")
 -- vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
+vim.keymap.set("n", "<leader>w", ":write<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- options
@@ -12,6 +13,7 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.smartindent = true
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 vim.opt.swapfile = false
@@ -19,6 +21,7 @@ vim.opt.cursorcolumn = false
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 -- vim.opt.winborder = "rounded"
+vim.opt.clipboard = "unnamedplus"
 
 -- cmds
 -- vim.cmd("set completeopt+=noselect")
@@ -31,12 +34,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	end,
 })
 
-vim.api.nvim_create_autocmd("TextYankPost", {
-	pattern = "*",
-	callback = function()
-		vim.fn.setreg("+", vim.fn.getreg("0"))
-	end,
-})
+-- vim.api.nvim_create_autocmd("TextYankPost", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.fn.setreg("+", vim.fn.getreg("0"))
+-- 	end,
+-- })
 
 -- vim.api.nvim_create_autocmd('LspAttach', {
 -- 	group = vim.api.nvim_create_augroup('my.lsp', {}),
