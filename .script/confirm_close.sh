@@ -9,7 +9,8 @@ fi
 
 if [ ! -f $COMFIRM_FILE ]; then
   touch $COMFIRM_FILE
-  dunstify --urgency normal --action="closeAction,close" "Closing Focused Window ⚠️" | grep -q closeAction && bspc node -c
+  dunstify --urgency normal --action="closeAction,close" "Closing Focused Window ⚠️" | \
+    grep -q closeAction && bspc node -c
 else
   dunstctl action
   rm $COMFIRM_FILE

@@ -1,37 +1,67 @@
+local vim = vim
+
 -- keymaps
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.keymap.set("i", "jj", "<Esc>")
 -- vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
-vim.keymap.set("n", "<leader>e", ":Oil<CR>")
+-- vim.keymap.set("n", "<leader>e", ":Oil<CR>")
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>w", ":write<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>b", ":Pick buffers<CR>")
+vim.keymap.set("n", "<leader>h", ":Pick help<CR>")
+vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { desc = 'New tab' })
+-- vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', { desc = 'Close tab' })
 
 -- options
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
+vim.opt.expandtab = true
+vim.opt.autoindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
-vim.opt.swapfile = false
 vim.opt.cursorcolumn = false
+vim.opt.colorcolumn = "100"
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 -- vim.opt.winborder = "rounded"
 vim.opt.clipboard = "unnamedplus"
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = vim.fn.expand("~/.vim/undodir")
+vim.opt.undofile = true
+-- vim.opt.updatetime = 50
+vim.opt.showtabline = 1
+vim.opt.tabline = ''
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+-- vim.opt.completeopt = "menuone,noinsert,noselect"
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.wrap = false
+vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 8
 
 -- cmds
 -- vim.cmd("set completeopt+=noselect")
 
 vim.api.nvim_create_autocmd('TextYankPost', {
-	desc = 'Highlight when yanking (copying) text',
-	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
 
 -- vim.api.nvim_create_autocmd("TextYankPost", {
@@ -55,36 +85,36 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- })
 --
 vim.api.nvim_create_autocmd("User", {
-	pattern = "OpencodeEvent",
-	callback = function(args)
-		-- See the available event types and their properties
-		-- vim.notify(vim.inspect(args.data))
-		-- Do something interesting, like show a notification when opencode finishes responding
-		if args.data.type == "session.idle" then
-			vim.notify("opencode finished responding")
-		end
-	end,
+  pattern = "OpencodeEvent",
+  callback = function(args)
+    -- See the available event types and their properties
+    -- vim.notify(vim.inspect(args.data))
+    -- Do something interesting, like show a notification when opencode finishes responding
+    if args.data.type == "session.idle" then
+      vim.notify("opencode finished responding")
+    end
+  end,
 })
 
 -- lazy package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out,                            "WarningMsg" },
-			{ "\nPress any key to exit..." },
-		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
-	end
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out,                            "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
-	spec = {
-		{ import = "plugins" },
-	},
-	change_detection = { notify = false },
+  spec = {
+    { import = "plugins" },
+  },
+  change_detection = { notify = false },
 })
