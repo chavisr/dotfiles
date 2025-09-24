@@ -9,4 +9,5 @@ opencode-bin
 popsicle
 rofi-greenclip
 todotxt
+trashy
 yay

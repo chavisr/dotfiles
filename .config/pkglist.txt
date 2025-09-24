@@ -71,6 +71,7 @@ pulseaudio
 qemu-desktop
 rofi
 rofi-emoji
+rust
 solaar
 steam
 sxhkd

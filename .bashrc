@@ -16,6 +16,7 @@ export EDITOR=nvim
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"
+alias t="trash"
 alias rand="openssl rand -hex 16"
 alias code="exec code"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"

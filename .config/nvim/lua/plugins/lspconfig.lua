@@ -5,7 +5,8 @@ return {
 			"bashls",
 			"lua_ls",
 			"zls",
-			"pyright"
+			"pyright",
+      "yamlls"
 		})
 		vim.diagnostic.config({
 			-- virtual_lines = true,
