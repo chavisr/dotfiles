@@ -9,5 +9,4 @@ opencode-bin
 popsicle
 rofi-greenclip
 todotxt
-vim-plug
 yay

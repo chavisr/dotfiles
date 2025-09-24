@@ -81,7 +81,6 @@ ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
 ueberzugpp
 unzip
-vim
 virt-manager
 wget
 xclip
