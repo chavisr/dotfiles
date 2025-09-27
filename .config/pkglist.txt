@@ -39,6 +39,7 @@ kustomize
 lib32-nvidia-utils
 libnotify
 libreoffice-still
+libretro-core-info
 libvirt-dinit
 linux
 linux-firmware
@@ -69,6 +70,9 @@ polkit-gnome
 polybar
 pulseaudio
 qemu-desktop
+retroarch
+retroarch-assets-ozone
+retroarch-assets-xmb
 rofi
 rofi-emoji
 rust

@@ -20,6 +20,8 @@ configuration {
     kb-remove-word-back: "Alt+BackSpace";
     kb-move-word-back: "Alt+Left";
     kb-move-word-forward: "Alt+Right";
+    kb-row-down: "Down,Control+n,Alt+j";
+    kb-row-up: "Up,Control+p,Alt+k";
 }
 
 
