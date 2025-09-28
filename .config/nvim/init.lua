@@ -18,6 +18,10 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { desc = 'New tab' })
 -- vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', { desc = 'Close tab' })
+vim.keymap.set('n', 'x', '"_x')
+vim.keymap.set('n', 'd', '"_d')
+vim.keymap.set('v', 'd', '"_d')
+vim.keymap.set('n', 'D', '"_D')
 
 -- options
 vim.opt.relativenumber = true

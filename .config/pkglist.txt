@@ -65,7 +65,6 @@ os-prober
 pavucontrol
 pcmanfm
 picom
-podman
 polkit-gnome
 polybar
 pulseaudio
