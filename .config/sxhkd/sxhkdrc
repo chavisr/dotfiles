@@ -27,8 +27,8 @@ super + b
         brave
 
 # file manager
-super + f
-        pcmanfm
+# super + f
+#         pcmanfm
 
 # video menu
 super + w
@@ -84,9 +84,13 @@ super + g
 # state/flags
 #
 
-# toggle the window state
-super + t
-        {bspc node -t floating, bspc node -t tiled}
+# set the window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# toggle the window state tiled/floating
+# super + t
+#         {bspc node -t floating, bspc node -t tiled}
 super + button2
         {bspc node -t floating, bspc node -t tiled}
 

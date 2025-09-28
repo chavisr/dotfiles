@@ -6,8 +6,6 @@ gruvbox-material-icon-theme-git
 iwmenu-git
 lens-bin
 opencode-bin
-popsicle
 rofi-greenclip
-todotxt
 trashy
 yay

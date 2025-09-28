@@ -3,7 +3,6 @@ adobe-source-code-pro-fonts
 alacritty
 amd-ucode
 artix-archlinux-support
-atop
 base
 base-devel
 bash-completion
@@ -78,7 +77,6 @@ rust
 solaar
 steam
 sxhkd
-tldr
 transmission-gtk
 tree
 ttf-jetbrains-mono
