@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	alacritty
+  alacritty
 
 # opencode
 super + o
@@ -12,19 +12,19 @@ super + o
 
 # program launcher
 super + d
-	rofi -i -show drun -show-icons true
+  rofi -i -show drun -show-icons true
 
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd
+  pkill -USR1 -x sxhkd
 
 # switch language input
 super + space
-        {setxkbmap th, setxkbmap us}
+  {setxkbmap th, setxkbmap us}
 
 # web browser
 super + b
-        brave
+  brave
 
 # file manager
 # super + f
@@ -32,26 +32,26 @@ super + b
 
 # video menu
 super + w
-        $HOME/.script/mpvrofi.sh
+  $HOME/.script/mpvrofi.sh
 
 # emoji menu
 super + e
-        rofi -i -modi emoji -show emoji
+  rofi -i -modi emoji -show emoji
 
 # man menu
 super + F1
-        $HOME/.script/manpdf.sh
+  $HOME/.script/manpdf.sh
 
 # clipboard manager
 super + v
-        rofi -i -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+  rofi -i -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 # screenshot app
-{Print, super + Print}
-        gnome-screenshot -i
+super + Print
+  gnome-screenshot -i
 
 super + p
-	pavucontrol
+  pavucontrol
 #
 # bspwm hotkeys
 #
@@ -105,8 +105,8 @@ super + ctrl + {m,x,y,z}
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
-super + {_,shift + }{Left,Down,Up,Right}
-	bspc node -{f,s} {west,south,north,east}
+# super + {_,shift + }{Left,Down,Up,Right}
+# 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
@@ -164,14 +164,14 @@ super + ctrl + shift + space
 super + alt + control + {h,j,k,l}
 	bspc node -z {left -100 0,bottom 0 100,top 0 -100,right 100 0}
 super + alt + control + {Left,Down,Up,Right}
-        bspc node -z {left -100 0,bottom 0 100,top 0 -100,right 100 0}
+  bspc node -z {left -100 0,bottom 0 100,top 0 -100,right 100 0}
 
 # contract a window by moving one of its side inward
 super + alt + {h,j,k,l}
 	bspc node -z {right -100 0,top 0 100,bottom 0 -100,left 100 0}
 super + alt + {Left,Down,Up,Right}
-        bspc node -z {right -100 0,top 0 100,bottom 0 -100,left 100 0}
+  bspc node -z {right -100 0,top 0 100,bottom 0 -100,left 100 0}
 
 # move a floating window
-# super + {Left,Down,Up,Right}
-# 	bspc node -v {-100 0,0 100,0 -100,100 0}
+super + {Left,Down,Up,Right}
+	bspc node -v {-100 0,0 100,0 -100,100 0}
