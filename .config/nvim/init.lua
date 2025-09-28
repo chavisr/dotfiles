@@ -2,7 +2,7 @@ local vim = vim
 
 -- keymaps
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- vim.g.maplocalleader = " "
 vim.keymap.set("i", "jj", "<Esc>")
 -- vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
 -- vim.keymap.set("n", "<leader>e", ":Oil<CR>")
@@ -12,16 +12,17 @@ vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>b", ":Pick buffers<CR>")
 vim.keymap.set("n", "<leader>h", ":Pick help<CR>")
 vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
+vim.keymap.set("n", "<leader>tn", ":tabnew<CR>")
+vim.keymap.set("n", "<leader>tx", ":tabclose<CR>")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
--- vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { desc = 'New tab' })
--- vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', { desc = 'Close tab' })
 vim.keymap.set('n', 'x', '"_x')
 vim.keymap.set('n', 'd', '"_d')
 vim.keymap.set('v', 'd', '"_d')
 vim.keymap.set('n', 'D', '"_D')
+vim.keymap.set('n', 'q', '<Nop>')
 
 -- options
 vim.opt.relativenumber = true

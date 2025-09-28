@@ -6,8 +6,8 @@
 super + Return
   alacritty
 
-# opencode
-super + o
+# ai
+super + a
   alacritty --title opencode --class opencode -e opencode 
 
 # program launcher
@@ -31,7 +31,7 @@ super + b
 #         pcmanfm
 
 # video menu
-super + w
+super + o
   $HOME/.script/mpvrofi.sh
 
 # emoji menu
