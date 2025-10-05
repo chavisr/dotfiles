@@ -14,14 +14,13 @@ vim.keymap.set("n", "<leader>h", ":Pick help<CR>")
 vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
 vim.keymap.set("n", "<leader>tn", ":tabnew<CR>")
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>")
+vim.keymap.set("n", "y", '"+y')
+vim.keymap.set("v", "y", '"+y')
+vim.keymap.set("n", "Y", '"+Y')
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set('n', 'x', '"_x')
-vim.keymap.set('n', 'd', '"_d')
-vim.keymap.set('v', 'd', '"_d')
-vim.keymap.set('n', 'D', '"_D')
 vim.keymap.set('n', 'q', '<Nop>')
 
 -- options
@@ -41,7 +40,7 @@ vim.opt.colorcolumn = "100"
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 -- vim.opt.winborder = "rounded"
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = vim.fn.expand("~/.vim/undodir")

@@ -13,6 +13,7 @@ export XDG_STATE_HOME=$HOME/.local/state
 export EDITOR=nvim
 
 # alias
+alias l="ls -lh"
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"

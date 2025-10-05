@@ -45,6 +45,7 @@ super + F1
 # clipboard manager
 super + v
   rofi -i -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+  # rofi -i -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'; xdotool type --delay 0 "$(xclip -o -selection clipboard)"
 
 # screenshot app
 super + Print
