@@ -28,4 +28,4 @@ bspc config pointer_action3 resize_corner
 bspc rule -a "pavucontrol" state=floating
 bspc rule -a "Lxappearance" state=floating
 bspc rule -a "opencode" state=floating
-bspc rule -a "Brave-browser" desktop='^2'
+# bspc rule -a "Brave-browser" desktop='^2'
