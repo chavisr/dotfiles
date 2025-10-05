@@ -24,7 +24,7 @@ super + space
 
 # web browser
 super + b
-  brave
+  (pgrep brave && bspc desktop -f ^2) || brave
 
 # file manager
 # super + f
