@@ -2,7 +2,7 @@
 
 histfile="$HOME/.cache/cliphist"
 placeholder="<NEWLINE>"
-clipboard_cmd="xclip -o -selection clipboard"
+# clipboard_cmd="xclip -o -selection clipboard"
 check_interval=1  # check every n second(s)
 
 # Ensure history file exists
