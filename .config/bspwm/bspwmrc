@@ -9,7 +9,7 @@ pkill greenclip; greenclip clear; greenclip daemon &
 feh --no-fehbg --bg-fill "$HOME/.config/wallpaper/wallpaper"
 
 # bspwm config
-bspc monitor -d                     1 2 3 4 5
+bspc monitor -d                     1 2 3
 bspc config border_width	    			2
 bspc config window_gap		    			6
 bspc config normal_border_color     "#2E2E2E"

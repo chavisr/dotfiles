@@ -1,17 +1,17 @@
 #!/bin/sh
 
-COMFIRM_FILE='/tmp/confirm_close'
+CONFIRM_FILE='/tmp/confirm_close'
 DUNST_COUNT=$(dunstctl count | grep -i current | awk '{print $3}')
 
-if [ "$DUNST_COUNT" = "0" ]; then
-  rm $COMFIRM_FILE
+if [ "$DUNST_COUNT" -eq 0 ]; then
+  rm "$CONFIRM_FILE"
 fi
 
-if [ ! -f $COMFIRM_FILE ]; then
-  touch $COMFIRM_FILE
-  dunstify --urgency normal --action="closeAction,close" "Closing Focused Window ⚠️" | \
-    grep -q closeAction && bspc node -c
+if [ ! -f "$CONFIRM_FILE" ]; then
+  touch "$CONFIRM_FILE"
+  dunstify --urgency normal --action='closeAction,close' 'Closing Focused Window ⚠️' \
+    | grep -q closeAction && bspc node -c
 else
   dunstctl action
-  rm $COMFIRM_FILE
+  rm "$CONFIRM_FILE"
 fi
