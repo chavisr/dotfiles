@@ -86,6 +86,7 @@ ueberzugpp
 unzip
 virt-manager
 wget
+xcape
 xclip
 xorg-server
 xorg-xev

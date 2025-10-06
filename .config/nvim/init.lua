@@ -52,6 +52,7 @@ vim.opt.tabline = ''
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 -- vim.opt.completeopt = "menuone,noinsert,noselect"
+-- vim.opt.wildmenu = false
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.wrap = false
