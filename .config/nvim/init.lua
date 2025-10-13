@@ -5,16 +5,19 @@ vim.g.mapleader = " "
 -- vim.g.maplocalleader = " "
 vim.keymap.set("i", "jj", "<Esc>")
 -- vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
--- vim.keymap.set("n", "<leader>e", ":Oil<CR>")
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>e", ":Oil<CR>")
+-- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>w", ":write<CR>")
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>b", ":Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>h", ":Telescope help_tags<CR>")
 vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>")
-vim.keymap.set("n", "<leader>tn", ":tabnew<CR>")
-vim.keymap.set("n", "<leader>tx", ":tabclose<CR>")
+-- vim.keymap.set("n", "<leader>tn", ":tabnew<CR>")
+-- vim.keymap.set("n", "<leader>tx", ":tabclose<CR>")
+vim.keymap.set('n', '<Tab>', ':bnext<CR>')
+vim.keymap.set('n', '<S-Tab>', ':bprev<CR>')
 vim.keymap.set("n", "<leader>u", ":e!<CR>")
+vim.keymap.set("n", "<leader><Tab>", ":e#<CR>")
 vim.keymap.set("n", "y", '"+y')
 vim.keymap.set("v", "y", '"+y')
 vim.keymap.set("n", "Y", '"+Y')
@@ -22,7 +25,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "q", "<Nop>")
+-- vim.keymap.set("n", "q", "<Nop>")
 
 -- options
 vim.opt.relativenumber = true
@@ -47,7 +50,7 @@ vim.opt.backup = false
 vim.opt.undodir = vim.fn.expand("~/.vim/undodir")
 vim.opt.undofile = true
 vim.opt.updatetime = 50
-vim.opt.showtabline = 1
+-- vim.opt.showtabline = 1
 vim.opt.tabline = ''
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -58,6 +61,8 @@ vim.opt.splitright = true
 vim.opt.wrap = false
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 8
+-- vim.opt.laststatus = 2
+vim.opt.showmode = false
 
 -- cmds
 -- vim.cmd("set completeopt+=noselect")
