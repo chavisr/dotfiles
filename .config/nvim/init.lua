@@ -8,6 +8,7 @@ vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 -- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>w", ":write<CR>")
+vim.keymap.set("n", "<leader>q", ":bdelete<CR>")
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>b", ":Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>h", ":Telescope help_tags<CR>")
@@ -49,7 +50,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = vim.fn.expand("~/.vim/undodir")
 vim.opt.undofile = true
-vim.opt.updatetime = 50
+-- vim.opt.updatetime = 50
 -- vim.opt.showtabline = 1
 vim.opt.tabline = ''
 vim.opt.hlsearch = false
