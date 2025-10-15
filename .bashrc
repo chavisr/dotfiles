@@ -32,14 +32,12 @@ __git_ref() {
       git describe --tags --exact-match 2>/dev/null || \
       git rev-parse --short HEAD
     )
-    echo " (${REF})" | awk -v len=10 '{ if (length($0) > len) print substr($0, 1, len-3) ".."; else print; }'
+    echo " (${REF})" | awk -v len=15 '{ if (length($0) > len) print substr($0, 1, len-3) ".."; else print; }'
   fi
 }
 
 __git_status() {
-  if [ -z "$(__git_ref)" ]; then
-    return
-  else
+  if [[ -n "$(__git_ref)" ]]; then
     local STATUS=$(git status 2>&1)
     if [[ $STATUS = *'Untracked files'* || $STATUS = *'Changes not staged for commit'* ]]; then echo -n "?"; fi
     if [[ $STATUS = *'Changes to be committed'* ]]; then echo -n "*"; fi
