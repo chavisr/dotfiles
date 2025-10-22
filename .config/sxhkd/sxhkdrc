@@ -48,12 +48,19 @@ super + v
   rofi -i -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
   # rofi -i -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'; xdotool type --delay 0 "$(xclip -o -selection clipboard)"
 
-# screenshot app
+# screenshot
 super + Print
   gnome-screenshot -i
 
+super + shift + s
+  gnome-screenshot -a -f /tmp/screenshot.png && xclip -selection clipboard -t image/png -i /tmp/screenshot.png
+
+super + shift + Print
+  gnome-screenshot -c -f /tmp/screenshot.png && xclip -selection clipboard -t image/png -i /tmp/screenshot.png
+
 super + p
   pavucontrol
+
 #
 # bspwm hotkeys
 #

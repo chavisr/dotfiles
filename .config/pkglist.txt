@@ -26,7 +26,6 @@ flameshot
 fuse2
 git
 glow
-gnome-clocks
 gnome-screenshot
 go-yq
 grub

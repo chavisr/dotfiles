@@ -6,6 +6,7 @@ pkill polkit-gnome-au; /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 pkill picom; picom &
 pkill polybar; polybar -c "$HOME/.config/polybar/config.ini" main &
 pkill greenclip; greenclip clear; greenclip daemon &
+xclip -selection clipboard /dev/null
 feh --no-fehbg --bg-fill "$HOME/.config/wallpaper/wallpaper"
 
 # bspwm config
