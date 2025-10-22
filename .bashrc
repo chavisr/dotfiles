@@ -23,6 +23,7 @@ alias code="exec code"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias v="nvim"
 alias clip="xclip -selection clipboard"
+alias img="nsxiv"
 
 # quality of life
 __git_ref() {
