@@ -3,7 +3,7 @@
 # capslock hack
 setxkbmap -option ctrl:nocaps,shift:both_capslock
 # setxkbmap -option caps:escape,shift:both_capslock
-pkill xcape; xcape -e 'Control_L=Escape' &
+pkill xcape; xcape -e 'Control_L=Escape'
 
 # autostart
 pkill sxhkd; sxhkd &
