@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# capslock hack
+setxkbmap -option ctrl:nocaps,shift:both_capslock
+# setxkbmap -option caps:escape,shift:both_capslock
+pkill xcape; xcape -e 'Control_L=Escape' &
+
 # autostart
 pkill sxhkd; sxhkd &
 pkill polkit-gnome-au; /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -30,4 +35,5 @@ bspc rule -a "pavucontrol" state=floating
 bspc rule -a "Lxappearance" state=floating
 bspc rule -a "opencode" state=floating
 bspc rule -a "zenity" state=floating
+bspc rule -a "Yad" state=floating
 # bspc rule -a "Brave-browser" desktop='^2'

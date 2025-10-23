@@ -76,7 +76,6 @@ rofi
 rofi-emoji
 rust
 solaar
-steam
 sxhkd
 transmission-gtk
 tree
@@ -93,6 +92,7 @@ xorg-xev
 xorg-xinit
 xorg-xrandr
 xorg-xsetroot
+yad
 zathura
 zathura-pdf-poppler
 zig
