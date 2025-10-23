@@ -10,6 +10,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
+export GTK_THEME=Gruvbox-Material-Dark
 export EDITOR=nvim
 
 # alias
@@ -19,7 +20,6 @@ alias mv="mv -iv"
 alias rm="rm -iv"
 alias t="trash"
 alias rand="openssl rand -hex 16"
-alias code="exec code"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias v="nvim"
 alias clip="xclip -selection clipboard"

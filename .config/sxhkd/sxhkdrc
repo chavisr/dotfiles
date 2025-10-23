@@ -27,6 +27,9 @@ super + b
   brave
   # (pgrep brave && bspc desktop -f ^2) || brave
 
+super + shift + n
+  brave --incognito
+
 # file manager
 # super + f
 #         pcmanfm
