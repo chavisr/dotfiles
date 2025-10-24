@@ -1,8 +1,7 @@
 #!/bin/sh
 
-# capslock hack
+# no cap :)
 setxkbmap -option ctrl:nocaps,shift:both_capslock
-# setxkbmap -option caps:escape,shift:both_capslock
 pkill xcape; xcape -e 'Control_L=Escape'
 
 # autostart
