@@ -4,6 +4,7 @@ local vim = vim
 vim.g.mapleader = " "
 -- vim.g.maplocalleader = " "
 vim.keymap.set("i", "jj", "<Esc>")
+vim.keymap.set("i", "jk", "<Esc>")
 -- vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 -- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
@@ -97,7 +98,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- 		end
 -- 	end,
 -- })
---
+
 vim.api.nvim_create_autocmd("User", {
   pattern = "OpencodeEvent",
   callback = function(args)
