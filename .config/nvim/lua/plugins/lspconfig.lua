@@ -7,6 +7,7 @@ return {
 			"zls",
 			"pyright",
       "yamlls",
+      "jsonls",
 		})
 		vim.diagnostic.config({
 			-- virtual_lines = true,
