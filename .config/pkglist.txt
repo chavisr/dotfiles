@@ -70,9 +70,6 @@ polkit-gnome
 polybar
 pulseaudio
 qemu-desktop
-retroarch
-retroarch-assets-ozone
-retroarch-assets-xmb
 rofi
 rofi-emoji
 rust
