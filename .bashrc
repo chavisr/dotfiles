@@ -19,7 +19,7 @@ alias mv="mv -iv"
 alias rm="rm -iv"
 alias t="trash"
 alias clip="xclip -selection clipboard"
-alias rand="openssl rand -hex 16"
+alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias v="nvim"
 alias img="nsxiv"
@@ -28,7 +28,7 @@ alias img="nsxiv"
 __git_ref() {
   if git rev-parse --git-dir >/dev/null 2>&1; then
     local REF=$(
-      git symbolic-ref --short HEAD -q || \
+      git symbolic-ref --short HEAD --quiet || \
       git describe --tags --exact-match 2>/dev/null || \
       git rev-parse --short HEAD
     )

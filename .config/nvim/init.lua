@@ -67,6 +67,8 @@ vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 8
 -- vim.opt.laststatus = 2
 vim.opt.showmode = false
+-- vim.opt.iskeyword:append("-")
+vim.opt.iskeyword:append({"-", "."})
 
 -- cmds
 -- vim.cmd("set completeopt+=noselect")
