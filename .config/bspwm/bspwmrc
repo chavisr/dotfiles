@@ -35,4 +35,5 @@ bspc rule -a "Lxappearance" state=floating
 # bspc rule -a "opencode" state=floating
 # bspc rule -a "zenity" state=floating
 bspc rule -a "Yad" state=floating
+bspc rule -a "Nsxiv" state=floating
 # bspc rule -a "Brave-browser" desktop='^2'
