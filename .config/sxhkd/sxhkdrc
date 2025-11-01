@@ -8,7 +8,7 @@ super + Return
 
 # ai
 super + a
-  alacritty --title opencode --class opencode -e opencode 
+  alacritty --title opencode --class opencode -e opencode --agent plan
 
 # program launcher
 super + d

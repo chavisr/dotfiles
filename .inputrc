@@ -1,6 +1,8 @@
-"\ej": next-history       # Alt+j - move down (next command)
-"\ek": previous-history   # Alt+k - move up (previous command)
-"\eh": backward-word      # Alt+h - move one word left
-"\el": forward-word       # Alt+l - move one word right
-"\ed": kill-word          # Alt+d - delete next word 
-"\eD": kill-line          # Alt+D - delete to the end of line
+"\e[1;3B": next-history       # Alt+Down - move down (next command)
+"\e[1;3A": previous-history   # Alt+Up - move up (previous command)
+"\ej": next-history           # Alt+j - move down (next command)
+"\ek": previous-history       # Alt+k - move up (previous command)
+"\eh": backward-word          # Alt+h - move one word left
+"\el": forward-word           # Alt+l - move one word right
+"\ed": kill-word              # Alt+d - delete next word 
+"\eD": kill-line              # Alt+D - delete to the end of line
