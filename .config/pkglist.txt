@@ -33,6 +33,7 @@ htop
 inetutils
 iwd-dinit
 jq
+kdeconnect
 kdenlive
 kubectl
 kustomize
@@ -70,6 +71,7 @@ polkit-gnome
 polybar
 pulseaudio
 qemu-desktop
+qt6ct
 rofi
 rofi-emoji
 rust
