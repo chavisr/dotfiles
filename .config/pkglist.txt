@@ -37,6 +37,7 @@ kdeconnect
 kdenlive
 kubectl
 kustomize
+kvantum
 lib32-nvidia-utils
 libnotify
 libreoffice-still
@@ -71,7 +72,6 @@ polkit-gnome
 polybar
 pulseaudio
 qemu-desktop
-qt6ct
 rofi
 rofi-emoji
 rust
