@@ -72,6 +72,7 @@ polkit-gnome
 polybar
 pulseaudio
 qemu-desktop
+qt6ct
 rofi
 rofi-emoji
 rust
