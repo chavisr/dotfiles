@@ -6,5 +6,6 @@ iwmenu-git
 lens-bin
 opencode-bin
 paru
+phinger-cursors
 rofi-greenclip
 trashy
