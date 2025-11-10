@@ -30,6 +30,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-/>", "gcc", { remap = true })
 vim.keymap.set("v", "<C-/>", "gc", { remap = true })
 -- vim.keymap.set("n", "q", "<Nop>")
+vim.keymap.set("n", "<M-j>", ":cnext<CR>")
+vim.keymap.set("n", "<M-k>", ":cprev<CR>")
 
 -- options
 vim.opt.relativenumber = true
