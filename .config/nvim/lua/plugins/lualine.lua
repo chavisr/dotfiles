@@ -26,6 +26,13 @@ return {
       },
       sections = {
         lualine_a = { 'mode' },
+        -- lualine_b = {
+        --   {
+        --     'filename',
+        --     color = { bg = '#D8A657', fg = '#282828' },
+        --     path = 0,                                   -- 0 = just filename, 1 = relative path, 2 = absolute path
+        --   }
+        -- },
         lualine_b = {
           {
             'buffers',
