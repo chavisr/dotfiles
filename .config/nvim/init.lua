@@ -19,8 +19,8 @@ vim.keymap.set("n", "<leader>g", ":Telescope live_grep<CR>")
 -- vim.keymap.set("n", "<leader>tx", ":tabclose<CR>")
 vim.keymap.set('n', '<Tab>', ':bnext<CR>')
 vim.keymap.set('n', '<S-Tab>', ':bprev<CR>')
-vim.keymap.set("n", "<leader>u", ":e!<CR>")
 vim.keymap.set("n", "<leader><Tab>", ":e#<CR>")
+vim.keymap.set("n", "<leader>u", ":e!<CR>")
 vim.keymap.set("n", "y", '"+y')
 vim.keymap.set("v", "y", '"+y')
 vim.keymap.set("n", "Y", '"+Y')
@@ -70,8 +70,7 @@ vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 8
 -- vim.opt.laststatus = 2
 vim.opt.showmode = false
--- vim.opt.iskeyword:append("-")
-vim.opt.iskeyword:append({"-", "."})
+vim.opt.iskeyword:append({ "-" }) -- ({ "-", "." })
 
 -- cmds
 -- vim.cmd("set completeopt+=noselect")
@@ -83,13 +82,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-
--- vim.api.nvim_create_autocmd("TextYankPost", {
--- 	pattern = "*",
--- 	callback = function()
--- 		vim.fn.setreg("+", vim.fn.getreg("0"))
--- 	end,
--- })
 
 -- vim.api.nvim_create_autocmd('LspAttach', {
 -- 	group = vim.api.nvim_create_augroup('my.lsp', {}),
@@ -104,17 +96,22 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- 	end,
 -- })
 
-vim.api.nvim_create_autocmd("User", {
-  pattern = "OpencodeEvent",
-  callback = function(args)
-    -- See the available event types and their properties
-    -- vim.notify(vim.inspect(args.data))
-    -- Do something interesting, like show a notification when opencode finishes responding
-    if args.data.type == "session.idle" then
-      vim.notify("opencode finished responding")
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   callback = function()
+--     -- vim.api.nvim_set_hl(0, 'TelescopeSelection', { bg = '#45403d', fg = '#D8A657' })
+--     -- vim.api.nvim_set_hl(0, 'TelescopePromptPrefix', { fg = '#EA6962' })
+--     vim.api.nvim_set_hl(0, 'SnacksPickerSelection', { bg = '#45403d', fg = '#D8A657', })
+--     vim.api.nvim_set_hl(0, 'SnacksPromptPrefix', { fg = '#EA6962', })
+--     -- Override Snacks highlight groups
+--     vim.api.nvim_set_hl(0, "SnacksAccent", { fg = "#A9B665" })     -- green
+--     vim.api.nvim_set_hl(0, "SnacksPickerMatch", { fg = "#A9B665" }) -- highlight matching text
+--     vim.api.nvim_set_hl(0, "SnacksInputPrompt", { fg = "#A9B665" }) -- input prompts
+--     vim.api.nvim_set_hl(0, "SnacksTerminalBorder", { fg = "#A9B665" }) -- terminal borders
+--     vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = "#A9B665" })
+--     vim.api.nvim_set_hl(0, "SnacksPickerTitle", { fg = "#A9B665" })
+--     vim.api.nvim_set_hl(0, "SnacksPickerSelection", { fg = "#A9B665", bg = "#32302f" })
+--   end
+-- })
 
 -- lazy package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

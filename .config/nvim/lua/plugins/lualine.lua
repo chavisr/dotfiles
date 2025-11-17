@@ -59,7 +59,7 @@ return {
         lualine_c = { 'branch', 'diff', 'diagnostics' },
         lualine_x = { 'lsp_status', 'encoding', 'fileformat', 'filetype' },
         lualine_y = { 'progress' },
-        lualine_z = { require("opencode").statusline },
+        -- lualine_z = { require("opencode").statusline },
       },
       -- inactive_sections = {
       --   lualine_a = {},
