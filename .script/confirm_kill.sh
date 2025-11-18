@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CONFIRM_FILE='/tmp/confirm_close'
+CONFIRM_FILE='/tmp/confirm_kill'
 DUNST_COUNT=$(dunstctl count | grep -i current | awk '{print $3}')
 
 if [ "$DUNST_COUNT" -eq 0 ]; then
