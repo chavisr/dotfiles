@@ -2,7 +2,6 @@ local vim = vim
 
 -- keymaps
 vim.g.mapleader = " "
--- vim.g.maplocalleader = " "
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("i", "jk", "<Esc>")
 -- vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
@@ -15,6 +14,7 @@ vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>")
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>fG", ":lua require('telescope.builtin').live_grep{additional_args={'-s'}}<CR>")
 vim.keymap.set("n", "<leader>fw", ":Telescope grep_string<CR>")
 -- vim.keymap.set("n", "<leader>tn", ":tabnew<CR>")
 -- vim.keymap.set("n", "<leader>tx", ":tabclose<CR>")
@@ -31,10 +31,10 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-/>", "gcc", { remap = true })
 vim.keymap.set("v", "<C-/>", "gc", { remap = true })
--- vim.keymap.set("n", "q", "<Nop>")
 vim.keymap.set("n", "<M-j>", ":cnext<CR>")
 vim.keymap.set("n", "<M-k>", ":cprev<CR>")
 vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "<leader>ve", ":edit $MYVIMRC<CR>")
 
 -- options
 vim.opt.relativenumber = true
