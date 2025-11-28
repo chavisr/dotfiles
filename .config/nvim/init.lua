@@ -34,7 +34,7 @@ vim.keymap.set("v", "<C-/>", "gc", { remap = true })
 vim.keymap.set("n", "<M-j>", ":cnext<CR>")
 vim.keymap.set("n", "<M-k>", ":cprev<CR>")
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<leader>ve", ":edit $MYVIMRC<CR>")
+vim.keymap.set("n", "<leader>vi", ":edit $MYVIMRC<CR>")
 
 -- options
 vim.opt.relativenumber = true
