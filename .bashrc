@@ -33,7 +33,7 @@ __git_ref() {
       git describe --tags --exact-match 2>/dev/null || \
       git rev-parse --short HEAD
     )
-    echo " (${REF})" | awk -v len=15 '{ if (length($0) > len) print substr($0, 1, len-3) ".."; else print; }'
+    echo " ($REF)" | awk -v len=15 '{ if (length($0) > len) print substr($0, 1, len-3) ".."; else print; }'
   fi
 }
 
@@ -47,7 +47,7 @@ __git_status() {
 }
 
 # prompt
-PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_ref)$(__git_status) \[\e[1;35m\]>\[\e[0m\] '
+export PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_ref)$(__git_status) \[\e[1;35m\]>\[\e[0m\] '
 
 # completion
 # source <(kubectl completion bash)
