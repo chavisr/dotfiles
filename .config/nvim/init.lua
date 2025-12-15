@@ -52,7 +52,7 @@ vim.opt.cursorcolumn = false
 vim.opt.colorcolumn = "100"
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
--- vim.opt.winborder = "rounded"
+vim.opt.winborder = "rounded"
 -- vim.opt.clipboard = "unnamedplus"
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -74,9 +74,7 @@ vim.opt.sidescrolloff = 8
 vim.opt.showmode = false
 vim.opt.iskeyword:append({ "-" }) -- ({ "-", "." })
 
--- cmds
--- vim.cmd("set completeopt+=noselect")
-
+-- autocmds
 -- highlight yank
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -153,36 +151,6 @@ vim.api.nvim_create_autocmd("CursorMovedI", {
 		vim.lsp.buf.clear_references()
 	end,
 })
-
--- vim.api.nvim_create_autocmd('LspAttach', {
--- 	group = vim.api.nvim_create_augroup('my.lsp', {}),
--- 	callback = function(args)
--- 		local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
--- 		if client:supports_method('textDocument/completion') then
--- 			-- Optional: trigger autocompletion on EVERY keypress. May be slow!
--- 			local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
--- 			client.server_capabilities.completionProvider.triggerCharacters = chars
--- 			vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
--- 		end
--- 	end,
--- })
-
--- vim.api.nvim_create_autocmd("ColorScheme", {
---   callback = function()
---     -- vim.api.nvim_set_hl(0, 'TelescopeSelection', { bg = '#45403d', fg = '#D8A657' })
---     -- vim.api.nvim_set_hl(0, 'TelescopePromptPrefix', { fg = '#EA6962' })
---     vim.api.nvim_set_hl(0, 'SnacksPickerSelection', { bg = '#45403d', fg = '#D8A657', })
---     vim.api.nvim_set_hl(0, 'SnacksPromptPrefix', { fg = '#EA6962', })
---     -- Override Snacks highlight groups
---     vim.api.nvim_set_hl(0, "SnacksAccent", { fg = "#A9B665" })     -- green
---     vim.api.nvim_set_hl(0, "SnacksPickerMatch", { fg = "#A9B665" }) -- highlight matching text
---     vim.api.nvim_set_hl(0, "SnacksInputPrompt", { fg = "#A9B665" }) -- input prompts
---     vim.api.nvim_set_hl(0, "SnacksTerminalBorder", { fg = "#A9B665" }) -- terminal borders
---     vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = "#A9B665" })
---     vim.api.nvim_set_hl(0, "SnacksPickerTitle", { fg = "#A9B665" })
---     vim.api.nvim_set_hl(0, "SnacksPickerSelection", { fg = "#A9B665", bg = "#32302f" })
---   end
--- })
 
 -- lazy package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
