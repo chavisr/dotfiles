@@ -18,9 +18,9 @@ super + d
 super + Escape
   pkill -USR1 -x sxhkd
 
-# switch language input
-super + space
-  {setxkbmap th, setxkbmap us}
+# switch language input - use bspwm instead
+# super + space
+#   {setxkbmap th, setxkbmap us}
 
 # web browser
 super + b
