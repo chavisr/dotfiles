@@ -23,7 +23,7 @@ alias clip="xclip -selection clipboard"
 alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias v="nvim"
-alias img="nsxiv"
+alias i="nsxiv"
 
 # quality of life
 __git_ref() {

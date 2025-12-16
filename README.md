@@ -1,4 +1,4 @@
-# Dotfiles
+# dotfiles
 
 ![screenshot-0](.config/screenshot/screenshot-0.png)
 <!-- ![screenshot-1](.config/screenshot/screenshot-1.png) -->
