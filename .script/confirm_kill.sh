@@ -9,7 +9,8 @@ fi
 
 if [ ! -f "$CONFIRM_FILE" ]; then
   touch "$CONFIRM_FILE"
-  dunstify --urgency critical --action='closeAction,close' 'Killing Focused Window ⚠️' \
+  dunstify --timeout 5000 --urgency critical \
+    --action='closeAction,close' 'Killing Focused Window ⚠️' \
     | grep -q closeAction && bspc node -k
 else
   dunstctl action

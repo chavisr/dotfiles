@@ -73,11 +73,11 @@ super + shift + {q,r}
 	bspc {quit,wm -r}
 
 # close
-super + {q, backslash}
+super + {w, x, backslash}
 	$HOME/.script/confirm_close.sh
 
 # kill
-super + x
+super + q
 	$HOME/.script/confirm_kill.sh
 
 # alternate between the tiled and monocle layout
