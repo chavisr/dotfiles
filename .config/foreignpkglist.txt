@@ -5,7 +5,7 @@ gruvbox-material-icon-theme-git
 iwmenu-git
 lens-bin
 opencode-bin
+paru
 phinger-cursors
 rofi-greenclip
 trashy
-yay
