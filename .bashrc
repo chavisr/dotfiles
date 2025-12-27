@@ -10,7 +10,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
-export QT_QPA_PLATFORMTHEME=qt6ct
 export EDITOR=nvim
 
 # alias
@@ -24,6 +23,7 @@ alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias v="nvim"
 alias i="nsxiv"
+alias claude="alacritty -e claude & disown"
 
 # quality of life
 __git_ref() {

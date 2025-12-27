@@ -37,7 +37,6 @@ kdeconnect
 kdenlive
 kubectl
 kustomize
-kvantum
 lib32-nvidia-utils
 libnotify
 libreoffice-still
@@ -47,9 +46,7 @@ linux
 linux-firmware
 linux-headers
 lsof
-lxappearance
 man-db
-micro
 moreutils
 mpv
 neovim
@@ -72,7 +69,6 @@ polkit-gnome
 polybar
 pulseaudio
 qemu-desktop
-qt6ct
 rofi
 rofi-emoji
 rust
