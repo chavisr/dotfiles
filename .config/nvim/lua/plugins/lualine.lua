@@ -23,6 +23,10 @@ return {
         disabled_filetypes = {
           statusline = { 'directory' }, -- this won't work alone, we need a trick below
         },
+        -- Disable lualine completely in terminal buffers
+        cond = function()
+          return vim.bo.buftype ~= 'terminal'
+        end,
       },
       sections = {
         lualine_a = { 'mode' },
@@ -57,18 +61,20 @@ return {
           }
         },
         lualine_c = { 'branch', 'diff', 'diagnostics' },
-        lualine_x = { 'lsp_status', 'encoding', 'fileformat', 'filetype' },
+        -- lualine_x = { 'lsp_status', 'encoding', 'fileformat', 'filetype' },
+        lualine_x = { 'lsp_status' },
         lualine_y = { 'progress' },
         -- lualine_z = { require("opencode").statusline },
+        lualine_z = {},
       },
-      -- inactive_sections = {
-      --   lualine_a = {},
-      --   lualine_b = {},
-      --   lualine_c = { 'filename' },
-      --   lualine_x = { 'location' },
-      --   lualine_y = {},
-      --   lualine_z = {}
-      -- },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
+        lualine_y = {},
+        lualine_z = {}
+      },
       tabline = {},
       -- tabline = {
       --   lualine_a = { 'hostname' },
@@ -80,7 +86,7 @@ return {
       -- },
       winbar = {},
       inactive_winbar = {},
-      extensions = {}
+      extensions = {},
     }
   end,
 }

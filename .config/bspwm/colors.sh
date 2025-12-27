@@ -1,0 +1,1 @@
+/home/chavi/.config/bspwm/themes/gruvbox-material.sh

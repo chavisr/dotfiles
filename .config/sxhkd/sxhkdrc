@@ -6,9 +6,13 @@
 super + Return
   alacritty
 
+# toggle yt mode
+super + 0
+  $HOME/.script/toggle_streamer_mode.sh
+
 # ai
-super + a
-  alacritty --title opencode --class opencode -e opencode --agent plan
+# super + a
+#   alacritty --title opencode --class opencode -e opencode --agent plan
 
 # program launcher
 super + d
@@ -137,7 +141,7 @@ super + bracket{left,right}
 # 	bspc {node,desktop} -f last
 
 super + Tab
-	bspc desktop -f last
+	bspc node -f last
 
 alt + Tab
 	bspc node -f last
@@ -149,8 +153,10 @@ alt + Tab
 # 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+# super + {_,shift + }{1-9,0}
+# 	bspc {desktop -f,node -d} '^{1-9,10}'
+super + {_,shift + }{1-9}
+	bspc {desktop -f,node -d} '^{1-9}'
 
 #
 # preselect
