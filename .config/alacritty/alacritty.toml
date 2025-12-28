@@ -23,7 +23,7 @@ dynamic_padding = false
 padding = { x=15, y=10 }
 
 [general]
-import = ["~/.config/alacritty/themes/theme.toml"]
+import = ["~/.config/alacritty/theme.toml"]
 
 [[keyboard.bindings]]
 key = "Return"
