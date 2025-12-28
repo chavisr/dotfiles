@@ -36,7 +36,7 @@ super + shift + n
 
 # file manager
 # super + f
-#         pcmanfm
+#         pcmanfm-qt
 
 # video menu
 super + o
@@ -66,7 +66,7 @@ super + shift + Print
   gnome-screenshot -c -f /tmp/screenshot.png && xclip -selection clipboard -t image/png -i /tmp/screenshot.png
 
 super + p
-  pavucontrol
+  pavucontrol-qt
 
 #
 # bspwm hotkeys
