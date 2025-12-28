@@ -1,1 +1,0 @@
-/home/chavi/.config/nvim/lua/themes/gruvbox-material.lua
