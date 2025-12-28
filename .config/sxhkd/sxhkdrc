@@ -6,7 +6,7 @@
 super + Return
   alacritty
 
-# toggle yt mode
+# toggle streamer mode
 super + 0
   $HOME/.script/toggle_streamer_mode.sh
 
