@@ -19,6 +19,6 @@ return {
     vim.g.gruvbox_material_ui_contrast = "low" -- low/high
 
     vim.cmd.colorscheme('gruvbox-material')
-    -- enable_transparency()
+    enable_transparency()
   end
 }
