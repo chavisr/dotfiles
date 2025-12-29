@@ -61,7 +61,6 @@ obs-studio
 openresolv
 openssh
 os-prober
-pavucontrol
 pavucontrol-qt
 pcmanfm-qt
 picom

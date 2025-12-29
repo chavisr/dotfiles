@@ -72,7 +72,8 @@ vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 8
 -- vim.opt.laststatus = 2
 vim.opt.showmode = false
-vim.opt.iskeyword:append({ "-" }) -- ({ "-", "." })
+vim.opt.iskeyword:append({ "-" })
+-- vim.opt.iskeyword:append({ "-", "." })
 
 -- autocmds
 -- highlight yank
@@ -151,16 +152,6 @@ vim.api.nvim_create_autocmd("CursorMovedI", {
 		vim.lsp.buf.clear_references()
 	end,
 })
-
--- enable transparency
--- local function enable_transparency()
---   vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
---   -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
---   -- vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
---   -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
---   -- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
--- end
--- enable_transparency()
 
 -- lazy package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

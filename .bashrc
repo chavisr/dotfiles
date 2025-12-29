@@ -24,6 +24,7 @@ alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias v="nvim"
 alias i="nsxiv"
+alias f="pcmanfm-qt . >/dev/null 2>&1 & disown"
 alias claude="alacritty -e claude & disown"
 
 # quality of life

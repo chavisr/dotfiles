@@ -20,10 +20,11 @@ save_to_clipboard = true
 [window]
 opacity = 1
 dynamic_padding = false
-padding = { x=15, y=10 }
+padding = { x=10, y=10 }
 
 [general]
-import = ["~/.config/alacritty/theme.toml"]
+# import = ["~/.config/alacritty/themes/gruvbox_material_medium_dark.toml"]
+import = ["~/.config/alacritty/themes/gruvbox_material_hard_dark.toml"]
 
 [[keyboard.bindings]]
 key = "Return"
