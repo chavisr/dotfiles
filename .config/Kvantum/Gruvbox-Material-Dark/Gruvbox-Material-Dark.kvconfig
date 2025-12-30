@@ -201,7 +201,7 @@ min_height=+0.3font
 
 [Focus]
 inherits=PanelButtonCommand
-frame=true
+frame=false
 frame.element=focus
 frame.top=1
 frame.bottom=1

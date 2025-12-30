@@ -25,7 +25,6 @@ feh
 flameshot
 fuse2
 git
-gnome-screenshot
 go-yq
 grub
 htop

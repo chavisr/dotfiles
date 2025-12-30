@@ -55,7 +55,7 @@ return {
             -- the value of `max_length` dynamically.
             buffers_color = {
               -- Same values as the general color option can be used here.
-              active = { bg = '#D8A657', fg = '#282828' },
+              active = { bg = '#D8A657', fg = '#1d2021' },
               -- inactive = 'lualine_{section}_inactive', -- Color for inactive buffer.
             },
           }

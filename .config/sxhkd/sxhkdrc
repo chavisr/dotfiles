@@ -57,13 +57,16 @@ super + v
 
 # screenshot
 super + Print
-  gnome-screenshot -i
+  flameshot launcher
+
+super + shift + d
+  flameshot gui --region 1920x1080+0+0
 
 super + shift + s
-  gnome-screenshot -a -f /tmp/screenshot.png && xclip -selection clipboard -t image/png -i /tmp/screenshot.png
+  flameshot gui --accept-on-select --path /tmp/screenshot.png --clipboard
 
 super + shift + Print
-  gnome-screenshot -c -f /tmp/screenshot.png && xclip -selection clipboard -t image/png -i /tmp/screenshot.png
+  flameshot screen --path /tmp/screenshot.png --clipboard
 
 super + p
   pavucontrol-qt
