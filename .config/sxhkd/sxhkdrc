@@ -63,10 +63,10 @@ super + shift + d
   flameshot gui --region 1920x1080+0+0
 
 super + shift + s
-  flameshot gui --accept-on-select --path /tmp/screenshot.png --clipboard
+  flameshot gui --accept-on-select --path /tmp/screenshot.png && xclip -selection clipboard -t image/png -i /tmp/screenshot.png && rm /tmp/screenshot.png
 
 super + shift + Print
-  flameshot screen --path /tmp/screenshot.png --clipboard
+  flameshot screen
 
 super + p
   pavucontrol-qt
