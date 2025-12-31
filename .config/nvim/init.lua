@@ -3,7 +3,6 @@ local vim = vim
 -- keymaps
 vim.g.mapleader = " "
 vim.keymap.set("i", "jj", "<Esc>")
-vim.keymap.set("i", "jk", "<Esc>")
 -- vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 -- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
@@ -67,7 +66,7 @@ vim.opt.incsearch = true
 -- vim.opt.wildmenu = false
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 8
 -- vim.opt.laststatus = 2

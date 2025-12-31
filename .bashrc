@@ -29,7 +29,8 @@ alias claude="alacritty -e claude & disown"
 # quality of life
 __git_ref() {
   if git rev-parse --git-dir >/dev/null 2>&1; then
-    local REF=$(
+    local REF
+    REF=$(
       git symbolic-ref --short HEAD --quiet || \
       git describe --tags --exact-match 2>/dev/null || \
       git rev-parse --short HEAD
@@ -40,7 +41,8 @@ __git_ref() {
 
 __git_status() {
   if [[ -n "$(__git_ref)" ]]; then
-    local STATUS=$(git status 2>&1)
+    local STATUS
+    STATUS=$(git status 2>&1)
     if [[ $STATUS = *'Untracked files'* || $STATUS = *'Changes not staged for commit'* ]]; then echo -n "?"; fi
     if [[ $STATUS = *'Changes to be committed'* ]]; then echo -n "*"; fi
     if [[ $STATUS = *'Your branch is ahead'* ]]; then echo -n "^"; fi
@@ -52,7 +54,7 @@ export PS1='\[\033[32m\]\u@\h \[\e[1;34m\]\w\[\e[33m\]$(__git_ref)$(__git_status
 
 # nix
 if [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]]; then
-  source $HOME/.nix-profile/etc/profile.d/nix.sh
+  source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 fi
 
 # completion

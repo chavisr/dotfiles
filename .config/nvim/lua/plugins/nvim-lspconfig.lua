@@ -11,6 +11,26 @@ return {
     --  "jsonls",
     -- })
 
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", {
+      fg = "#ea6962", -- text color
+      undercurl = true,
+    })
+
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", {
+      fg = "#d8a657",
+      undercurl = true,
+    })
+
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", {
+      fg = "#7daea3",
+      undercurl = true,
+    })
+
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", {
+      fg = "#d3869b",
+      undercurl = true,
+    })
+
     vim.diagnostic.config({
       -- virtual_lines = true,
       virtual_text = true,
