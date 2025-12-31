@@ -5,7 +5,8 @@
     background-alt:  #2E2E2EFF;
     // background:      #282828FF;
     // background-alt:  #1B1B1BFF;
-    foreground:      #EBDBB2FF;
+    // foreground:      #EBDBB2FF;
+    foreground:      #d4be98ff;
 
     blue:            #7DAEA3FF;
     orange:          #D8A657FF;
