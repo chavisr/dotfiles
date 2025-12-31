@@ -68,6 +68,7 @@ polybar
 pulseaudio
 qemu-desktop
 qt6ct
+ripgrep
 rofi
 rofi-emoji
 rust

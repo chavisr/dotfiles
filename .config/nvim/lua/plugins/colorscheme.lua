@@ -14,15 +14,35 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    vim.g.gruvbox_material_enable_italic = true
-    vim.g.gruvbox_material_better_performance = false
-    vim.g.gruvbox_material_foreground = "material"     -- material/mix/original
-    vim.g.gruvbox_material_background = "hard"         -- hard/soft/medium
-    vim.g.gruvbox_material_float_style = "blend"       -- dim/bright/blend
-    vim.g.gruvbox_material_ui_contrast = "low"         -- low/high
+    vim.g.gruvbox_material_enable_italic = 1 -- 0/1
+    -- vim.g.gruvbox_material_enable_bold = 1   -- 0/1
+    -- vim.g.gruvbox_material_transparent_background = 2 -- 0/1/2
+    -- vim.g.gruvbox_material_better_performance = 0 -- 0/1
+    vim.g.gruvbox_material_foreground = "material" -- material/mix/original
+    vim.g.gruvbox_material_background = "hard"     -- hard/soft/medium
+    vim.g.gruvbox_material_float_style = "bright"   -- dim/bright/blend
+    -- vim.g.gruvbox_material_ui_contrast = "low"       -- low/high
+    -- vim.g.gruvbox_material_menu_selection_background = "red"
+    -- vim.g.gruvbox_material_diagnostic_text_highlight = 0 -- 0/1
+    -- vim.g.gruvbox_material_diagnostic_line_highlight = 1 -- 0/1
+    vim.g.gruvbox_material_diagnostic_virtual_text = 'colored' -- grey/colored/highlighted
+    -- vim.g.gruvbox_material_dim_inactive_windows = 1 -- 0/1
+    -- vim.g.gruvbox_material_spell_fore_ground = 'none' -- none/colored
+    -- vim.g.gruvbox_material_show_eob = 0 -- 0/1
+    -- vim.g.gruvbox_material_current_word = 'italic' -- grey background/high contrast background/bold/underline/italic
+    -- vim.g.gruvbox_material_inlay_hints_background = 'dimmed' -- none/dimmed
+    vim.g.gruvbox_material_colors_override = {
+      -- bg0 = { "#141617", "234" }, -- bg color
+      -- bg1 = { "#2e2e2e", "235" }, -- cursor line bg color
+      -- bg2 = { "#FFFFFF", "235" },
+      bg3 = { "#2e2e2e", "237" }, -- menu bg color
+      -- bg4 = { "#FFFFFF", "237" },
+      -- fg0 = { "#000000", "223" }, -- text color
+      -- fg1 = { "#1d2021", "223" }, -- menu text color
+    }
     vim.g.gruvbox_material_statusline_style = "custom" -- default/mix/original/custom
-
     vim.cmd.colorscheme('gruvbox-material')
-    enable_transparency()
+    -- enable_transparency()
   end
 }
+

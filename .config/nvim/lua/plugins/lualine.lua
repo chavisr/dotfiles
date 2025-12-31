@@ -50,7 +50,11 @@ return {
             hide_filename_extension = false, -- Hide filename extension when set to true.
             show_modified_status = true,     -- Shows indicator when the buffer is modified.
             icons_enabled = false,
-
+            symbols = {
+              modified = '●', -- Text to show when the buffer is modified
+              alternate_file = '', -- Text to show to identify the alternate file
+              directory = '', -- Text to show when the buffer is a directory
+            },
             mode = 1, -- 0: Shows buffer name
             -- 1: Shows buffer index
             -- 2: Shows buffer name + buffer index
@@ -68,7 +72,21 @@ return {
             },
           }
         },
-        lualine_c = { { 'filename', path = 1 }, 'branch', 'diff', 'diagnostics' },
+        lualine_c = {
+          {
+            'filename',
+            path = 1,
+            symbols = {
+              modified = '[+]',      -- Text to show when the file is modified.
+              readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
+              unnamed = '[No Name]', -- Text to show for unnamed buffers.
+              newfile = '[New]',     -- Text to show for newly created file before first write
+            },
+          },
+          'branch',
+          'diff',
+          'diagnostics'
+        },
         -- lualine_c = { 'branch', 'diff', 'diagnostics' },
         -- lualine_x = { 'lsp_status', 'encoding', 'fileformat', 'filetype' },
         lualine_x = { 'lsp_status' },
