@@ -19,12 +19,15 @@ return {
   config = function()
     require('lualine').setup {
       options = {
-        -- theme = 'gruvbox-material',
-        disabled_filetypes = {
+        -- section_separators   = { left = '', right = '' },
+        -- component_separators = { left = '', right = '' },
+        component_separators = '',
+        theme                = 'gruvbox-material',
+        disabled_filetypes   = {
           statusline = { 'directory' }, -- this won't work alone, we need a trick below
         },
         -- Disable lualine completely in terminal buffers
-        cond = function()
+        cond                 = function()
           return vim.bo.buftype ~= 'terminal'
         end,
       },
@@ -40,11 +43,15 @@ return {
         lualine_b = {
           {
             'buffers',
+            cond = function()
+              return #vim.fn.getbufinfo({ buflisted = 1 }) > 1
+            end,
             show_filename_only = true,       -- Shows shortened relative path when set to false.
             hide_filename_extension = false, -- Hide filename extension when set to true.
             show_modified_status = true,     -- Shows indicator when the buffer is modified.
+            icons_enabled = false,
 
-            mode = 0,                        -- 0: Shows buffer name
+            mode = 1, -- 0: Shows buffer name
             -- 1: Shows buffer index
             -- 2: Shows buffer name + buffer index
             -- 3: Shows buffer number
@@ -55,17 +62,20 @@ return {
             -- the value of `max_length` dynamically.
             buffers_color = {
               -- Same values as the general color option can be used here.
-              active = { bg = '#D8A657', fg = '#1d2021' },
+              -- active = { bg = '#D8A657', fg = '#1d2021', gui = '' },
+              -- inactive = { bg = '#2e2e2e', fg = '#d4be98', gui = '' },
               -- inactive = 'lualine_{section}_inactive', -- Color for inactive buffer.
             },
           }
         },
-        lualine_c = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { { 'filename', path = 1 }, 'branch', 'diff', 'diagnostics' },
+        -- lualine_c = { 'branch', 'diff', 'diagnostics' },
         -- lualine_x = { 'lsp_status', 'encoding', 'fileformat', 'filetype' },
         lualine_x = { 'lsp_status' },
-        lualine_y = { 'progress' },
+        lualine_y = {},
         -- lualine_z = { require("opencode").statusline },
-        lualine_z = {},
+        -- lualine_z = {},
+        lualine_z = { 'progress' },
       },
       inactive_sections = {
         lualine_a = {},

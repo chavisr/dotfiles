@@ -17,8 +17,9 @@ return {
     vim.g.gruvbox_material_background = "hard" -- hard/soft/medium
     vim.g.gruvbox_material_float_style = "blend" -- dim/bright/blend
     vim.g.gruvbox_material_ui_contrast = "low" -- low/high
+    vim.g.gruvbox_material_statusline_style = "custom" -- default/mix/original/custom
 
     vim.cmd.colorscheme('gruvbox-material')
-    enable_transparency()
+    -- enable_transparency()
   end
 }

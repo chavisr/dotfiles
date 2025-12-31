@@ -18,7 +18,7 @@ mods = "Control"
 save_to_clipboard = true
 
 [window]
-opacity = 0.97
+opacity = 1
 dynamic_padding = false
 padding = { x=10, y=10 }
 
