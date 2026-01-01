@@ -1828,42 +1828,42 @@
       <path
          id="tooltip-normal-left"
          d="m 371.5,917 5,0 0,48 -5,0 z"
-         style="fill:#232323;fill-opacity:1" />
+         style="fill:#282828;fill-opacity:1" />
       <path
          id="tooltip-normal-topleft"
          d="m 376.5,912 -4.9989,3e-4 -0.001,5 5,0 z"
-         style="fill:#232323;fill-opacity:1" />
+         style="fill:#282828;fill-opacity:1" />
       <path
          id="tooltip-normal-top"
          d="m 424.5,912 0,5 -48,0 0,-5 z"
-         style="fill:#232323;fill-opacity:1" />
+         style="fill:#282828;fill-opacity:1" />
       <path
          id="tooltip-normal-topright"
          d="m 429.5,917 -3e-4,-4.9989 -5,-10e-4 0,5 z"
-         style="fill:#232323;fill-opacity:1" />
+         style="fill:#282828;fill-opacity:1" />
       <path
          id="tooltip-normal-right"
          d="m 429.49985,917 -5,0 0,48 5,-3e-4 z"
-         style="fill:#232323;fill-opacity:1" />
+         style="fill:#282828;fill-opacity:1" />
       <path
          id="tooltip-normal-bottomright"
          d="m 424.4998,970 4.9989,-3e-4 0.001,-5 -5,0 z"
-         style="fill:#232323;fill-opacity:1" />
+         style="fill:#282828;fill-opacity:1" />
       <path
          id="tooltip-normal-bottom"
          d="m 376.50075,970 3e-4,-5 48,0 -3e-4,5 z"
-         style="fill:#232323;fill-opacity:1" />
+         style="fill:#282828;fill-opacity:1" />
       <path
          id="tooltip-normal-bottomleft"
          d="m 371.5005,965 3e-4,4.9989 5,10e-4 0,-5 z"
-         style="fill:#232323;fill-opacity:1" />
+         style="fill:#282828;fill-opacity:1" />
       <rect
          id="tooltip-normal"
          width="48"
          height="48"
          x="376.5"
          y="917"
-         style="stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:#2e2e2e;fill-opacity:1" />
+         style="stroke-width:3;stroke-linecap:round;stroke-linejoin:round;fill:#282828;fill-opacity:1" />
     </g>
     <g
        id="tooltip-shadow-left"

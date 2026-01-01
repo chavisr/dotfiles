@@ -71,8 +71,8 @@ light.color=#504945
 mid.light.color=#3f3f3f
 dark.color=#1d2021
 mid.color=##202324
-highlight.color=#32302f
-inactive.highlight.color=#282828
+highlight.color=#504945
+inactive.highlight.color=#32302f
 text.color=#d4be98
 inactive.text.color=#d4be98
 window.text.color=#d4be98
@@ -508,6 +508,7 @@ frame.right=2
 
 [ToolTip]
 inherits=GenericFrame
+frame=true
 frame.top=3
 frame.bottom=3
 frame.left=3
