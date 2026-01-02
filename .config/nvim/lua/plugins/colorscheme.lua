@@ -29,7 +29,7 @@ return {
     -- vim.g.gruvbox_material_dim_inactive_windows = 1 -- 0/1
     -- vim.g.gruvbox_material_spell_fore_ground = 'none' -- none/colored
     -- vim.g.gruvbox_material_show_eob = 0 -- 0/1
-    -- vim.g.gruvbox_material_current_word = 'italic' -- grey background/high contrast background/bold/underline/italic
+    -- vim.g.gruvbox_material_current_word = 'grey background' -- grey background/high contrast background/bold/underline/italic
     -- vim.g.gruvbox_material_inlay_hints_background = 'dimmed' -- none/dimmed
     vim.g.gruvbox_material_colors_override = {
       -- bg0 = { "#141617", "234" }, -- bg color
