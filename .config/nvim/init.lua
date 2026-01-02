@@ -23,7 +23,7 @@ vim.keymap.set("n", "<leader><Tab>", ":e#<CR>")
 vim.keymap.set("n", "<leader>u", ":e!<CR>")
 vim.keymap.set("n", "y", '"+y')
 vim.keymap.set("v", "y", '"+y')
-vim.keymap.set("n", "Y", '"+Y')
+vim.keymap.set("n", "Y", '"+y$')
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -59,7 +59,6 @@ vim.opt.undodir = vim.fn.expand("~/.vim/undodir")
 vim.opt.undofile = true
 -- vim.opt.updatetime = 50
 vim.opt.showtabline = 0
-vim.opt.tabline = ''
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 -- vim.opt.completeopt = "menuone,noinsert,noselect"

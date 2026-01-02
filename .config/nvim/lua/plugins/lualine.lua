@@ -91,7 +91,15 @@ return {
         -- lualine_c = { 'branch', 'diff', 'diagnostics' },
         -- lualine_x = { 'lsp_status', 'encoding', 'fileformat', 'filetype' },
         lualine_x = { 'lsp_status' },
-        lualine_y = {},
+        -- lualine_y = {},
+        lualine_y = {
+          {
+            'tabs',
+            cond = function()
+              return #vim.fn.gettabinfo() > 1
+            end,
+          }
+        },
         -- lualine_z = { require("opencode").statusline },
         -- lualine_z = {},
         lualine_z = { 'progress' },
@@ -106,12 +114,19 @@ return {
       },
       tabline = {},
       -- tabline = {
-      --   lualine_a = { 'hostname' },
-      --   lualine_b = { 'lsp_status' },
+      --   lualine_a = {
+      --     {
+      --       'tabs',
+      --       cond = function()
+      --         return #vim.fn.gettabinfo() > 1
+      --       end,
+      --     }
+      --   },
+      --   lualine_b = { 'windows' },
       --   lualine_c = { 'filename' },
       --   lualine_x = {},
       --   lualine_y = {},
-      --   lualine_z = {}
+      --   lualine_z = {'hostname'}
       -- },
       winbar = {},
       inactive_winbar = {},
