@@ -1,6 +1,7 @@
 brave-bin
 claude-code
 dashbinsh
+downgrade
 gruvbox-material-icon-theme-git
 iwmenu-git
 lens-bin

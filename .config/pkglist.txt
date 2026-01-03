@@ -55,7 +55,6 @@ nsxiv
 ntp-dinit
 nvidia-container-toolkit
 nvidia-open
-nvidia-utils
 obs-studio
 openresolv
 openssh
