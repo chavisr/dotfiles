@@ -32,10 +32,5 @@ bspc config pointer_follows_focus   false
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
 bspc config pointer_action3 resize_corner
-bspc rule -a "pavucontrol" state=floating
-bspc rule -a "Lxappearance" state=floating
-# bspc rule -a "opencode" state=floating
-# bspc rule -a "zenity" state=floating
-bspc rule -a "Yad" state=floating
 bspc rule -a "Nsxiv" state=floating
 # bspc rule -a "Brave-browser" desktop='^2'
