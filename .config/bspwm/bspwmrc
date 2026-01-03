@@ -2,8 +2,8 @@
 
 # remap
 setxkbmap -layout us,th -option grp:win_space_toggle
-setxkbmap -option ctrl:nocaps,shift:both_capslock
-pkill xcape; xcape -e 'Control_L=Escape'
+# setxkbmap -option ctrl:nocaps,shift:both_capslock
+# pkill xcape; xcape -e 'Control_L=Escape'
 
 # autostart
 pkill sxhkd; sxhkd &
