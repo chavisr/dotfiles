@@ -22,6 +22,7 @@ return {
         -- section_separators   = { left = '', right = '' },
         -- component_separators = { left = '', right = '' },
         -- section_separators = { left = "", right = "" },
+        -- section_separators   = { left = "", right = "" },
         component_separators = '',
         theme                = 'gruvbox-material',
         disabled_filetypes   = {
@@ -47,6 +48,7 @@ return {
             cond = function()
               return #vim.fn.getbufinfo({ buflisted = 1 }) > 1
             end,
+            -- padding = { left = 1, right = 0 },
             show_filename_only = true,       -- Shows shortened relative path when set to false.
             hide_filename_extension = false, -- Hide filename extension when set to true.
             show_modified_status = true,     -- Shows indicator when the buffer is modified.

@@ -34,6 +34,14 @@ vim.keymap.set("n", "<M-j>", ":cnext<CR>")
 vim.keymap.set("n", "<M-k>", ":cprev<CR>")
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>vi", ":edit $MYVIMRC<CR>")
+-- vim.keymap.set("n", "<leader>q", function()
+--   local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+--   if #buffers > 1 then
+--     vim.cmd("bdelete")
+--   else
+--     vim.cmd("q")
+--   end
+-- end, { desc = "Close buffer or quit nvim" })
 
 -- options
 vim.opt.relativenumber = true
