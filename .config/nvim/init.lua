@@ -2,6 +2,7 @@ local vim = vim
 
 -- keymaps
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.keymap.set("i", "jj", "<Esc>")
 -- vim.keymap.set("i", "<C-Space>", "<C-x><C-o>")
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
@@ -30,10 +31,13 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-/>", "gcc", { remap = true })
 vim.keymap.set("v", "<C-/>", "gc", { remap = true })
+vim.keymap.set("n", "<C-_>", "gcc", { remap = true })
+vim.keymap.set("v", "<C-_>", "gc", { remap = true })
 vim.keymap.set("n", "<M-j>", ":cnext<CR>")
 vim.keymap.set("n", "<M-k>", ":cprev<CR>")
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>vi", ":edit $MYVIMRC<CR>")
+vim.keymap.set("n", "<leader>td", ":edit $HOME/todo.md<CR>")
 -- vim.keymap.set("n", "<leader>q", function()
 --   local buffers = vim.fn.getbufinfo({ buflisted = 1 })
 --   if #buffers > 1 then

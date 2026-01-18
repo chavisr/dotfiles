@@ -36,7 +36,6 @@ kdenlive
 kubectl
 kustomize
 kvantum
-lib32-nvidia-utils
 libnotify
 libreoffice-still
 libretro-core-info

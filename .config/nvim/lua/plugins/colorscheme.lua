@@ -16,7 +16,7 @@ return {
   config = function()
     vim.g.gruvbox_material_enable_italic = 1 -- 0/1
     -- vim.g.gruvbox_material_enable_bold = 1   -- 0/1
-    -- vim.g.gruvbox_material_transparent_background = 1 -- 0/1/2
+    vim.g.gruvbox_material_transparent_background = 1 -- 0/1/2
     -- vim.g.gruvbox_material_better_performance = 0 -- 0/1
     vim.g.gruvbox_material_foreground = "material" -- material/mix/original
     vim.g.gruvbox_material_background = "hard"     -- hard/soft/medium
