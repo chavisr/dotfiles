@@ -410,6 +410,7 @@ binds {
     Mod+V hotkey-overlay-title="Cliphist" { spawn-sh "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"; }
     Mod+F7 hotkey-overlay-title="wdisplays" { spawn "wdisplays"; }
     Alt+F4 hotkey-overlay-title="power_menu" { spawn-sh "$HOME/.script/power_menu.sh"; }
+    Alt+F5 hotkey-overlay-title="tlp_menu" { spawn-sh "$HOME/.script/tlp_menu.sh"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.

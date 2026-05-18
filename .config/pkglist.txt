@@ -27,6 +27,7 @@ intel-ucode
 iwd-dinit
 jq
 kvantum
+libnotify
 libvirt-dinit
 linux
 linux-firmware
