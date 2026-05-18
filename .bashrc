@@ -29,10 +29,10 @@ alias v="nvim"
 alias i="nsxiv"
 alias f="yazi"
 
-# open nautilus
+# open nautilus in terminal
 n() { nautilus "${1:-.}" & disown && exit; }
 
-# quality of life
+# git ref
 __git_ref() {
   if git rev-parse --git-dir >/dev/null 2>&1; then
     local REF
@@ -45,6 +45,7 @@ __git_ref() {
   fi
 }
 
+# git status
 __git_status() {
   if [[ -n "$(__git_ref)" ]]; then
     local STATUS
