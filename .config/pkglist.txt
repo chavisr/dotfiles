@@ -21,6 +21,7 @@ elogind-dinit
 fastfetch
 git
 grub
+gvfs-smb
 htop
 intel-ucode
 iwd-dinit
@@ -44,6 +45,7 @@ npm
 nsxiv
 ntp-dinit
 nwg-look
+obs-studio
 openresolv
 pipewire-pulse
 polkit-gnome

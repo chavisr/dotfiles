@@ -6,4 +6,5 @@ marp-cli
 paru
 rofi-emoji-git
 trashy
+vesktop
 xcursor-simp1e-dark

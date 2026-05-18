@@ -13,3 +13,4 @@ image/webp=nsxiv.desktop
 image/bmp=nsxiv.desktop
 image/tiff=nsxiv.desktop
 image/svg+xml=nsxiv.desktop
+x-scheme-handler/discord=vesktop.desktop
