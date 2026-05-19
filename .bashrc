@@ -60,9 +60,9 @@ __git_status() {
 export PS1='\[\033[31m\]\u@\h \[\e[34m\]\w\[\e[33m\]$(__git_ref)$(__git_status) \[\e[35m\]>\[\e[0m\] '
 
 # nix
-if [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]]; then
-  source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-fi
+# if [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]]; then
+#   source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+# fi
 
 # source <(kubectl completion bash)
 eval "$(dircolors ~/.dircolors)"

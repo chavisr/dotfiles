@@ -8,5 +8,5 @@ case "$choice" in
   Performance) sudo tlp performance ;;
 esac
 
-# To verify
-# cat /sys/firmware/acpi/platform_profile
+# Send signal to waybar
+pkill -SIGRTMIN+8 waybar

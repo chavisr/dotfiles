@@ -1,0 +1,10 @@
+default-timeout=5000
+
+[urgency=low]
+default-timeout=3000
+
+[urgency=normal]
+default-timeout=5000
+
+[urgency=critical]
+default-timeout=0

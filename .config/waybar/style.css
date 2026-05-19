@@ -156,6 +156,11 @@ button:hover {
     /* padding: 0 10px; */
 }
 
+#custom-platform-profile {
+    color: @white;
+    padding: 0 10px;
+}
+
 #language {
     color: @white;
     padding: 0 10px;
