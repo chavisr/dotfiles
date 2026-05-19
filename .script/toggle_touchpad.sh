@@ -1,14 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
-ID=10
+CONFIG="$HOME/.config/niri/config.kdl"
+FLAG="$HOME/.cache/niri-touchpad-disabled"
 
-STATE=$(xinput list-props $ID | awk '/Device Enabled/ {print $4}')
-
-if [ "$STATE" = "1" ]; then
-    xinput disable $ID
-    dunstify --timeout 1000 --urgency critical 'touchpad disabled'
+if [ -f "$FLAG" ]; then
+    # Re-enable: remove the 'off' line we injected
+    sed -i '/^    touchpad {/{n; /^        off$/d}' "$CONFIG"
+    rm "$FLAG"
+    notify-send "Touchpad enabled"
 else
-    xinput enable $ID
-    dunstify --timeout 1000 --urgency low 'touchpad enabled'
+    # Disable: inject 'off' as first line inside touchpad block
+    sed -i '/^    touchpad {/a\        off' "$CONFIG"
+    touch "$FLAG"
+    notify-send "Touchpad disabled"
 fi
-

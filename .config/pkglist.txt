@@ -72,6 +72,7 @@ wiremix
 wireplumber
 wl-clipboard
 wtype
+xorg-xev
 xorg-xinput
 xwayland-satellite
 yazi
