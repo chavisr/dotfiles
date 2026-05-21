@@ -183,6 +183,7 @@ vim.pack.add({
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
   { src = "https://github.com/kylechui/nvim-surround" },
   { src = "https://github.com/folke/lazy.nvim" },
+  { src = "https://github.com/coder/claudecode.nvim" },
   {
     src = "https://github.com/windwp/nvim-autopairs",
     data = {
@@ -208,6 +209,7 @@ require("plugins.quicker")
 require("plugins.telescope")
 require("plugins.nvim-surround")
 require("plugins.nvim-autopairs")
+require("plugins.claudecode")
 
 -- nvchad ui
 for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do

@@ -55,7 +55,6 @@ qt6ct
 ripgrep
 rofi
 sof-firmware
-stress
 swaybg
 swaylock
 tlp-dinit

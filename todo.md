@@ -11,5 +11,3 @@
 - disable touchpad
 - waybar polling/interval check
 - flameshot
-- nvim 0.12
-- tlp vs autocpu
