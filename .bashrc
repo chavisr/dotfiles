@@ -27,10 +27,10 @@ alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias v="nvim"
 alias i="nsxiv"
-alias f="yazi"
+# alias f="yazi"
 
 # open nautilus in terminal
-n() { nautilus "${1:-.}" & disown && exit; }
+f() { nautilus "${1:-.}" & disown && exit; }
 
 # git ref
 __git_ref() {

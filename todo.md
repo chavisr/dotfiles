@@ -3,7 +3,6 @@
 - find gtk-icons in kde web
 - low battery notify
 - kill bluetooth at startup
-- mako or dunst
 - window empty/hidden
 - check log niri / waybar
 - set func keys
@@ -11,3 +10,6 @@
 - disable touchpad
 - waybar polling/interval check
 - flameshot
+
+# yt
+- niri guide

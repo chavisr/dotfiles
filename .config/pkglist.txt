@@ -77,7 +77,6 @@ wtype
 xorg-xev
 xorg-xinput
 xwayland-satellite
-yazi
 yq
 zathura
 zathura-pdf-poppler
