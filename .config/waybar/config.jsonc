@@ -274,12 +274,12 @@
     // }
   },
   "custom/platform-profile": {
-    "exec": "cat /sys/firmware/acpi/platform_profile",
-    // "exec": "$HOME/.script/platform_profile.sh",
+    // "exec": "cat /sys/firmware/acpi/platform_profile",
+    "exec": "$HOME/.script/platform_profile.sh",
     "on-click": "$HOME/.script/tlp_menu.sh",
     "signal": 8,
     // "format": "{} ",
-    "format": "{} ",
+    // "format": "{} ",
     "tooltip": false
   }
 }

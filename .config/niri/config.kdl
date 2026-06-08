@@ -403,6 +403,7 @@ binds {
     Mod+F11 hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+B hotkey-overlay-title="Open Browser" { spawn "brave"; }
     Mod+Shift+N hotkey-overlay-title="Open Incognito" { spawn-sh "brave --incognito"; }
+    Mod+M hotkey-overlay-title="Open Youtube Music" { spawn-sh "brave --app=https://music.youtube.com"; }
     Mod+E hotkey-overlay-title="Rofi Emoji" { spawn-sh "rofi -i -modi emoji -show emoji"; }
     Alt+F1 hotkey-overlay-title="Man page" { spawn-sh "$HOME/.script/manpdf.sh"; }
     Mod+P hotkey-overlay-title="wiremix" { spawn-sh "alacritty -e wiremix"; }
@@ -641,7 +642,7 @@ binds {
     Mod+Shift+Equal { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
-    // Mod+V       { toggle-window-floating; }
+    Mod+T       { toggle-window-floating; }
     // Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.

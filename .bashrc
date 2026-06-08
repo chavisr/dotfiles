@@ -66,3 +66,6 @@ export PS1='\[\033[31m\]\u@\h \[\e[34m\]\w\[\e[33m\]$(__git_ref)$(__git_status) 
 
 # source <(kubectl completion bash)
 eval "$(dircolors ~/.dircolors)"
+
+# fix claude issue
+export PATH="$HOME/.local/bin:$PATH"

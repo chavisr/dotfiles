@@ -19,6 +19,7 @@ docker-dinit
 efibootmgr
 elogind-dinit
 fastfetch
+fuse2
 git
 grub
 gvfs-smb
@@ -26,6 +27,7 @@ htop
 intel-ucode
 iwd-dinit
 jq
+kdenlive
 kvantum
 libnotify
 libvirt-dinit
@@ -67,6 +69,7 @@ unzip
 virt-manager
 waybar
 wdisplays
+wget
 wiremix
 wireplumber
 wl-clipboard

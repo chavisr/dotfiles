@@ -1,10 +1,21 @@
 default-timeout=5000
+text-alignment=center
+border-size=1
 
 [urgency=low]
 default-timeout=3000
+background-color=#1e222a
+text-color=#abb2bf
+border-color=#abb2bf
 
 [urgency=normal]
 default-timeout=5000
+background-color=#1e222a
+text-color=#abb2bf
+border-color=#abb2bf
 
 [urgency=critical]
 default-timeout=0
+background-color=#1e222a
+text-color=#abb2bf
+border-color=#e06c75
