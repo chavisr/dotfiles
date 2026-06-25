@@ -18,6 +18,7 @@ dnsmasq-dinit
 docker-dinit
 efibootmgr
 elogind-dinit
+entr
 fastfetch
 fuse2
 git

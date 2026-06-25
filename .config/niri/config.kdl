@@ -412,6 +412,7 @@ binds {
     Alt+F4 hotkey-overlay-title="power_menu" { spawn-sh "$HOME/.script/power_menu.sh"; }
     Alt+F5 hotkey-overlay-title="tlp_menu" { spawn-sh "$HOME/.script/tlp_menu.sh"; }
     Mod+F12 hotkey-overlay-title="toggle touchpad" { spawn-sh "$HOME/.script/toggle_touchpad.sh"; }
+    Mod+G hotkey-overlay-title="open grip-claude" { spawn-sh "$HOME/.script/grip-claude.sh"; }
     XF86Favorites hotkey-overlay-title="toggle touchpad" { spawn-sh "$HOME/.script/toggle_touchpad.sh"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
