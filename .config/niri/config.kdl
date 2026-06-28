@@ -117,6 +117,24 @@ output "eDP-1" {
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
     position x=0 y=0
+    hot-corners {
+        // off
+        bottom-left
+        bottom-right
+    }
+}
+
+output "HDMI-A-1" {
+    off
+    hot-corners {
+        // off
+        bottom-left
+        bottom-right
+    }
+    mode "1920x1080@60.000"
+    scale 1.0
+    transform "normal"
+    position x=0 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -397,23 +415,23 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+Return hotkey-overlay-title="alacritty" { spawn "alacritty"; }
     // Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
-    Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -i -show drun -show-icons true"; }
-    Mod+F11 hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Mod+B hotkey-overlay-title="Open Browser" { spawn "brave"; }
-    Mod+Shift+N hotkey-overlay-title="Open Incognito" { spawn-sh "brave --incognito"; }
-    Mod+M hotkey-overlay-title="Open Youtube Music" { spawn-sh "brave --app=https://music.youtube.com"; }
-    Mod+E hotkey-overlay-title="Rofi Emoji" { spawn-sh "rofi -i -modi emoji -show emoji"; }
-    Alt+F1 hotkey-overlay-title="Man page" { spawn-sh "$HOME/.script/manpdf.sh"; }
+    Mod+D hotkey-overlay-title="rofi: drun" { spawn-sh "rofi -i -show drun -show-icons true"; }
+    Mod+F11 hotkey-overlay-title="swaylock" { spawn "swaylock"; }
+    Mod+B hotkey-overlay-title="browser" { spawn "brave"; }
+    Mod+Shift+N hotkey-overlay-title="browser: incognito" { spawn-sh "brave --incognito"; }
+    Mod+M hotkey-overlay-title="youtube music" { spawn-sh "brave --app=https://music.youtube.com"; }
+    Mod+E hotkey-overlay-title="rofi: emoji" { spawn-sh "rofi -i -modi emoji -show emoji"; }
+    Alt+F1 hotkey-overlay-title="manpdf.sh" { spawn-sh "$HOME/.script/manpdf.sh"; }
     Mod+P hotkey-overlay-title="wiremix" { spawn-sh "alacritty -e wiremix"; }
-    Mod+V hotkey-overlay-title="Cliphist" { spawn-sh "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"; }
+    Mod+V hotkey-overlay-title="cliphist" { spawn-sh "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"; }
     Mod+F7 hotkey-overlay-title="wdisplays" { spawn "wdisplays"; }
-    Alt+F4 hotkey-overlay-title="power_menu" { spawn-sh "$HOME/.script/power_menu.sh"; }
-    Alt+F5 hotkey-overlay-title="tlp_menu" { spawn-sh "$HOME/.script/tlp_menu.sh"; }
-    Mod+F12 hotkey-overlay-title="toggle touchpad" { spawn-sh "$HOME/.script/toggle_touchpad.sh"; }
-    Mod+G hotkey-overlay-title="open grip-claude" { spawn-sh "$HOME/.script/grip-claude.sh"; }
-    XF86Favorites hotkey-overlay-title="toggle touchpad" { spawn-sh "$HOME/.script/toggle_touchpad.sh"; }
+    Alt+F4 hotkey-overlay-title="power_menu.sh" { spawn-sh "$HOME/.script/power_menu.sh"; }
+    Alt+F5 hotkey-overlay-title="tlp_menu.sh" { spawn-sh "$HOME/.script/tlp_menu.sh"; }
+    Mod+F12 hotkey-overlay-title="toggle_touchpad.sh" { spawn-sh "$HOME/.script/toggle_touchpad.sh"; }
+    XF86Favorites hotkey-overlay-title="toggle_touchpad.sh" { spawn-sh "$HOME/.script/toggle_touchpad.sh"; }
+    Mod+G hotkey-overlay-title="grip-claude" { spawn-sh "$HOME/.script/grip-claude.sh"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
