@@ -24,11 +24,14 @@ fuse2
 git
 grub
 gvfs-smb
+helm
 htop
 intel-ucode
 iwd-dinit
 jq
+k9s
 kdenlive
+kubectl
 kvantum
 libnotify
 libvirt-dinit
