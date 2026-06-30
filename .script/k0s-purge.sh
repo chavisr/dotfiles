@@ -1,9 +1,11 @@
 #!/bin/bash
+set -euo pipefail
 
-docker stop k0s-controller
-docker rm k0s-controller
+echo "Removing k0s controller container (and its volumes)..."
+docker rm -fv k0s-controller >/dev/null 2>&1 || true
 
-rm -rf /var/lib/k0s
-rm -rf /var/log/pods
-rm ~/.kube/k0s.config
-rm ~/.kube/config
+echo "Removing kubeconfig..."
+rm -f ~/.kube/k0s.config
+rm -f ~/.kube/config
+
+echo "Cleanup complete."
