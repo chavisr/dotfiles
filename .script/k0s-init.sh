@@ -15,24 +15,23 @@ echo "Waiting for Kubernetes API + node readiness..."
 
 until docker exec k0s-controller \
   k0s kubectl wait \
-  --timeout=1s \
   --for=condition=Ready \
   node/k0s-controller >/dev/null 2>&1; do
   echo "   ...not ready yet, retrying in 3s"
-  sleep 2
+  sleep 3
 done
 
 echo "k0s cluster is ready!"
 
+echo "Removing control-plane taint (allowing workloads on controller)..."
+docker exec k0s-controller \
+  k0s kubectl taint nodes k0s-controller node-role.kubernetes.io/control-plane:NoSchedule-
+
 echo "Generating kubeconfig..."
 mkdir -p ~/.kube
 
-docker exec k0s-controller k0s kubeconfig admin >~/.kube/k0s.config
+docker exec k0s-controller k0s kubeconfig admin > ~/.kube/k0s.config
 
-echo "Linking kubeconfig to ~/.kube/config"
-ln -sf ~/.kube/k0s.config ~/.kube/config
-
-echo "Removing control-plane taint (allowing workloads on controller)..."
-kubectl taint nodes k0s-controller node-role.kubernetes.io/control-plane:NoSchedule-
+echo "kubeconfig written to: ~/.kube/k0s.config"
 
 echo "Done! Kubernetes is ready to use."
