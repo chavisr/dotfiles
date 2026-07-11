@@ -9,6 +9,7 @@ bluez-utils
 brightnessctl
 btop
 chafa
+chromium
 cliphist
 cryptsetup
 cryptsetup-dinit
@@ -34,6 +35,7 @@ kdenlive
 kubectl
 kvantum
 libnotify
+libreoffice-fresh
 libvirt-dinit
 linux
 linux-firmware
@@ -63,6 +65,7 @@ rofi
 sof-firmware
 swaybg
 swaylock
+tlp
 tlp-dinit
 tlp-rdw
 transmission-qt

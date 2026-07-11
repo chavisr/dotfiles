@@ -1,4 +1,3 @@
-brave-bin
 claude-code
 dashbinsh
 go-grip
