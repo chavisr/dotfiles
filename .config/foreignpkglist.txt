@@ -1,4 +1,3 @@
-chromium-widevine
 claude-code
 dashbinsh
 go-grip

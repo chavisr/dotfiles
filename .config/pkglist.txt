@@ -9,7 +9,6 @@ bluez-utils
 brightnessctl
 btop
 chafa
-chromium
 cliphist
 cryptsetup
 cryptsetup-dinit
@@ -21,6 +20,7 @@ efibootmgr
 elogind-dinit
 entr
 fastfetch
+firefox
 fuse2
 git
 grub
