@@ -1,8 +1,8 @@
+brave-bin
 claude-code
 dashbinsh
 go-grip
 iwmenu-git
-marp-cli
 paru
 rofi-emoji-git
 trashy

@@ -90,7 +90,7 @@ input {
 // Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
     // Uncomment this line to disable this output.
-    // off
+    off
 
     // Resolution and, optionally, refresh rate of the output.
     // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
@@ -125,9 +125,8 @@ output "eDP-1" {
 }
 
 output "HDMI-A-1" {
-    off
+    // off
     hot-corners {
-        // off
         bottom-left
         bottom-right
     }
@@ -359,6 +358,12 @@ window-rule {
 }
 
 window-rule {
+    match app-id="brave"
+    tiled-state true
+    open-maximized true
+}
+
+window-rule {
     match app-id="vesktop"
     open-maximized true
 }
@@ -422,9 +427,9 @@ binds {
     // Mod+Return hotkey-overlay-title="alacritty here" { spawn-sh "$HOME/.script/niri-term-here.sh"; }
     Mod+D hotkey-overlay-title="rofi: drun" { spawn-sh "rofi -i -show drun -show-icons true"; }
     Mod+F11 hotkey-overlay-title="swaylock" { spawn "swaylock"; }
-    Mod+B hotkey-overlay-title="browser" { spawn "firefox"; }
-    Mod+Shift+N hotkey-overlay-title="browser: incognito" { spawn-sh "firefox --private-window"; }
-    // Mod+M hotkey-overlay-title="youtube music" { spawn-sh "chromium --app=https://music.youtube.com"; }
+    Mod+B hotkey-overlay-title="browser" { spawn "brave"; }
+    Mod+Shift+N hotkey-overlay-title="browser: incognito" { spawn-sh "brave --incognito"; }
+    Mod+M hotkey-overlay-title="youtube music" { spawn-sh "brave --app=https://music.youtube.com"; }
     Mod+E hotkey-overlay-title="rofi: emoji" { spawn-sh "rofi -i -modi emoji -show emoji"; }
     Alt+F1 hotkey-overlay-title="manpdf.sh" { spawn-sh "$HOME/.script/manpdf.sh"; }
     Mod+P hotkey-overlay-title="wiremix" { spawn-sh "alacritty -e wiremix"; }
@@ -490,35 +495,35 @@ binds {
     // Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
 
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    // Mod+Ctrl+J     { move-window-down; }
-    // Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+H     { move-column-left; }
+    // Mod+Shift+J     { move-window-down; }
+    // Mod+Shift+K     { move-window-up; }
+    Mod+Shift+L     { move-column-right; }
 
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
     Mod+J     { focus-window-or-workspace-down; }
     Mod+K     { focus-window-or-workspace-up; }
-    Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
-    Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
+    Mod+Shift+J     { move-window-down-or-to-workspace-down; }
+    Mod+Shift+K     { move-window-up-or-to-workspace-up; }
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
+    Mod+Shift+Home { move-column-to-first; }
+    Mod+Shift+End  { move-column-to-last; }
 
-    Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Down  { focus-monitor-down; }
-    Mod+Shift+Up    { focus-monitor-up; }
-    Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+    Mod+Ctrl+Left  { focus-monitor-left; }
+    Mod+Ctrl+Down  { focus-monitor-down; }
+    Mod+Ctrl+Up    { focus-monitor-up; }
+    Mod+Ctrl+Right { focus-monitor-right; }
+    Mod+Ctrl+H     { focus-monitor-left; }
+    Mod+Ctrl+J     { focus-monitor-down; }
+    Mod+Ctrl+K     { focus-monitor-up; }
+    Mod+Ctrl+L     { focus-monitor-right; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }

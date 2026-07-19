@@ -20,7 +20,6 @@ efibootmgr
 elogind-dinit
 entr
 fastfetch
-firefox
 fuse2
 git
 grub

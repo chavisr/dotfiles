@@ -6,16 +6,14 @@
   "modules": [
     "title",
     "separator",
-    {
-      "type": "os",
-      "format": "{2} (dinit)"
-    },
+    "os",
     "host",
     "kernel",
+    "initsystem",
     "packages",
     "shell",
     "wm",
-    "wmtheme",
+    // "wmtheme",
     // "theme",
     "terminal",
     // "terminalfont",

@@ -15,7 +15,7 @@ configuration {
     drun-display-format:        "{name}";
     window-format:              "{w} · {t}";
     font-size: 10px;
-    kb-cancel: "Escape,Control+c,Super+backslash";
+    kb-cancel: "Escape,Control+c,Super+backslash,MouseSecondary";
     kb-secondary-copy: "";
     kb-remove-word-back: "Alt+BackSpace";
     kb-move-word-back: "Alt+Left";
