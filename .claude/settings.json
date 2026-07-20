@@ -22,60 +22,9 @@
             "command": "npx -y ccstatusline@latest --hook"
           }
         ]
-      },
-      {
-        "matcher": "Skill",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "npx -y ccstatusline@latest --hook"
-          }
-        ]
-      },
-      {
-        "matcher": "Skill",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "npx -y ccstatusline@latest --hook"
-          }
-        ]
-      },
-      {
-        "matcher": "Skill",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "npx -y ccstatusline@latest --hook"
-          }
-        ]
       }
     ],
     "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "npx -y ccstatusline@latest --hook"
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "npx -y ccstatusline@latest --hook"
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "npx -y ccstatusline@latest --hook"
-          }
-        ]
-      },
       {
         "hooks": [
           {
