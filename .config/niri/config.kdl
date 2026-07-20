@@ -90,7 +90,7 @@ input {
 // Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
     // Uncomment this line to disable this output.
-    off
+    // off
 
     // Resolution and, optionally, refresh rate of the output.
     // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
@@ -125,7 +125,7 @@ output "eDP-1" {
 }
 
 output "HDMI-A-1" {
-    // off
+    off
     hot-corners {
         bottom-left
         bottom-right
@@ -358,8 +358,13 @@ window-rule {
 }
 
 window-rule {
-    match app-id="brave"
+    match app-id="brave-browser"
     tiled-state true
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r"(libreoffice-.*|soffice)"
     open-maximized true
 }
 

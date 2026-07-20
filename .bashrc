@@ -27,10 +27,9 @@ alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias v="nvim"
 alias i="nsxiv"
-# alias f="yazi"
 
 # open nautilus in terminal
-f() { nautilus "${1:-.}" & disown && exit; }
+f() { nautilus "${1:-.}" >/dev/null 2>&1 & disown; }
 
 # git ref
 __git_ref() {
@@ -64,9 +63,8 @@ export PS1='\[\033[31m\]\u@\h \[\e[34m\]\w\[\e[33m\]$(__git_ref)$(__git_status) 
 #   source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 # fi
 
+# extra
 # source <(kubectl completion bash)
 eval "$(dircolors ~/.dircolors)"
-
-# extra path
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/npm/bin:$PATH"
