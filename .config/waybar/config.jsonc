@@ -8,13 +8,14 @@
   "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
-    "niri/workspaces"
+    "niri/workspaces",
+    "custom/stocks"
     // "custom/platform_profile"
     // "custom/media"
   ],
-  "modules-center": [
-    "niri/window"
-  ],
+  // "modules-center": [
+  //   "niri/window"
+  // ],
   "modules-right": [
     "tray",
     "keyboard-state",
@@ -58,6 +59,12 @@
   //         "(.*) - zsh": "> [$1]"
   //     }
   // },
+  "custom/stocks": {
+    "exec": "waybar-stocks --config ~/.config/waybar-stocks/config.yaml", // or ~/.local/bin/waybar-stocks --config ~/.local/bin/waybar-stocks/config.yml; could be ANY config PATH tbh.
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "brave --app=https://app.webull.com/trade"
+  },
   "pulseaudio/slider": {
     "min": 0,
     "max": 100,

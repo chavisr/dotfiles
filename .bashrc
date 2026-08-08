@@ -25,7 +25,6 @@ alias t="trashy"
 alias clip="wl-copy"
 alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias v="nvim"
 alias i="nsxiv"
 
 # open nautilus in terminal

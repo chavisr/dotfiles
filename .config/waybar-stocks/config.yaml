@@ -1,0 +1,45 @@
+refresh_interval: 60 # seconds between API updates
+rotation_interval: 5 # seconds to display each asset
+format: "{symbol} {price} ({change}%{icon})"
+
+colors:
+  up: "#98c379" # price increasing
+  down: "#e06c75" # price decreasing
+  neutral: "#abb2bf" # no change
+
+assets:
+  - symbol: BTC-USD
+    name: BTC
+    timeframe: 1D # 15m 1H 1D 3D 1W 1M 1Y
+  - symbol: SPCX
+    name: SPCX
+    timeframe: 1D
+  - symbol: SKHY
+    name: SKHY
+    timeframe: 1D
+  - symbol: AMD
+    name: AMD
+    timeframe: 1D
+  # 7 angel(?)
+  - symbol: AAPL
+    name: AAPL
+    timeframe: 1D
+  - symbol: NVDA
+    name: NVDA
+    timeframe: 1D
+  - symbol: TSLA
+    name: TSLA
+    timeframe: 1D
+  - symbol: GOOGL
+    name: GOOGL
+    timeframe: 1D
+  - symbol: MSFT
+    name: MSFT
+    timeframe: 1D
+  - symbol: AMZN
+    name: AMZN
+    timeframe: 1D
+  - symbol: META
+    name: META
+    timeframe: 1D
+

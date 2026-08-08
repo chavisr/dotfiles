@@ -151,6 +151,11 @@ button:hover {
     background-color: @red;
 }
 
+#custom-stocks {
+    color: @white;
+    padding: 0 10px;
+}
+
 #custom-power {
     color: @white;
     /* padding: 0 10px; */
