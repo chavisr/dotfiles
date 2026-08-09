@@ -156,6 +156,28 @@ button:hover {
     padding: 0 10px;
 }
 
+#custom-tickerbar {
+    color: @white;
+    padding: 0 10px;
+}
+
+#custom-tickers {
+    color: @white;
+    padding: 0 10px;
+}
+
+#custom-tickers.up {
+    color: @green;
+}
+
+#custom-tickers.down {
+    color: @red;
+}
+
+#custom-tickers.neutral {
+    color: @yellow;
+}
+
 #custom-power {
     color: @white;
     /* padding: 0 10px; */

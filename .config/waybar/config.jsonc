@@ -9,9 +9,7 @@
   // Choose the order of the modules
   "modules-left": [
     "niri/workspaces",
-    "custom/stocks"
-    // "custom/platform_profile"
-    // "custom/media"
+    "custom/tickers"
   ],
   // "modules-center": [
   //   "niri/window"
@@ -60,9 +58,22 @@
   //     }
   // },
   "custom/stocks": {
-    "exec": "waybar-stocks --config ~/.config/waybar-stocks/config.yaml", // or ~/.local/bin/waybar-stocks --config ~/.local/bin/waybar-stocks/config.yml; could be ANY config PATH tbh.
+    "exec": "waybar-stocks --config ~/.config/waybar-stocks/config.yaml",
     "return-type": "json",
     "interval": 1,
+    "on-click": "brave --app=https://app.webull.com/trade"
+  },
+  "custom/tickerbar": {
+    "exec": "tickerbar",
+    "return-type": "json",
+    "interval": 60,
+    "tooltip": true,
+    "signal": 9
+  },
+  "custom/tickers": {
+    "exec": "~/.config/waybar-tickers/tickers.sh",
+    "return-type": "json",
+    "interval": 5,
     "on-click": "brave --app=https://app.webull.com/trade"
   },
   "pulseaudio/slider": {
