@@ -9,7 +9,7 @@ CACHE_FILE="/tmp/waybar-tickers.json"
 STATE_FILE="/tmp/waybar-tickers.state"
 SCROLL_FILE="/tmp/waybar-tickers.scroll"
 CHECKSUM_FILE="/tmp/waybar-tickers.checksum"
-REFRESH_INTERVAL=300
+REFRESH_INTERVAL=15
 
 # Placeholders: {ticker} {arrow} {price} {currency} {change} {change_abs}
 FORMAT="{ticker} {arrow} {price} {currency} {change}%"
@@ -120,7 +120,7 @@ build_tooltip() {
     if [[ -f "$CACHE_FILE" ]]; then
         local mtime
         mtime=$(stat -c %Y "$CACHE_FILE" 2>/dev/null)
-        updated=$(date -d "@${mtime}" '+%d %b %H:%M' 2>/dev/null || echo "—")
+        updated=$(date -d "@${mtime}" '+%d %b %H:%M:%S' 2>/dev/null || echo "—")
     fi
     lines+=("")
     lines+=("<span font_family='monospace' color='#6c7086'>  Last update: ${updated}</span>")
