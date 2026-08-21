@@ -24,13 +24,22 @@
         "id": "7",
         "type": "git-changes",
         "color": ""
+      },
+      {
+        "id": "4d4a6a77-6950-40e5-b408-21a07b6639c1",
+        "type": "separator"
+      },
+      {
+        "id": "c5edcc32-4bb4-457f-8ffd-a18142302d90",
+        "type": "skills",
+        "color": ""
       }
     ],
     [
       {
         "id": "bc1ccd9d-1a9e-4b49-be24-efe0ea4cd101",
         "type": "session-usage",
-        "color": "brightCyan"
+        "color": "brightRed"
       },
       {
         "id": "9a3dae66-a2b7-4b3a-b379-d61e78750d8e",
@@ -40,28 +49,23 @@
         "id": "93b69667-f22f-427a-bad4-be794d6459af",
         "type": "reset-timer",
         "color": ""
-      }
-    ],
-    [
-      {
-        "id": "db4861a2-5550-472b-a73c-31c519940ae0",
-        "type": "context-percentage",
-        "color": ""
       },
       {
-        "id": "bf8cb2d1-252d-429c-b722-9ef773887c12",
+        "id": "a3fb21e0-ff83-478a-937b-9ff70d36d2ca",
         "type": "separator"
       },
       {
-        "id": "684e661d-65d4-4c2e-8b54-c80526aa96b5",
-        "type": "skills",
+        "id": "90010210-c78e-486d-ab08-f5a9bb3bc5f3",
+        "type": "context-percentage",
         "color": ""
       }
-    ]
+    ],
+    []
   ],
   "flexMode": "full-minus-40",
   "compactThreshold": 60,
   "colorLevel": 2,
+  "defaultPaddingSide": "both",
   "inheritSeparatorColors": false,
   "globalBold": false,
   "gitCacheTtlSeconds": 5,

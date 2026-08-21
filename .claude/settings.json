@@ -1,6 +1,5 @@
 {
   "includeCoAuthoredBy": false,
-  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
@@ -15,17 +14,19 @@
     ],
     "PreToolUse": [
       {
-        "matcher": "Skill",
+        "_tag": "ccstatusline-managed",
         "hooks": [
           {
             "type": "command",
             "command": "npx -y ccstatusline@latest --hook"
           }
-        ]
+        ],
+        "matcher": "Skill"
       }
     ],
     "UserPromptSubmit": [
       {
+        "_tag": "ccstatusline-managed",
         "hooks": [
           {
             "type": "command",

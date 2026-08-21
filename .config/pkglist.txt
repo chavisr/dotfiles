@@ -55,6 +55,7 @@ nsxiv
 ntp-dinit
 nwg-look
 obs-studio
+opencode
 openresolv
 pipewire-pulse
 polkit-gnome
@@ -73,6 +74,7 @@ tree
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
 unzip
+uv
 virt-manager
 waybar
 wdisplays

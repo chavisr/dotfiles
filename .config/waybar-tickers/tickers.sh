@@ -1,29 +1,41 @@
 #!/usr/bin/env bash
-# Runs once per invocation (interval: 1 in scroll mode, 3 otherwise).
+# Runs once per invocation (interval: 3 in config.jsonc).
 # Keeps a cache in /tmp to avoid fetching on every call.
 
-VERSION="1.0.1"
-
 TICKERS_FILE="$(dirname "$0")/tickers.txt"
+WEBULL_ENV="${WEBULL_ENV:-$HOME/.webull/.env}"
 CACHE_FILE="/tmp/waybar-tickers.json"
 STATE_FILE="/tmp/waybar-tickers.state"
-SCROLL_FILE="/tmp/waybar-tickers.scroll"
 CHECKSUM_FILE="/tmp/waybar-tickers.checksum"
 REFRESH_INTERVAL=15
 
 # Placeholders: {ticker} {arrow} {price} {currency} {change} {change_abs}
 FORMAT="{ticker} {arrow} {price} {currency} {change}%"
 
-# SCROLL=1: horizontal ticker tape. SCROLL=0: single-ticker rotation.
-# When SCROLL=1, set interval: 0 in config.jsonc (Waybar respawns immediately).
-# When SCROLL=0, set interval: 3 in config.jsonc.
-SCROLL=0
-SEPARATOR=" "
-DISPLAY_WIDTH=40
-SCROLL_STEP=1
+trim_lines() {
+    tr -d '\r' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' | grep -v '^$'
+}
 
 read_tickers() {
-    grep -v '^\s*#' "$TICKERS_FILE" 2>/dev/null | grep -v '^\s*$'
+    grep -v '^\s*#' "$TICKERS_FILE" 2>/dev/null | trim_lines
+}
+
+# Pull WEBULL_SYMBOL_WHITELIST out of the webull .env without sourcing it —
+# that file holds credentials and must not land in this script's environment.
+read_whitelist() {
+    [[ -r "$WEBULL_ENV" ]] || return 0
+    local line
+    line=$(grep -m1 -E '^[[:space:]]*(export[[:space:]]+)?WEBULL_SYMBOL_WHITELIST=' "$WEBULL_ENV" 2>/dev/null) || return 0
+    line=${line#*=}
+    line=${line%$'\r'}
+    line=${line#[\"\']}
+    line=${line%[\"\']}
+    tr ',' '\n' <<< "$line" | trim_lines
+}
+
+# tickers.txt first, then any whitelist symbol not already listed.
+read_symbols() {
+    { read_tickers; read_whitelist; } | awk '!seen[$0]++'
 }
 
 fetch_cache() {
@@ -127,17 +139,17 @@ build_tooltip() {
     printf '%s\n' "${lines[@]}" | sed 's/$/\\n/' | tr -d '\n'
 }
 
-mapfile -t TICKERS < <(read_tickers)
+mapfile -t TICKERS < <(read_symbols)
 [[ "${#TICKERS[@]}" -eq 0 ]] && exit 0
 
-checksum=$(md5sum "$TICKERS_FILE" 2>/dev/null | cut -d' ' -f1)
+# Checksum the resolved list, so edits to either source trigger a refetch.
+checksum=$(printf '%s\n' "${TICKERS[@]}" | md5sum | cut -d' ' -f1)
 prev_checksum=""
 [[ -f "$CHECKSUM_FILE" ]] && prev_checksum=$(cat "$CHECKSUM_FILE")
 
 if [[ "$checksum" != "$prev_checksum" ]]; then
     printf '%s' "$checksum" > "$CHECKSUM_FILE"
     printf '0' > "$STATE_FILE"
-    printf '0' > "$SCROLL_FILE"
     fetch_cache "${TICKERS[@]}"
 else
     now=$(date +%s)
@@ -148,98 +160,24 @@ fi
 
 [[ ! -f "$CACHE_FILE" ]] && exit 0
 
-if [[ "$SCROLL" -eq 1 ]]; then
-    seg_starts=()
-    seg_lens=()
-    seg_texts=()
-    seg_colors=()
-    sep_len=${#SEPARATOR}
-    pos=0
-    first=1
+# Rotate one ticker per invocation
+i=0
+[[ -f "$STATE_FILE" ]] && i=$(cat "$STATE_FILE")
+sym="${TICKERS[$((i % ${#TICKERS[@]}))]}"
+printf '%d' $(( (i + 1) % ${#TICKERS[@]} )) > "$STATE_FILE"
 
-    for sym in "${TICKERS[@]}"; do
-        price=$(jq -r --arg s "$sym" '.[$s].price // empty' "$CACHE_FILE")
-        change=$(jq -r --arg s "$sym" '.[$s].change // empty' "$CACHE_FILE")
-        currency=$(jq -r --arg s "$sym" '.[$s].currency // empty' "$CACHE_FILE")
-        [[ -z "$price" || -z "$change" ]] && continue
+price=$(jq -r --arg s "$sym" '.[$s].price // empty' "$CACHE_FILE")
+change=$(jq -r --arg s "$sym" '.[$s].change // empty' "$CACHE_FILE")
+currency=$(jq -r --arg s "$sym" '.[$s].currency // empty' "$CACHE_FILE")
+[[ -z "$price" || -z "$change" ]] && exit 0
 
-        arrow=$(awk -v p="$change" 'BEGIN { if (p > 0.1) print "↑"; else if (p < -0.1) print "↓"; else print "→" }')
-        price_fmt=$(awk -v p="$price" 'BEGIN { printf "%.2f", p }')
-        change_fmt=$(awk -v c="$change" 'BEGIN { printf "%+.2f", c }')
-        change_abs=$(awk -v c="$change" 'BEGIN { printf "%.2f", (c < 0 ? -c : c) }')
+css=$(awk -v p="$change" 'BEGIN { if (p > 0.1) print "up"; else if (p < -0.1) print "down"; else print "neutral" }')
+arrow=$(awk -v p="$change" 'BEGIN { if (p > 0.1) print "↑"; else if (p < -0.1) print "↓"; else print "→" }')
+price_fmt=$(awk -v p="$price" 'BEGIN { printf "%.2f", p }')
+change_fmt=$(awk -v c="$change" 'BEGIN { printf "%+.2f", c }')
+change_abs=$(awk -v c="$change" 'BEGIN { printf "%.2f", (c < 0 ? -c : c) }')
 
-        text=$(render "$FORMAT" "$sym" "$arrow" "$price_fmt" "$currency" "$change_fmt" "$change_abs")
-        color=$(awk -v p="$change" 'BEGIN {
-            if (p > 0.1)       print "#98c379"
-            else if (p < -0.1) print "#e06c75"
-            else               print "#e5c07b"
-        }')
+text=$(render "$FORMAT" "$sym" "$arrow" "$price_fmt" "$currency" "$change_fmt" "$change_abs")
+tooltip=$(build_tooltip)
 
-        [[ "$first" -eq 0 ]] && pos=$(( pos + sep_len ))
-        seg_starts+=("$pos")
-        seg_lens+=("${#text}")
-        seg_texts+=("$text")
-        seg_colors+=("$color")
-        pos=$(( pos + ${#text} ))
-        first=0
-    done
-
-    [[ ${#seg_texts[@]} -eq 0 ]] && exit 0
-
-    loop_len=$(( pos + sep_len ))
-
-    offset=0
-    [[ -f "$SCROLL_FILE" ]] && offset=$(cat "$SCROLL_FILE")
-    (( offset >= loop_len )) && offset=0
-    printf '%d' $(( (offset + SCROLL_STEP) % loop_len )) > "$SCROLL_FILE"
-
-    win_end=$(( offset + DISPLAY_WIDTH ))
-    output=""
-    n=${#seg_texts[@]}
-
-    for copy in 0 1; do
-        copy_off=$(( copy * loop_len ))
-        for (( j=0; j<n; j++ )); do
-            ss=$(( seg_starts[j] + copy_off ))
-            se=$(( ss + seg_lens[j] ))
-            ov_s=$(( ss > offset ? ss : offset ))
-            ov_e=$(( se < win_end ? se : win_end ))
-            if (( ov_s < ov_e )); then
-                chunk="${seg_texts[j]:$(( ov_s - ss )):$(( ov_e - ov_s ))}"
-                output+="<span color='${seg_colors[j]}'>$chunk</span>"
-            fi
-            ps=$se
-            pe=$(( ps + sep_len ))
-            ov_s=$(( ps > offset ? ps : offset ))
-            ov_e=$(( pe < win_end ? pe : win_end ))
-            if (( ov_s < ov_e )); then
-                output+="${SEPARATOR:$(( ov_s - ps )):$(( ov_e - ov_s ))}"
-            fi
-        done
-    done
-
-    tooltip=$(build_tooltip)
-    printf '{"text":"%s","tooltip":"%s","class":"neutral"}\n' "$output" "$tooltip"
-else
-    # Default: rotate one ticker per invocation
-    i=0
-    [[ -f "$STATE_FILE" ]] && i=$(cat "$STATE_FILE")
-    sym="${TICKERS[$((i % ${#TICKERS[@]}))]}"
-    printf '%d' $(( (i + 1) % ${#TICKERS[@]} )) > "$STATE_FILE"
-
-    price=$(jq -r --arg s "$sym" '.[$s].price // empty' "$CACHE_FILE")
-    change=$(jq -r --arg s "$sym" '.[$s].change // empty' "$CACHE_FILE")
-    currency=$(jq -r --arg s "$sym" '.[$s].currency // empty' "$CACHE_FILE")
-    [[ -z "$price" || -z "$change" ]] && exit 0
-
-    css=$(awk -v p="$change" 'BEGIN { if (p > 0.1) print "up"; else if (p < -0.1) print "down"; else print "neutral" }')
-    arrow=$(awk -v p="$change" 'BEGIN { if (p > 0.1) print "↑"; else if (p < -0.1) print "↓"; else print "→" }')
-    price_fmt=$(awk -v p="$price" 'BEGIN { printf "%.2f", p }')
-    change_fmt=$(awk -v c="$change" 'BEGIN { printf "%+.2f", c }')
-    change_abs=$(awk -v c="$change" 'BEGIN { printf "%.2f", (c < 0 ? -c : c) }')
-
-    text=$(render "$FORMAT" "$sym" "$arrow" "$price_fmt" "$currency" "$change_fmt" "$change_abs")
-    tooltip=$(build_tooltip)
-
-    printf '{"text":"%s","tooltip":"%s","class":"%s"}\n' "$text" "$tooltip" "$css"
-fi
+printf '{"text":"%s","tooltip":"%s","class":"%s"}\n' "$text" "$tooltip" "$css"

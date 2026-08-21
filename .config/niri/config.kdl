@@ -450,7 +450,8 @@ binds {
     Alt+F5 hotkey-overlay-title="tlp_menu.sh" { spawn-sh "$HOME/.script/tlp_menu.sh"; }
     Mod+F12 hotkey-overlay-title="toggle_touchpad.sh" { spawn-sh "$HOME/.script/toggle_touchpad.sh"; }
     XF86Favorites hotkey-overlay-title="toggle_touchpad.sh" { spawn-sh "$HOME/.script/toggle_touchpad.sh"; }
-    Mod+G hotkey-overlay-title="grip-claude" { spawn-sh "$HOME/.script/grip-claude.sh"; }
+    Mod+Shift+F23 hotkey-overlay-title="opencode" { spawn-sh "alacritty -e opencode"; }
+    // Mod+G hotkey-overlay-title="grip-claude" { spawn-sh "$HOME/.script/grip-claude.sh"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -698,6 +699,7 @@ binds {
 
     Print { screenshot; }
     Mod+F9 { screenshot; }
+    Mod+Shift+S { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 

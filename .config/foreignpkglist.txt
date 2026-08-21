@@ -1,10 +1,10 @@
 brave-bin
 claude-code
 dashbinsh
-go-grip
 iwmenu-git
 paru
 rofi-emoji-git
+sunshine
 trashy
 vesktop
 xcursor-simp1e-dark

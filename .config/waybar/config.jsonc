@@ -140,9 +140,14 @@
     // }
   },
   "clock": {
-    // "timezone": "America/New_York",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+    "format": "{:%H:%M}",
+    // "format-alt": "{:%Y-%m-%d}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "format": {
+        "today": "<span color='#e06c75'>{}</span>"
+      }
+    }
   },
   "cpu": {
     "format": "{usage}% ",

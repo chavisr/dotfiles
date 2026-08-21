@@ -26,6 +26,7 @@ alias clip="wl-copy"
 alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias i="nsxiv"
+alias sunshine='sunshine >/dev/null 2>&1 & disown'
 
 # open nautilus in terminal
 f() { nautilus "${1:-.}" >/dev/null 2>&1 & disown; }
