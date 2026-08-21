@@ -75,7 +75,8 @@
     "exec-if": "test \"$(cat /sys/firmware/acpi/platform_profile)\" = performance",
     "return-type": "json",
     "interval": 5,
-    "on-click": "brave --app=https://app.webull.com/trade",
+    // "on-click": "brave --app=https://app.webull.com/trade",
+    "on-click": "alacritty -e opencode $HOME/project/satellite",
     "signal": 8
   },
   "pulseaudio/slider": {
