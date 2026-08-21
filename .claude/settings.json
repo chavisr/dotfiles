@@ -14,19 +14,17 @@
     ],
     "PreToolUse": [
       {
-        "_tag": "ccstatusline-managed",
+        "matcher": "Skill",
         "hooks": [
           {
             "type": "command",
             "command": "npx -y ccstatusline@latest --hook"
           }
-        ],
-        "matcher": "Skill"
+        ]
       }
     ],
     "UserPromptSubmit": [
       {
-        "_tag": "ccstatusline-managed",
         "hooks": [
           {
             "type": "command",
@@ -43,5 +41,6 @@
     "refreshInterval": 10
   },
   "tui": "fullscreen",
-  "theme": "dark"
+  "theme": "dark",
+  "model": "opus"
 }
