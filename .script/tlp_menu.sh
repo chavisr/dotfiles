@@ -1,6 +1,16 @@
 #!/bin/sh
 
-choice=$(printf "🐢 Power-saver\n🐬 Balanced\n🐇 Performance\n" | rofi -dmenu | awk '{print $2}')
+case "$(cat /sys/firmware/acpi/platform_profile)" in
+  low-power)   current=0 ;;
+  balanced)    current=1 ;;
+  performance) current=2 ;;
+  *)           current="" ;;
+esac
+
+# Put the cursor on the active profile
+[ -n "$current" ] && set -- -selected-row "$current"
+
+choice=$(printf "🐢 Power-saver\n🐬 Balanced\n🐇 Performance\n" | rofi -dmenu "$@" | awk '{print $2}')
 
 case "$choice" in
   Power-saver) sudo tlp power-saver ;;
