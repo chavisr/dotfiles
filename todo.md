@@ -1,15 +1,7 @@
 # todo
-- cmp over blink
-- find gtk-icons in kde web
 - low battery notify
-- kill bluetooth at startup
 - window empty/hidden
 - check log niri / waybar
-- set func keys
-- remove round gtk/qt
 - disable touchpad
-- waybar polling/interval check
 - flameshot
-
-# yt
-- niri guide
+- yt niri guide
