@@ -16,6 +16,9 @@ REFRESH_INTERVAL=15
 # Placeholders: {ticker} {arrow} {price} {currency} {change} {change_abs}
 FORMAT="{ticker} {arrow} {price} {currency} {change}%"
 
+# Pin the bar to one symbol instead of rotating. Set to "" to rotate again.
+PINNED_SYMBOL="BTC-USD"
+
 SYMBOLS_FILE=""
 cleanup() {
     [ -n "$SYMBOLS_FILE" ] && rm -f "$SYMBOLS_FILE"
@@ -199,14 +202,18 @@ fi
 
 [ -f "$CACHE_FILE" ] || exit 0
 
-# Rotate one ticker per invocation
-i=0
-[ -f "$STATE_FILE" ] && i=$(cat "$STATE_FILE")
-case "$i" in
-    ''|*[!0-9]*) i=0 ;;
-esac
-sym=$(sed -n "$(( i % count + 1 ))p" "$SYMBOLS_FILE")
-printf '%d' $(( (i + 1) % count )) > "$STATE_FILE"
+if [ -n "$PINNED_SYMBOL" ]; then
+    sym="$PINNED_SYMBOL"
+else
+    # Rotate one ticker per invocation
+    i=0
+    [ -f "$STATE_FILE" ] && i=$(cat "$STATE_FILE")
+    case "$i" in
+        ''|*[!0-9]*) i=0 ;;
+    esac
+    sym=$(sed -n "$(( i % count + 1 ))p" "$SYMBOLS_FILE")
+    printf '%d' $(( (i + 1) % count )) > "$STATE_FILE"
+fi
 
 price=$(cache_field "$sym" price)
 change=$(cache_field "$sym" change)

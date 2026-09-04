@@ -1,6 +1,7 @@
 default-timeout=5000
 text-alignment=center
 border-size=1
+layer=overlay
 
 [urgency=low]
 default-timeout=3000

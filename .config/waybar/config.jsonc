@@ -77,6 +77,7 @@
     "interval": 5,
     // "on-click": "brave --app=https://app.webull.com/trade",
     "on-click": "alacritty -e opencode $HOME/project/satellite",
+    "on-click-right": "brave https://app.webull.com/watch",
     "signal": 8
   },
   "pulseaudio/slider": {

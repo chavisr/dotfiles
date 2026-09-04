@@ -30,8 +30,8 @@ docker exec k0s-controller \
 echo "Generating kubeconfig..."
 mkdir -p ~/.kube
 
-docker exec k0s-controller k0s kubeconfig admin > ~/.kube/k0s.config
+docker exec k0s-controller k0s kubeconfig admin > ~/.kube/config
 
-echo "kubeconfig written to: ~/.kube/k0s.config"
+echo "kubeconfig written to: ~/.kube/config"
 
 echo "Done! Kubernetes is ready to use."
