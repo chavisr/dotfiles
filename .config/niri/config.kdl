@@ -16,7 +16,6 @@ cursor {
     xcursor-size 28
 }
 
-prefer-no-csd
 input {
     keyboard {
         repeat-rate 50
@@ -324,7 +323,7 @@ hotkey-overlay {
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
+prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -446,10 +445,10 @@ binds {
     Mod+P hotkey-overlay-title="wiremix" { spawn-sh "alacritty -e wiremix"; }
     Mod+V hotkey-overlay-title="cliphist" { spawn-sh "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"; }
     Mod+F7 hotkey-overlay-title="wdisplays" { spawn "wdisplays"; }
-    Alt+F4 hotkey-overlay-title="power_menu.sh" { spawn-sh "$HOME/.script/power_menu.sh"; }
-    Alt+F5 hotkey-overlay-title="tlp_menu.sh" { spawn-sh "$HOME/.script/tlp_menu.sh"; }
-    Mod+F12 hotkey-overlay-title="toggle_touchpad.sh" { spawn-sh "$HOME/.script/toggle_touchpad.sh"; }
-    XF86Favorites hotkey-overlay-title="toggle_touchpad.sh" { spawn-sh "$HOME/.script/toggle_touchpad.sh"; }
+    Alt+F4 hotkey-overlay-title="power-menu.sh" { spawn-sh "$HOME/.script/power-menu.sh"; }
+    Alt+F5 hotkey-overlay-title="tlp-menu.sh" { spawn-sh "$HOME/.script/tlp-menu.sh"; }
+    Mod+F12 hotkey-overlay-title="toggle-touchpad.sh" { spawn-sh "$HOME/.script/toggle-touchpad.sh"; }
+    XF86Favorites hotkey-overlay-title="toggle-touchpad.sh" { spawn-sh "$HOME/.script/toggle-touchpad.sh"; }
     Mod+Shift+F23 hotkey-overlay-title="opencode" { spawn-sh "alacritty -e opencode"; }
     // Mod+G hotkey-overlay-title="grip-claude" { spawn-sh "$HOME/.script/grip-claude.sh"; }
 

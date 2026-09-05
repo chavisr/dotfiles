@@ -42,5 +42,8 @@
   },
   "tui": "fullscreen",
   "theme": "dark",
-  "model": "opus"
+  "model": "opus",
+  "env": {
+    "SUDO_ASKPASS": "/home/chavi/.local/bin/claude-askpass"
+  }
 }

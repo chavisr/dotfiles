@@ -89,3 +89,4 @@ xwayland-satellite
 yq
 zathura
 zathura-pdf-poppler
+zenity

@@ -1,5 +1,4 @@
 # todo
-- low battery notify
 - window empty/hidden
 - check log niri / waybar
 - disable touchpad

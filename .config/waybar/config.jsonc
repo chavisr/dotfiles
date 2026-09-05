@@ -290,7 +290,7 @@
   "custom/power": {
     "format": "  ",
     "tooltip": false,
-    "on-click": "$HOME/.script/power_menu.sh"
+    "on-click": "$HOME/.script/power-menu.sh"
     // "menu": "on-click",
     // "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
     // "menu-actions": {
@@ -302,8 +302,8 @@
   },
   "custom/platform-profile": {
     // "exec": "cat /sys/firmware/acpi/platform_profile",
-    "exec": "$HOME/.script/platform_profile.sh",
-    "on-click": "$HOME/.script/tlp_menu.sh",
+    "exec": "$HOME/.script/platform-profile.sh",
+    "on-click": "$HOME/.script/tlp-menu.sh",
     "signal": 8,
     // "format": "{} ",
     // "format": "{} ",
