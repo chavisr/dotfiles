@@ -22,10 +22,10 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"
 alias t="trashy"
+alias i="imv"
 alias clip="wl-copy"
 alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias i="nsxiv"
 
 # open nautilus in terminal
 f() { nautilus "${1:-.}" >/dev/null 2>&1 & disown; }

@@ -27,6 +27,7 @@ grub
 gvfs-smb
 helm
 htop
+imv
 intel-ucode
 iwd-dinit
 jq
@@ -51,7 +52,6 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 npm
-nsxiv
 ntp-dinit
 nwg-look
 obs-studio
