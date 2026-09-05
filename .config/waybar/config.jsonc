@@ -251,7 +251,7 @@
       ]
     },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-middle": "alacritty -e wiremix"
+    "on-click-right": "alacritty -e wiremix"
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float

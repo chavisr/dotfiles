@@ -6,14 +6,20 @@
 # 90%->92% and 13min across 96%->95%, both completely silent), which is why
 # upowerd polls. It does emit uevents on *status* change and on AC plug/unplug.
 #
-# So instead of watching capacity, we listen for the trip point the firmware has
-# already armed at /sys/class/power_supply/BAT0/alarm (2770000 uWh, ~5%): the EC
-# raises an interrupt when the battery crosses it, the driver turns that into a
-# uevent, and udev runs this script once. Nothing runs until the battery is low.
+# So instead of watching capacity, we listen for the trip point already armed at
+# /sys/class/power_supply/BAT0/alarm: the EC raises an interrupt when the battery
+# crosses it, the driver turns that into a uevent, and udev runs this script
+# once. Nothing runs until the battery is actually low.
 #
-# We deliberately never set a threshold of our own. The firmware re-arms its
-# default at every boot, so there is nothing here to maintain and no boot-time
-# dependency. (A 20% variant was tried and rejected for exactly that reason.)
+# The kernel re-arms that trip point at every boot, deriving it from the pack's
+# *measured* full capacity - exactly energy_full/20, confirmed on three separate
+# boots (55400000->2770000, 55380000->2769000, 55360000->2768000). So it drifts
+# down as the battery wears, which is what we want: the warning stays at a true
+# 5% of real capacity rather than a number that slowly becomes optimistic.
+#
+# We deliberately never set a threshold of our own, and never hardcode one -
+# there is nothing here to maintain and no boot-time dependency. (A 20% variant
+# was tried and rejected for exactly that reason.)
 #
 # Invoked only by /etc/udev/rules.d/99-battery-notify.rules, as root:
 #   battery-notify bat     a BAT0 uevent - while discharging, the trip point fired
@@ -30,12 +36,8 @@ BAT=/sys/class/power_supply/BAT0
 AC=/sys/class/power_supply/AC
 STATE=/run/battery-notify.state
 LOG=/run/battery-notify.log
+ALARM_CACHE=/run/battery-notify.alarm
 
-# This machine's own trip point, from its _BIX design_capacity_warning
-# (2770000 uWh, ~5% of a 55.4 Wh pack). We never change the threshold - this
-# constant exists only so we can restore the firmware's value unchanged if the
-# firmware ever zeroes it. This firmware does not, so it is a no-op safety net.
-FIRMWARE_ALARM_UWH=2770000
 
 log() {
 	# /run is tmpfs: no disk writes, no rotation needed, gone on reboot.
@@ -93,10 +95,31 @@ notify() {
 	log "notify: '$summary' -> $user rc=$?"
 }
 
+# The kernel re-arms BAT0/alarm at every boot, deriving it from the battery's
+# *measured* full capacity - so it drifts down as the pack wears. Observed here:
+# energy_full 55400000 -> 55380000 uWh across one day moved alarm 2770000 ->
+# 2769000, exactly energy_full/20 both times. A hardcoded constant would go
+# stale, so we remember whatever the kernel last armed instead. This is used
+# only to put the value back if the firmware ever zeroes it after firing; we
+# never pick a threshold ourselves. /run is tmpfs, so the cache is repopulated
+# by the coldplug event at every boot.
+remember_alarm() {
+	a=$(read_int "$BAT/alarm")
+	[ "$a" -gt 0 ] || return 0
+	[ "$(cat "$ALARM_CACHE" 2>/dev/null)" = "$a" ] && return 0
+	echo "$a" >"$ALARM_CACHE" 2>/dev/null
+	log "alarm: remembered $a"
+}
+
 warn_low() {
-	: >"$STATE"
+	# Atomic. On unplug the bat and ac events fire in the same second and udev
+	# runs them concurrently, so a plain test-then-create would let both pass
+	# and notify twice. Only the process that wins the create notifies.
+	(set -C; : >"$STATE") 2>/dev/null || return 0
 	notify 'Battery critically low' "$(capacity)% remaining - plug in now"
 }
+
+remember_alarm
 
 case "${1:-}" in
 bat)
@@ -122,13 +145,16 @@ ac)
 		# Plugged in: allow the next discharge cycle to warn again.
 		rm -f "$STATE"
 
-		# Restore the firmware's own value only if it has been zeroed - the
-		# same number, never a threshold of our choosing.
+		# Restore the kernel's own value only if it has been zeroed - the
+		# same number it armed, never a threshold of our choosing.
 		if [ "$(read_int "$BAT/alarm")" -le 0 ]; then
-			if echo "$FIRMWARE_ALARM_UWH" >"$BAT/alarm" 2>/dev/null; then
-				log "ac: restored firmware alarm $FIRMWARE_ALARM_UWH"
+			# read_int, not cat: this is the only place we write to /sys, so
+			# insist on a positive integer rather than trusting the cache.
+			known=$(read_int "$ALARM_CACHE")
+			if [ "$known" -gt 0 ] && echo "$known" >"$BAT/alarm" 2>/dev/null; then
+				log "ac: restored alarm $known"
 			else
-				log "ac: FAILED to restore firmware alarm"
+				log "ac: FAILED to restore alarm (remembered='$known')"
 			fi
 		fi
 	else
