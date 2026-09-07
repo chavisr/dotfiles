@@ -55,6 +55,7 @@ npm
 ntp-dinit
 nwg-look
 obs-studio
+openai-codex
 opencode
 openresolv
 pipewire-pulse

@@ -1,6 +1,5 @@
 // -*- mode: jsonc -*-
 {
-  "interval": 99999999,
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
   "height": 25, // Waybar height (to be removed for auto height)
@@ -218,6 +217,7 @@
     }
   },
   "network": {
+    "interval": 3600, // no polled field in format; netlink still drives essid/link changes
     "tooltip": false,
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "{essid} 󰤥",
