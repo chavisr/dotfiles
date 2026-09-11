@@ -1,5 +1,6 @@
 {
   "includeCoAuthoredBy": false,
+  "model": "opus",
   "hooks": {
     "Notification": [
       {
@@ -41,6 +42,5 @@
     "refreshInterval": 10
   },
   "tui": "fullscreen",
-  "theme": "dark",
-  "model": "opus"
+  "theme": "dark"
 }

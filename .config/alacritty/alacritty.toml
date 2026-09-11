@@ -41,6 +41,6 @@ action = "SpawnNewInstance"
 mouse = "Right"
 action = "Paste"
 
-[[mouse.bindings]]
-mouse = "Middle"
-action = "Quit"
+# [[mouse.bindings]]
+# mouse = "Middle"
+# action = "Quit"

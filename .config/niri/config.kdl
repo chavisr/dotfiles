@@ -1,7 +1,8 @@
 environment {
     XDG_CURRENT_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
-    SUDO_ASKPASS "/home/chavi/.local/bin/askpass"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    SUDO_ASKPASS "/home/chavi/.script/askpass.sh" // needs absolute path
 }
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.

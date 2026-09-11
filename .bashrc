@@ -7,14 +7,16 @@
 
 # option
 shopt -s histverify
+eval "$(dircolors $HOME/.dircolors)"
 
 # env
+export EDITOR=nvim
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
-export QT_QPA_PLATFORMTHEME=qt6ct
-export EDITOR=nvim
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/npm/bin:$PATH
 
 # alias
 alias l="ls -lh"
@@ -61,9 +63,3 @@ export PS1='\[\033[31m\]\u@\h \[\e[34m\]\w\[\e[33m\]$(__git_ref)$(__git_status) 
 # if [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]]; then
 #   source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 # fi
-
-# extra
-# source <(kubectl completion bash)
-eval "$(dircolors ~/.dircolors)"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.local/npm/bin:$PATH"
