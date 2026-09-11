@@ -36,3 +36,11 @@ chars = "\n"
 key = "N"
 mods = "Super"
 action = "SpawnNewInstance"
+
+[[mouse.bindings]]
+mouse = "Right"
+action = "Paste"
+
+[[mouse.bindings]]
+mouse = "Middle"
+action = "Quit"
