@@ -4,6 +4,7 @@ artix-archlinux-support
 base
 base-devel
 bash-completion
+bind
 blueman
 bluez-dinit
 bluez-utils
@@ -21,6 +22,7 @@ efibootmgr
 elogind-dinit
 entr
 fastfetch
+fprintd
 fuse2
 git
 grub
@@ -67,6 +69,7 @@ rofi
 sof-firmware
 swaybg
 swaylock
+tailscale-dinit
 tlp
 tlp-dinit
 tlp-rdw
@@ -90,4 +93,3 @@ xwayland-satellite
 yq
 zathura
 zathura-pdf-poppler
-zenity

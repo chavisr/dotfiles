@@ -1,6 +1,7 @@
 environment {
     XDG_CURRENT_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
+    SUDO_ASKPASS "/home/chavi/.local/bin/askpass"
 }
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.

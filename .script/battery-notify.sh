@@ -37,6 +37,7 @@ AC=/sys/class/power_supply/AC
 STATE=/run/battery-notify.state
 LOG=/run/battery-notify.log
 ALARM_CACHE=/run/battery-notify.alarm
+ID_FILE=/run/battery-notify.id
 
 
 log() {
@@ -57,42 +58,98 @@ capacity() {
 	cat "$BAT/capacity" 2>/dev/null || echo '?'
 }
 
-notify() {
-	summary=$1
-	body=$2
-
-	# The session bus is at a random /tmp path (dbus-run-session niri
-	# --session), and /run/user/1000/bus does not exist here, so the only
-	# reliable source for it is the compositor's own environment.
+# Sets $user and $bus for the logged-in session, or returns 1. The session bus
+# is at a random /tmp path (dbus-run-session niri --session), and
+# /run/user/1000/bus does not exist here, so the only reliable source for it is
+# the compositor's own environment. Both notify() and close_notification() need
+# this, so it lives in one place.
+find_session() {
 	pid=$(pgrep -x niri | head -n1)
 	if [ -z "$pid" ]; then
-		log "notify: no niri process; cannot deliver"
+		log "session: no niri process"
 		return 1
 	fi
 
-	# notify-send is a pure D-Bus client, so the bus address is all we need.
 	# WAYLAND_DISPLAY is deliberately not forwarded: niri creates the display
 	# rather than inheriting it, so its own environ does not carry the variable,
 	# and mako picks it up from the D-Bus activation environment that
-	# `niri --session` exports.
+	# `niri --session` exports. notify-send and gdbus are pure D-Bus clients, so
+	# the bus address is all we need.
 	user=$(stat -c %U "/proc/$pid" 2>/dev/null)
 	bus=$(tr '\0' '\n' <"/proc/$pid/environ" 2>/dev/null |
 		sed -n 's/^DBUS_SESSION_BUS_ADDRESS=//p' | head -n1)
 
 	if [ -z "$user" ] || [ -z "$bus" ]; then
-		log "notify: could not read session env from pid $pid"
+		log "session: could not read env from pid $pid"
 		return 1
 	fi
+}
+
+notify() {
+	summary=$1
+	body=$2
+
+	find_session || return 1
 
 	# udev waits for RUN+= to return, so never block indefinitely. notify-send
 	# returns as soon as dbus replies. mako is not running most of the time; it
 	# is D-Bus activated on demand via fr.emersion.mako.service, and because
 	# dbus-daemon spawns it rather than us, it survives udev reaping this
 	# event's processes.
+	#
+	# -p prints the notification id, which we keep so that plugging in can close
+	# this exact notification: it is urgency critical, which never expires.
+	id=$(timeout 10 runuser -u "$user" -- \
+		env DBUS_SESSION_BUS_ADDRESS="$bus" \
+		notify-send -p -u critical -a Battery -i battery-caution "$summary" "$body")
+	log "notify: '$summary' -> $user rc=$? id=$id"
+
+	case "$id" in
+	'' | *[!0-9]*) ;;
+	*) echo "$id" >"$ID_FILE" 2>/dev/null ;;
+	esac
+}
+
+# Close the warning we sent, so plugging in clears the red box by itself.
+#
+# Notification ids are handed out by whichever daemon is running and restart
+# from 1 if mako restarts. If mako restarted between the warning and the
+# plug-in, a stale id could close some other application's notification. We use
+# each id at most once and /run is tmpfs (wiped every boot), which narrows the
+# window but does not close it. Checking ownership first would mean parsing
+# `makoctl list -j`, which would tie this to mako specifically; CloseNotification
+# is the freedesktop standard method and works with any notifier.
+close_notification() {
+	id=$(read_int "$ID_FILE")
+	rm -f "$ID_FILE"		# consumed, whatever it held
+	[ "$id" -gt 0 ] || return 0
+
+	find_session || return 1
+
+	# If no daemon owns the name there is nothing to close, and asking anyway
+	# would D-Bus-activate mako purely to dismiss a notification that cannot
+	# exist. Staying quiet keeps the "nothing runs unnecessarily" property.
+	owner=$(timeout 10 runuser -u "$user" -- \
+		env DBUS_SESSION_BUS_ADDRESS="$bus" \
+		gdbus call --session --dest org.freedesktop.DBus \
+		--object-path /org/freedesktop/DBus \
+		--method org.freedesktop.DBus.NameHasOwner \
+		org.freedesktop.Notifications 2>/dev/null)
+	case "$owner" in
+	*true*) ;;
+	*)
+		log "close: no notification daemon running; nothing to close"
+		return 0
+		;;
+	esac
+
 	timeout 10 runuser -u "$user" -- \
 		env DBUS_SESSION_BUS_ADDRESS="$bus" \
-		notify-send -u critical -a Battery -i battery-caution "$summary" "$body"
-	log "notify: '$summary' -> $user rc=$?"
+		gdbus call --session --dest org.freedesktop.Notifications \
+		--object-path /org/freedesktop/Notifications \
+		--method org.freedesktop.Notifications.CloseNotification \
+		"$id" >/dev/null 2>&1
+	log "close: dismissed notification $id rc=$?"
 }
 
 # The kernel re-arms BAT0/alarm at every boot, deriving it from the battery's
@@ -142,8 +199,10 @@ ac)
 	log "ac: online=$online capacity=$(capacity)%"
 
 	if [ "$online" -eq 1 ]; then
-		# Plugged in: allow the next discharge cycle to warn again.
+		# Plugged in: allow the next discharge cycle to warn again, and clear
+		# the warning still on screen - it is critical, so it never expires.
 		rm -f "$STATE"
+		close_notification
 
 		# Restore the kernel's own value only if it has been zeroed - the
 		# same number it armed, never a threshold of our choosing.

@@ -14,3 +14,4 @@ image/bmp=imv.desktop
 image/tiff=imv.desktop
 image/svg+xml=imv.desktop
 x-scheme-handler/discord=vesktop.desktop
+x-scheme-handler/terminal=Alacritty.desktop
