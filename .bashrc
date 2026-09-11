@@ -30,16 +30,19 @@ alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # open nautilus in terminal
-f() { nautilus "${1:-.}" >/dev/null 2>&1 & disown; }
+f() {
+  nautilus "${1:-.}" >/dev/null 2>&1 &
+  disown
+}
 
 # git ref
 __git_ref() {
   if git rev-parse --git-dir >/dev/null 2>&1; then
     local REF
     REF=$(
-      git symbolic-ref --short HEAD --quiet || \
-      git describe --tags --exact-match 2>/dev/null || \
-      git rev-parse --short HEAD
+      git symbolic-ref --short HEAD --quiet ||
+        git describe --tags --exact-match 2>/dev/null ||
+        git rev-parse --short HEAD
     )
     echo " ($REF)" | awk -v len=15 '{ if (length($0) > len) print substr($0, 1, len-3) ".."; else print; }'
   fi
@@ -58,8 +61,3 @@ __git_status() {
 
 # prompt
 export PS1='\[\033[31m\]\u@\h \[\e[34m\]\w\[\e[33m\]$(__git_ref)$(__git_status) \[\e[35m\]>\[\e[0m\] '
-
-# nix
-# if [[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]]; then
-#   source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-# fi
