@@ -82,12 +82,12 @@ uv
 virt-manager
 waybar
 wdisplays
+wev
 wget
 wiremix
 wireplumber
 wl-clipboard
 wtype
-xorg-xev
 xorg-xinput
 xwayland-satellite
 yq

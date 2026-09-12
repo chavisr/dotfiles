@@ -2,7 +2,10 @@ environment {
     XDG_CURRENT_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
     QT_QPA_PLATFORMTHEME "qt6ct"
-    SUDO_ASKPASS "/home/chavi/.script/askpass.sh" // needs absolute path
+    AI_AGENT "opencode"
+    BROWSER "brave"
+    TERMINAL "alacritty"
+    SUDO_ASKPASS "/usr/bin/askpass" // needs absolute path
 }
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
@@ -125,17 +128,17 @@ output "eDP-1" {
     }
 }
 
-// output "HDMI-A-1" {
-//     // off
-//     hot-corners {
-//         bottom-left
-//         bottom-right
-//     }
-//     // mode "1920x1080@60.000"
-//     scale 1.0
-//     transform "normal"
-//     position x=0 y=0
-// }
+output "HDMI-A-1" {
+    // off
+    hot-corners {
+        bottom-left
+        bottom-right
+    }
+    mode "1920x1080@60.000"
+    scale 1.0
+    transform "normal"
+    position x=0 y=0
+}
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
@@ -305,12 +308,12 @@ spawn-at-startup "pipewire"
 spawn-at-startup "wireplumber"
 spawn-at-startup "pipewire-pulse"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-// spawn-at-startup "mako"
-spawn-sh-at-startup "swaybg -i $HOME/.config/wallpaper/wallpaper -m fill"
+spawn-at-startup "swaybg" "-i" "/usr/share/wallpaper" "-m" "fill"
 spawn-at-startup "waybar"
-spawn-sh-at-startup "cliphist wipe"
-spawn-sh-at-startup "wl-paste --watch cliphist store"
-spawn-sh-at-startup "rfkill block bluetooth"
+spawn-at-startup "cliphist" "wipe"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+spawn-at-startup "rfkill" "block" "bluetooth"
+// spawn-at-startup "mako"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -435,24 +438,24 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Terminal" { spawn "alacritty"; }
-    // Mod+Shift+Return hotkey-overlay-title="Terminal here" { spawn-sh "$HOME/.script/niri-term-here.sh"; }
-    // Mod+Return hotkey-overlay-title="Terminal here" { spawn-sh "$HOME/.script/niri-term-here.sh"; }
-    Mod+D hotkey-overlay-title="App launcher" { spawn-sh "rofi -i -show drun -show-icons true"; }
-    Mod+F11 hotkey-overlay-title="Lock screen" { spawn "swaylock"; }
+    Mod+D hotkey-overlay-title="App launcher" { spawn "rofi" "-i" "-show" "drun" "-show-icons" "true"; }
     Mod+B hotkey-overlay-title="Browser" { spawn "brave"; }
-    Mod+Shift+N hotkey-overlay-title="Browser — private" { spawn-sh "brave --incognito"; }
-    Mod+M hotkey-overlay-title="YouTube Music" { spawn-sh "brave --app=https://music.youtube.com"; }
-    Mod+E hotkey-overlay-title="Emoji picker" { spawn-sh "rofi -i -modi emoji -show emoji"; }
-    Alt+F1 hotkey-overlay-title="Man pages (PDF)" { spawn-sh "$HOME/.script/manpdf.sh"; }
-    Mod+P hotkey-overlay-title="Audio mixer" { spawn-sh "alacritty -e wiremix"; }
+    Mod+Shift+N hotkey-overlay-title="Browser — private" { spawn "brave" "--incognito"; }
+    Mod+M hotkey-overlay-title="YouTube Music" { spawn "brave" "--app=https://music.youtube.com"; }
+    Mod+E hotkey-overlay-title="Emoji picker" { spawn "rofi" "-i" "-modi" "emoji" "-show" "emoji"; }
+    Alt+F1 hotkey-overlay-title="Man pages (PDF)" { spawn "~/.script/manpdf.sh"; }
+    Mod+P hotkey-overlay-title="Audio mixer" { spawn "alacritty" "-e" "wiremix"; }
+    Alt+F4 hotkey-overlay-title="Power menu" { spawn "~/.script/power-menu.sh"; }
+    Mod+Shift+F23 hotkey-overlay-title="AI Agent" { spawn "alacritty" "-e" "opencode"; }
     Mod+V hotkey-overlay-title="Clipboard history" { spawn-sh "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"; }
-    Mod+F7 hotkey-overlay-title="Display settings" { spawn "wdisplays"; }
-    Alt+F4 hotkey-overlay-title="Power menu" { spawn-sh "$HOME/.script/power-menu.sh"; }
-    Alt+F5 hotkey-overlay-title="Power profile" { spawn-sh "$HOME/.script/tlp-menu.sh"; }
-    Mod+F12 hotkey-overlay-title="Touchpad toggle" { spawn-sh "$HOME/.script/toggle-touchpad.sh"; }
-    XF86Favorites hotkey-overlay-title="Touchpad toggle" { spawn-sh "$HOME/.script/toggle-touchpad.sh"; }
-    Mod+Shift+F23 hotkey-overlay-title="OpenCode" { spawn-sh "alacritty -e opencode"; }
-    // Mod+G hotkey-overlay-title="Claude response preview" { spawn-sh "$HOME/.script/grip-claude.sh"; }
+    XF86Display hotkey-overlay-title="Display settings" { spawn "wdisplays"; }
+    Alt+F8 hotkey-overlay-title="Power profile" { spawn "~/.script/tlp-menu.sh"; }
+    Print { screenshot-screen; }
+    Mod+Shift+S { screenshot; }
+    // Alt+Print { screenshot-window; }
+    XF86LinkPhone hotkey-overlay-title="Lock screen" { spawn "swaylock"; }
+    XF86SelectiveScreenshot hotkey-overlay-title="Touchpad toggle" { spawn "~/.script/toggle-touchpad.sh"; }
+    // XF86Favorites hotkey-overlay-title="Touchpad toggle" { spawn "~/.script/toggle-touchpad.sh"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -463,33 +466,23 @@ binds {
     // The allow-when-locked=true property makes them work even when the session is locked.
     // Using spawn-sh allows to pass multiple arguments together with the command.
     // "-l 1.0" limits the volume to 100%.
-    // XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-    XF86AudioRaiseVolume allow-when-locked=true hotkey-overlay-title="Volume up" { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
-    XF86AudioLowerVolume allow-when-locked=true hotkey-overlay-title="Volume down" { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
-    XF86AudioMute        allow-when-locked=true hotkey-overlay-title="Mute toggle" { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true hotkey-overlay-title="Mic mute toggle" { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
-    Mod+F3 allow-when-locked=true hotkey-overlay-title="Volume up" { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
-    Mod+F2 allow-when-locked=true hotkey-overlay-title="Volume down" { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
-    Mod+F1 allow-when-locked=true hotkey-overlay-title="Mute toggle" { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    Mod+F4 allow-when-locked=true hotkey-overlay-title="Mic mute toggle" { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
+    XF86AudioRaiseVolume allow-when-locked=true hotkey-overlay-title="Volume up" { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+    XF86AudioLowerVolume allow-when-locked=true hotkey-overlay-title="Volume down" { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+    XF86AudioMute allow-when-locked=true hotkey-overlay-title="Mute toggle" { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute allow-when-locked=true hotkey-overlay-title="Mic mute toggle" { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
     // Example media keys mapping using playerctl.
     // This will work with any MPRIS-enabled media player.
-    XF86AudioPlay        allow-when-locked=true hotkey-overlay-title="Play / pause" { spawn-sh "playerctl play-pause"; }
-    XF86AudioStop        allow-when-locked=true hotkey-overlay-title="Stop playback" { spawn-sh "playerctl stop"; }
-    XF86AudioPrev        allow-when-locked=true hotkey-overlay-title="Previous track" { spawn-sh "playerctl previous"; }
-    XF86AudioNext        allow-when-locked=true hotkey-overlay-title="Next track" { spawn-sh "playerctl next"; }
+    // XF86AudioPlay        allow-when-locked=true hotkey-overlay-title="Play / pause" { spawn-sh "playerctl play-pause"; }
+    // XF86AudioStop        allow-when-locked=true hotkey-overlay-title="Stop playback" { spawn-sh "playerctl stop"; }
+    // XF86AudioPrev        allow-when-locked=true hotkey-overlay-title="Previous track" { spawn-sh "playerctl previous"; }
+    // XF86AudioNext        allow-when-locked=true hotkey-overlay-title="Next track" { spawn-sh "playerctl next"; }
 
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
     XF86MonBrightnessUp allow-when-locked=true hotkey-overlay-title="Brightness up" { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true hotkey-overlay-title="Brightness down" { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
-
-    Mod+F6 allow-when-locked=true hotkey-overlay-title="Brightness up" { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    Mod+F5 allow-when-locked=true hotkey-overlay-title="Brightness down" { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
@@ -697,12 +690,6 @@ binds {
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
-
-    Print { screenshot; }
-    Mod+F9 { screenshot; }
-    Mod+Shift+S { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here

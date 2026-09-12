@@ -7,8 +7,8 @@
   "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
-    "niri/workspaces",
-    "custom/tickers"
+    "niri/workspaces"
+    // "custom/tickers"
   ],
   // "modules-center": [
   //   "niri/window"
@@ -75,8 +75,8 @@
     "return-type": "json",
     "interval": 5,
     // "on-click": "brave --app=https://app.webull.com/trade",
-    "on-click": "alacritty -e opencode $HOME/project/satellite",
-    "on-click-right": "brave https://app.webull.com/watch",
+    "on-click": "$TERMINAL -e $AI_AGENT $HOME/project/satellite",
+    "on-click-right": "$BROWSER https://app.webull.com/watch",
     "signal": 8
   },
   "pulseaudio/slider": {
@@ -251,7 +251,7 @@
       ]
     },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "alacritty -e wiremix"
+    "on-click-right": "$TERMINAL -e wiremix"
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float

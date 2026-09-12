@@ -14,3 +14,7 @@ else
   runuser -u "$USER_NAME" -- niri msg output HDMI-A-1 off
   runuser -u "$USER_NAME" -- niri msg output eDP-1 on
 fi
+
+# if [ "$(cat /sys/class/drm/card1-HDMI-A-1/status)" = "disconnected" ]; then
+#   runuser -u "$USER_NAME" -- niri msg output eDP-1 on
+# fi
