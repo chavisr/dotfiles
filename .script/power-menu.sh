@@ -1,10 +1,10 @@
 #!/bin/sh
 
-choice=$(printf "🔐 Lock\n💤 Sleep\n♻️ Reboot\n⭕ Poweroff\n" | rofi -dmenu | awk '{print $2}')
+choice=$(printf '%s\n' '🔐 Lock' '💤 Sleep' '♻️ Reboot' '⭕ Poweroff' | rofi -dmenu)
 
 case "$choice" in
-  Lock) swaylock ;;
-  Sleep) loginctl suspend ;;
-  Reboot) loginctl reboot ;;
-  Poweroff) loginctl poweroff ;;
+  '🔐 Lock') swaylock ;;
+  '💤 Sleep') loginctl suspend ;;
+  '♻️ Reboot') loginctl reboot ;;
+  '⭕ Poweroff') loginctl poweroff ;;
 esac

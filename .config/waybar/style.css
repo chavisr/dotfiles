@@ -133,10 +133,10 @@ button:hover {
     color: @white;
 }
 
-#wireplumber.muted {
-    padding: 0 10px;
-    color: @red;
-}
+/* #wireplumber.muted { */
+/*     padding: 0 10px; */
+/*     color: @red; */
+/* } */
 
 #tray {
     padding: 0 10px;
