@@ -35,6 +35,12 @@ f() {
   disown
 }
 
+# show memory usage for a process by exact name
+psmem() {
+  [[ $1 ]] || { echo "Usage: psmem PROCESS_NAME" >&2; return 1; }
+  ps -C "$1" -o pid,comm,rss,%mem
+}
+
 # git ref
 __git_ref() {
   if git rev-parse --git-dir >/dev/null 2>&1; then

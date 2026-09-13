@@ -22,6 +22,7 @@ efibootmgr
 elogind-dinit
 entr
 fastfetch
+flameshot
 fprintd
 fuse2
 git
