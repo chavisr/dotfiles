@@ -35,10 +35,10 @@ f() {
   disown
 }
 
-# show memory usage for a process by exact name
-psmem() {
-  [[ $1 ]] || { echo "Usage: psmem PROCESS_NAME" >&2; return 1; }
-  ps -C "$1" -o pid,comm,rss,%mem
+# show usage for a process by exact name
+psu() {
+  [[ $1 ]] || { echo "Usage: psu PROCESS_NAME" >&2; return 1; }
+  ps -C "$1" -o user,pid,stime,comm,%cpu,%mem,rss
 }
 
 # git ref

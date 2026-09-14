@@ -44,7 +44,7 @@ window {
     /* properties for all widgets */
     enabled:                     true;
     border:                      1px;
-    border-color:                @background-alt;
+    border-color:                @foreground;
     cursor:                      "default";
     background-color:            @background;
 }

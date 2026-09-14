@@ -7,10 +7,10 @@ if [ -f "$FLAG" ]; then
     # Re-enable: remove the 'off' line we injected
     sed -i '/^    touchpad {/{n; /^        off$/d}' "$CONFIG"
     rm "$FLAG"
-    notify-send "Touchpad enabled"
+    notify-send "Touchpad" "Enabled"
 else
     # Disable: inject 'off' as first line inside touchpad block
     sed -i '/^    touchpad {/a\        off' "$CONFIG"
     touch "$FLAG"
-    notify-send "Touchpad disabled"
+    notify-send "Touchpad" "Disabled"
 fi
