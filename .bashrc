@@ -29,7 +29,7 @@ alias clip="wl-copy"
 alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
-# open nautilus in terminal
+# open nautilus
 f() {
   nautilus "${1:-.}" >/dev/null 2>&1 &
   disown
