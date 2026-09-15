@@ -89,7 +89,7 @@ wiremix
 wireplumber
 wl-clipboard
 wtype
-xorg-xinput
+xdg-desktop-portal-gnome
 xwayland-satellite
 yq
 zathura
