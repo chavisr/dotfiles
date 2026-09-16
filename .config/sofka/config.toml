@@ -1,0 +1,6 @@
+[keys]
+palette_next = ["ctrl-n", "down"]
+palette_prev = ["ctrl-p", "up"]
+
+[skin]
+name = "catppuccin-frappe"
