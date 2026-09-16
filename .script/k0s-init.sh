@@ -2,6 +2,8 @@
 # https://docs.k0sproject.io/head/k0s-in-docker/
 set -euo pipefail
 
+~/.script/k0s-purge.sh
+
 echo "Starting k0s controller container..."
 
 docker run -d --name k0s-controller --hostname k0s-controller \
@@ -9,7 +11,7 @@ docker run -d --name k0s-controller --hostname k0s-controller \
   --tmpfs /run \
   --privileged \
   -p 6443:6443 \
-  docker.io/k0sproject/k0s:v1.36.1-k0s.0
+  docker.io/k0sproject/k0s:v1.36.4-k0s.0
 
 echo "Waiting for Kubernetes API + node readiness..."
 
@@ -17,7 +19,6 @@ until docker exec k0s-controller \
   k0s kubectl wait \
   --for=condition=Ready \
   node/k0s-controller >/dev/null 2>&1; do
-  echo "   ...not ready yet, retrying in 3s"
   sleep 3
 done
 

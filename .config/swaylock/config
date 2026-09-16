@@ -1,4 +1,32 @@
 # no-unlock-indicator
-color=000000
 daemonize
 font=JetBrainsMono Nerd Font
+color=000000
+bs-hl-color=e06c75
+# caps-lock-bs-hl-color
+# caps-lock-key-hl-color
+inside-color=000000
+inside-clear-color=000000
+inside-caps-lock-color=000000
+inside-ver-color=000000
+inside-wrong-color=000000
+key-hl-color=61afef
+# layout-bg-color
+# layout-border-color
+layout-text-color=abb2bf
+line-color=000000
+line-clear-color=000000
+line-caps-lock-color=000000
+line-ver-color=000000
+line-wrong-color=000000
+ring-color=abb2bf
+ring-clear-color=e5c07b
+# ring-caps-lock-color
+ring-ver-color=61afef
+ring-wrong-color=e06c75
+separator-color=000000
+text-color=abb2bf
+text-clear-color=abb2bf
+text-caps-lock-color=abb2bf
+text-ver-color=abb2bf
+text-wrong-color=abb2bf

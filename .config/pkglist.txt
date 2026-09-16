@@ -34,7 +34,6 @@ imv
 intel-ucode
 iwd-dinit
 jq
-k9s
 kdenlive
 kubectl
 kvantum
@@ -62,7 +61,6 @@ openai-codex
 opencode
 openresolv
 pipewire-pulse
-polkit-gnome
 qemu-full
 qt6ct
 ripgrep

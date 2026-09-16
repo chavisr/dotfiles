@@ -4,6 +4,7 @@ dashbinsh
 iwmenu-git
 paru
 rofi-emoji-git
+sofka
 sunshine
 trashy
 vesktop

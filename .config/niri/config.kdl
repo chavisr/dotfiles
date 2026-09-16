@@ -307,13 +307,12 @@ layout {
 spawn-at-startup "pipewire"
 spawn-at-startup "wireplumber"
 spawn-at-startup "pipewire-pulse"
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "mini-polkit" "rofi -dmenu -password -theme askpass"
 spawn-at-startup "swaybg" "-i" "/usr/share/wallpaper" "-m" "fill"
 spawn-at-startup "waybar"
 spawn-at-startup "cliphist" "wipe"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "rfkill" "block" "bluetooth"
-// spawn-at-startup "mako"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
