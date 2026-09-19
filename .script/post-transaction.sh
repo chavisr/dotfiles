@@ -2,5 +2,5 @@
 
 # This script is triggered by /etc/pacman.d/hooks/post-transaction.hook
 pacman -Qqne > /home/chavi/.config/pkglist.txt
-pacman -Qqme > /home/chavi/.config/foreignpkglist.txt
+pacman -Qqme > /home/chavi/.config/pkglist-aur.txt
 echo 'Packages list generated.'

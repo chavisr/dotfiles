@@ -307,7 +307,7 @@ layout {
 spawn-at-startup "pipewire"
 spawn-at-startup "wireplumber"
 spawn-at-startup "pipewire-pulse"
-// spawn-at-startup "mini-polkit" "rofi -dmenu -password -theme askpass"
+spawn-at-startup "mini-polkit" "rofi -dmenu -password -theme askpass"
 spawn-at-startup "swaybg" "-i" "/usr/share/wallpaper" "-m" "fill"
 spawn-at-startup "waybar"
 spawn-at-startup "cliphist" "wipe"

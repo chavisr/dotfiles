@@ -86,7 +86,6 @@ wget
 wiremix
 wireplumber
 wl-clipboard
-wtype
 xdg-desktop-portal-gnome
 xwayland-satellite
 yq
