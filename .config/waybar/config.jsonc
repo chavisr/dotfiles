@@ -86,8 +86,8 @@
   // },
   "niri/language": {
     // "format": "Lang: {lang}",
-    "format-en": "US 󰗊",
-    "format-th": "TH 󰗊",
+    "format-en": "us 󰗊",
+    "format-th": "th 󰗊",
     "on-click": "niri msg action switch-layout next"
   },
   "keyboard-state": {
@@ -190,6 +190,7 @@
     //   "warning": 30,
     //   "critical": 15
     // },
+    "tooltip": false,
     "format": "{capacity}% {icon}",
     "format-full": "{capacity}% {icon}",
     "format-charging": "{capacity}% 󱐋",
@@ -289,7 +290,7 @@
   //   // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
   // },
   "custom/power": {
-    "format": "  ",
+    "format": "󰐥",
     "tooltip": false,
     "on-click": "$HOME/.script/power-menu.sh"
     // "menu": "on-click",

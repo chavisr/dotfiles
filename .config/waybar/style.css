@@ -48,11 +48,13 @@ button {
     border: none;
     /* color: @black; */
     border-radius: 0;
-    padding: 0 14px;
+    padding: 0 12px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
     background: inherit;
     /* box-shadow: inset 0 -3px #ffffff; */
 }
@@ -96,14 +98,21 @@ button:hover {
 /*     margin-right: 0; */
 /* } */
 
+#custom-power {
+    color: @black;
+    /* font-weight: bold; */
+    padding: 0 8px;
+    background-color: @white;
+}
+
 #clock {
     color: @white;
-    padding: 0 10px;
+    padding: 0 8px;
 }
 
 #battery {
     color: @white;
-    padding: 0 10px;
+    padding: 0 8px;
 }
 
 #network {
@@ -118,16 +127,6 @@ button:hover {
     /* background-color: @red; */
 }
 
-#pulseaudio {
-    padding: 0 10px;
-    color: @white;
-}
-
-#pulseaudio.muted {
-    padding: 0 10px;
-    color: @white;
-}
-
 #wireplumber {
     padding: 0 10px;
     color: @white;
@@ -137,6 +136,27 @@ button:hover {
 /*     padding: 0 10px; */
 /*     color: @red; */
 /* } */
+
+#custom-platform-profile {
+    color: @white;
+    padding: 0 10px;
+}
+
+#language {
+    color: @white;
+    padding: 0 8px;
+    /* margin: 0 5px; */
+    /* min-width: 16px; */
+}
+
+/* #keyboard-state {} */
+
+#keyboard-state>.locked {
+    padding: 0 2px;
+    color: @black;
+    background-color: @red;
+}
+
 
 #tray {
     padding: 0 10px;
@@ -149,16 +169,6 @@ button:hover {
 #tray>.needs-attention {
     -gtk-icon-effect: highlight;
     background-color: @red;
-}
-
-#custom-stocks {
-    color: @white;
-    padding: 0 10px;
-}
-
-#custom-tickerbar {
-    color: @white;
-    padding: 0 10px;
 }
 
 #custom-tickers {
@@ -177,39 +187,3 @@ button:hover {
 #custom-tickers.neutral {
     color: @yellow;
 }
-
-#custom-power {
-    color: @white;
-    /* padding: 0 10px; */
-}
-
-#custom-platform-profile {
-    color: @white;
-    padding: 0 10px;
-}
-
-#language {
-    color: @white;
-    padding: 0 10px;
-    /* margin: 0 5px; */
-    /* min-width: 16px; */
-}
-
-#keyboard-state {
-    /* color: @white; */
-    /* padding: 0 0px; */
-    /* margin: 0 0px; */
-}
-
-/* #keyboard-state>label { */
-/*     padding: 0 5px; */
-/* } */
-
-#keyboard-state>.locked {
-    padding: 0 2px;
-    background: @red;
-    /* margin: 0 8px; */
-    /* margin: 0 0px; */
-    color: @black;
-}
-

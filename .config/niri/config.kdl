@@ -354,37 +354,23 @@ animations {
 
 window-rule {
     match app-id="firefox"
-    tiled-state true
-    // open-fullscreen false
-    open-maximized true
-    clip-to-geometry true
-}
-
-window-rule {
     match app-id="brave-browser"
-    tiled-state true
-    open-maximized true
-}
-
-window-rule {
     match app-id="brave-app.webull.*"
-    tiled-state true
-    open-maximized true
-}
-
-window-rule {
+    match app-id="vesktop"
     match app-id=r"(libreoffice-.*|soffice)"
     open-maximized true
+    // open-fullscreen true
 }
 
 window-rule {
-    match app-id="vesktop"
-    open-maximized true
+    // geometry-corner-radius 12
+    clip-to-geometry true
+    tiled-state true
 }
 
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
-window-rule {
+/-window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
@@ -393,7 +379,7 @@ window-rule {
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
-window-rule {
+/-window-rule {
     // This app-id regular expression will work for both:
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
@@ -411,13 +397,6 @@ window-rule {
 
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
-}
-
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
 }
 
 binds {
@@ -441,7 +420,7 @@ binds {
     Mod+B hotkey-overlay-title="Browser" { spawn-sh "$BROWSER"; }
     Mod+Shift+N hotkey-overlay-title="Browser — private" { spawn-sh "$BROWSER --incognito"; }
     Mod+M hotkey-overlay-title="YouTube Music" { spawn-sh "$BROWSER --app=https://music.youtube.com"; }
-    Mod+E hotkey-overlay-title="Emoji picker" { spawn "rofi" "-i" "-modi" "emoji" "-show" "emoji"; }
+    Mod+E hotkey-overlay-title="Emoji picker" { spawn "rofi" "-show" "emoji" "-modi" "emoji" "-emoji-mode" "copy"; }
     Alt+F1 hotkey-overlay-title="Man pages (PDF)" { spawn "~/.script/manpdf.sh"; }
     Mod+P hotkey-overlay-title="Audio mixer" { spawn-sh "$TERMINAL -e wiremix -v output"; }
     Alt+F4 hotkey-overlay-title="Power menu" { spawn "~/.script/power-menu.sh"; }
