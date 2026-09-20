@@ -99,10 +99,10 @@ button:hover {
 /* } */
 
 #custom-power {
-    color: @black;
+    color: @white;
     /* font-weight: bold; */
     padding: 0 8px;
-    background-color: @white;
+    /* background-color: @white; */
 }
 
 #clock {
