@@ -17,6 +17,7 @@ cryptsetup-dinit
 dash
 dinit
 dnsmasq-dinit
+docker-compose
 docker-dinit
 efibootmgr
 elogind-dinit
