@@ -365,7 +365,8 @@ window-rule {
 window-rule {
     // geometry-corner-radius 12
     clip-to-geometry true
-    tiled-state true
+    // open-maximized-to-edges true
+    // tiled-state true
 }
 
 // Work around WezTerm's initial configure bug

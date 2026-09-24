@@ -10,7 +10,7 @@ inside-clear-color=000000
 inside-caps-lock-color=000000
 inside-ver-color=000000
 inside-wrong-color=000000
-key-hl-color=61afef
+key-hl-color=98c379
 # layout-bg-color
 # layout-border-color
 layout-text-color=abb2bf
@@ -19,7 +19,7 @@ line-clear-color=000000
 line-caps-lock-color=000000
 line-ver-color=000000
 line-wrong-color=000000
-ring-color=abb2bf
+ring-color=1e222a
 ring-clear-color=e5c07b
 # ring-caps-lock-color
 ring-ver-color=61afef
