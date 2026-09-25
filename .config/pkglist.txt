@@ -55,6 +55,7 @@ obs-studio
 openai-codex
 opencode
 openresolv
+openssh
 pipewire-pulse
 qemu-full
 qt6ct
