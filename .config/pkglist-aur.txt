@@ -8,4 +8,5 @@ sofka
 sunshine
 trashy
 vesktop
+wbg
 xcursor-simp1e-dark

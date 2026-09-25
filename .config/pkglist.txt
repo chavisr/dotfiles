@@ -1,4 +1,3 @@
-aerc
 alacritty
 artix-archlinux-support
 base
@@ -9,8 +8,6 @@ blueman
 bluez-dinit
 bluez-utils
 brightnessctl
-btop
-chafa
 cliphist
 cryptsetup
 cryptsetup-dinit
@@ -28,14 +25,12 @@ fprintd
 fuse2
 git
 grub
-gvfs-smb
 helm
 htop
 imv
 intel-ucode
 iwd-dinit
 jq
-kdenlive
 kubectl
 kvantum
 libnotify
@@ -47,7 +42,6 @@ linux-headers
 lvm2
 mako
 man-db
-moreutils
 mpv
 neovim
 niri
@@ -67,7 +61,6 @@ qt6ct
 ripgrep
 rofi
 sof-firmware
-swaybg
 swaylock
 tailscale-dinit
 tlp
@@ -87,8 +80,7 @@ wget
 wiremix
 wireplumber
 wl-clipboard
-xdg-desktop-portal-gnome
+xdg-desktop-portal-wlr
 xwayland-satellite
+yazi
 yq
-zathura
-zathura-pdf-poppler
