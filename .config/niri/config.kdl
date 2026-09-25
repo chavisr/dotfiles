@@ -420,7 +420,6 @@ binds {
     Mod+D hotkey-overlay-title="App launcher" { spawn "rofi" "-i" "-show" "drun" "-show-icons" "true"; }
     Mod+B hotkey-overlay-title="Browser" { spawn-sh "$BROWSER"; }
     Mod+Shift+N hotkey-overlay-title="Browser — private" { spawn-sh "$BROWSER --incognito"; }
-    Mod+M hotkey-overlay-title="YouTube Music" { spawn-sh "$BROWSER --app=https://music.youtube.com"; }
     Mod+E hotkey-overlay-title="Emoji picker" { spawn "rofi" "-show" "emoji" "-modi" "emoji" "-emoji-mode" "copy"; }
     Alt+F1 hotkey-overlay-title="Man pages (PDF)" { spawn "~/.script/manpdf.sh"; }
     Mod+P hotkey-overlay-title="Audio mixer" { spawn-sh "$TERMINAL -e wiremix -v output"; }

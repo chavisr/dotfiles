@@ -15,10 +15,23 @@ need_cmd() {
 }
 
 need_cmd docker
+need_cmd timeout
 
-if docker container inspect "$CONTAINER" >/dev/null 2>&1; then
+if ! containers=$(docker container ls -a --filter "name=^/${CONTAINER}$" --format '{{.Names}}'); then
+  die "could not query Docker containers."
+fi
+
+if [ "$containers" = "$CONTAINER" ]; then
+  if [ "$(docker container inspect --format '{{.State.Running}}' "$CONTAINER")" = true ]; then
+    log "Stopping k0s controller container gracefully..."
+    if ! timeout 75s docker stop --timeout 60 "$CONTAINER" >/dev/null; then
+      pid=$(docker container inspect --format '{{.State.Pid}}' "$CONTAINER" 2>/dev/null || true)
+      die "Docker could not stop '$CONTAINER' (host PID: ${pid:-unknown}). The container and kubeconfig were kept. Check the process and Docker runtime before retrying."
+    fi
+  fi
+
   log "Removing k0s controller container (and its volumes)..."
-  docker rm -f -v "$CONTAINER" >/dev/null
+  timeout 30s docker rm -v "$CONTAINER" >/dev/null || die "Docker could not remove '$CONTAINER'. The kubeconfig was kept."
 else
   log "No container '$CONTAINER' found, skipping removal."
 fi
