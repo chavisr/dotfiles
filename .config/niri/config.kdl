@@ -2,7 +2,7 @@ environment {
     XDG_CURRENT_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
     QT_QPA_PLATFORMTHEME "qt6ct"
-    AI_AGENT "codex"
+    AI_AGENT "codex --no-daemon"
     BROWSER "brave"
     TERMINAL "alacritty"
     SUDO_ASKPASS "/usr/bin/askpass" // needs absolute path
@@ -359,6 +359,8 @@ window-rule {
     match app-id="vesktop"
     match app-id=r"(libreoffice-.*|soffice)"
     open-maximized true
+    // open-floating false
+    // tiled-state true
     // open-fullscreen true
 }
 
@@ -426,7 +428,7 @@ binds {
     Alt+F4 hotkey-overlay-title="Power menu" { spawn "~/.script/power-menu.sh"; }
     Mod+Shift+F23 hotkey-overlay-title="AI Agent" { spawn-sh "$TERMINAL -e $AI_AGENT"; }
     Mod+V hotkey-overlay-title="Clipboard history" { spawn-sh "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"; }
-    Mod+Shift+D hotkey-overlay-title="Flameshot" { spawn-sh "flameshot gui --region 1920x1200+0+0"; }
+    Mod+Shift+D hotkey-overlay-title="Swappy" { spawn-sh "grim - | swappy -f -"; }
     XF86Display hotkey-overlay-title="Display settings" { spawn "wdisplays"; }
     Alt+F8 hotkey-overlay-title="Power profile" { spawn "~/.script/tlp-menu.sh"; }
     Print { screenshot-screen; }

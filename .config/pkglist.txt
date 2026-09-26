@@ -20,7 +20,6 @@ efibootmgr
 elogind-dinit
 entr
 fastfetch
-flameshot
 fprintd
 fuse2
 git
@@ -62,11 +61,11 @@ qt6ct
 ripgrep
 rofi
 sof-firmware
+swappy
 swaylock
 tailscale-dinit
 tlp
 tlp-dinit
-tlp-rdw
 transmission-qt
 tree
 ttf-jetbrains-mono

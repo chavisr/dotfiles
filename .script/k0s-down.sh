@@ -1,8 +1,10 @@
 #!/bin/bash
+# Destructive lab reset: removes the k0s container and its anonymous volumes.
 set -euo pipefail
 
 CONTAINER="k0s-controller"
-KUBECONFIG="$HOME/.kube/config"
+K0S_KUBECONFIG="$HOME/.kube/k0s.config"
+DEFAULT_KUBECONFIG="$HOME/.kube/config"
 
 log() { printf '%s\n' "$*"; }
 die() {
@@ -14,33 +16,48 @@ need_cmd() {
   command -v "$1" >/dev/null 2>&1 || die "missing required command: $1"
 }
 
+find_container() {
+  # A successful empty listing means absent; any Docker error aborts cleanup.
+  if ! CONTAINER_ID=$(timeout --signal=KILL 15s docker container ls --all \
+    --filter "name=^/${CONTAINER}$" --format '{{.ID}}'); then
+    die "could not query Docker; cleanup stopped."
+  fi
+}
+
 need_cmd docker
 need_cmd timeout
 
-if ! containers=$(docker container ls -a --filter "name=^/${CONTAINER}$" --format '{{.Names}}'); then
-  die "could not query Docker containers."
-fi
-
-if [ "$containers" = "$CONTAINER" ]; then
-  if [ "$(docker container inspect --format '{{.State.Running}}' "$CONTAINER")" = true ]; then
-    log "Stopping k0s controller container gracefully..."
-    if ! timeout 75s docker stop --timeout 60 "$CONTAINER" >/dev/null; then
-      pid=$(docker container inspect --format '{{.State.Pid}}' "$CONTAINER" 2>/dev/null || true)
-      die "Docker could not stop '$CONTAINER' (host PID: ${pid:-unknown}). The container and kubeconfig were kept. Check the process and Docker runtime before retrying."
+find_container
+if [ -n "$CONTAINER_ID" ]; then
+  log "Removing k0s controller container and its anonymous volumes..."
+  for ((attempt = 1; attempt <= 3; attempt++)); do
+    if timeout --signal=KILL 30s docker container rm --force --volumes "$CONTAINER_ID"; then
+      break
     fi
-  fi
+    find_container
+    [ -z "$CONTAINER_ID" ] && break
+    if ((attempt < 3)); then
+      sleep 1
+    fi
+  done
 
-  log "Removing k0s controller container (and its volumes)..."
-  timeout 30s docker rm -v "$CONTAINER" >/dev/null || die "Docker could not remove '$CONTAINER'. The kubeconfig was kept."
+  find_container
+  [ -z "$CONTAINER_ID" ] || die "could not remove container '$CONTAINER'; kubeconfig retained."
 else
   log "No container '$CONTAINER' found, skipping removal."
 fi
 
-if [ -f "$KUBECONFIG" ]; then
-  log "Removing kubeconfig..."
-  rm -f "$KUBECONFIG"
-else
-  log "No kubeconfig at '$KUBECONFIG', skipping removal."
+if [ -L "$DEFAULT_KUBECONFIG" ] &&
+  [ "$(readlink -m -- "$DEFAULT_KUBECONFIG")" = "$(readlink -m -- "$K0S_KUBECONFIG")" ]; then
+  log "Removing default kubeconfig symlink to k0s..."
+  rm -- "$DEFAULT_KUBECONFIG"
 fi
 
-log "Cleanup complete."
+if [ -e "$K0S_KUBECONFIG" ] || [ -L "$K0S_KUBECONFIG" ]; then
+  log "Removing k0s kubeconfig..."
+  rm -f -- "$K0S_KUBECONFIG"
+else
+  log "No kubeconfig at '$K0S_KUBECONFIG', skipping removal."
+fi
+
+log "Cluster purge complete."
