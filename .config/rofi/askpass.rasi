@@ -15,7 +15,7 @@ configuration {
     drun-display-format:        "{name}";
     window-format:              "{w} · {t}";
     font-size: 10px;
-    kb-cancel: "Escape,Control+c,MouseSecondary";
+    kb-cancel: "Escape,Control+c,Super+backslash,MouseSecondary";
     kb-secondary-copy: "";
     kb-accept-entry: "Return,KP_Enter";
     kb-remove-word-back: "Alt+BackSpace";
@@ -38,7 +38,7 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       300px;
-    height:                      400px;
+    height:                      74px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -97,7 +97,7 @@ entry {
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      text;
-    placeholder:                 " Search..";
+    placeholder:                 " Password";
     placeholder-color:           inherit;
 }
 dummy {

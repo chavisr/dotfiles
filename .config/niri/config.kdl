@@ -426,7 +426,8 @@ binds {
     Alt+F1 hotkey-overlay-title="Man pages (PDF)" { spawn "~/.script/manpdf.sh"; }
     Mod+P hotkey-overlay-title="Audio mixer" { spawn-sh "$TERMINAL -e wiremix -v output"; }
     Alt+F4 hotkey-overlay-title="Power menu" { spawn "~/.script/power-menu.sh"; }
-    Mod+Shift+F23 hotkey-overlay-title="AI Agent" { spawn-sh "$TERMINAL -e $AI_AGENT"; }
+    Mod+Shift+F23 hotkey-overlay-title="AI agent" { spawn-sh "$TERMINAL -e $AI_AGENT"; }
+    Alt+Mod+Shift+F23 hotkey-overlay-title="AI agent menu" { spawn "~/.script/ai-menu.sh"; }
     Mod+V hotkey-overlay-title="Clipboard history" { spawn-sh "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"; }
     Mod+Shift+D hotkey-overlay-title="Swappy" { spawn-sh "grim - | swappy -f -"; }
     XF86Display hotkey-overlay-title="Display settings" { spawn "wdisplays"; }
