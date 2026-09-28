@@ -1,6 +1,9 @@
+antigravity-cli
 brave-bin
 claude-code
 dashbinsh
+github-copilot-cli
+grok-build
 iwmenu-git
 paru
 rofi-emoji-git

@@ -26,7 +26,7 @@ alias rm="rm -iv"
 alias t="trashy"
 alias i="imv"
 alias f="yazi"
-alias clip="wl-copy"
+alias clip="wl-copy --trim-newline"
 alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
