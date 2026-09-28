@@ -8,7 +8,7 @@ choice=$(
     "Codex" "$icons/codex.svg" \
     "Claude" "$icons/claude.svg" \
     "Copilot" "$icons/copilot.svg" \
-    "Agy" "$icons/agy.svg" \
+    "Antigravity" "$icons/agy.svg" \
     "Grok" "$icons/grok.svg" \
     "OpenCode" "$icons/opencode.svg" |
     rofi -dmenu -show-icons -format i
