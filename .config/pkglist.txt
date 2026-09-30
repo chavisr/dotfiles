@@ -20,6 +20,7 @@ efibootmgr
 elogind-dinit
 entr
 fastfetch
+flameshot
 fprintd
 fuse2
 git
@@ -30,6 +31,7 @@ imv
 intel-ucode
 iwd-dinit
 jq
+k9s
 kubectl
 kvantum
 libnotify
@@ -61,7 +63,6 @@ qt6ct
 ripgrep
 rofi
 sof-firmware
-swappy
 swaylock
 tailscale-dinit
 tlp
@@ -80,6 +81,7 @@ wget
 wiremix
 wireplumber
 wl-clipboard
+xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 xwayland-satellite
 yazi
