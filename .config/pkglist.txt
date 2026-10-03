@@ -1,4 +1,3 @@
-alacritty
 artix-archlinux-support
 base
 base-devel
@@ -23,6 +22,7 @@ elogind-dinit
 entr
 fastfetch
 flameshot
+foot
 fprintd
 fuse2
 git

@@ -4,7 +4,7 @@ environment {
     QT_QPA_PLATFORMTHEME "qt6ct"
     AI_AGENT "codex --no-daemon"
     BROWSER "brave"
-    TERMINAL "alacritty"
+    TERMINAL "footclient"
     SUDO_ASKPASS "/usr/bin/askpass" // needs absolute path
 }
 // This config is in the KDL format: https://kdl.dev
@@ -304,6 +304,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
+spawn-at-startup "foot" "--server"
 spawn-at-startup "pipewire"
 spawn-at-startup "wireplumber"
 spawn-at-startup "pipewire-pulse"

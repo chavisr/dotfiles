@@ -61,5 +61,22 @@ __git_status() {
   fi
 }
 
-# prompt
+# spawning new terminal instances in the current working directory
+osc7_cwd() {
+    local strlen=${#PWD}
+    local encoded=""
+    local pos c o
+    for (( pos=0; pos<strlen; pos++ )); do
+        c=${PWD:$pos:1}
+        case "$c" in
+            [-/:_.!\'\(\)~[:alnum:]] ) o="${c}" ;;
+            * ) printf -v o '%%%02X' "'${c}" ;;
+        esac
+        encoded+="${o}"
+    done
+    printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
+}
+PROMPT_COMMAND=${PROMPT_COMMAND:+${PROMPT_COMMAND%;}; }osc7_cwd
+
+# ps1
 export PS1='\[\033[31m\]\u@\h \[\e[34m\]\w\[\e[33m\]$(__git_ref)$(__git_status) \[\e[35m\]>\[\e[0m\] '
