@@ -137,7 +137,7 @@ listview {
 
 element {
     enabled:                     true;
-    spacing:                     14px;
+    spacing:                     10px;
     padding:                     4px;
     border-radius:               100%;
     background-color:            transparent;
