@@ -12,7 +12,8 @@
 }
 
 window#waybar {
-    background-color: @black;
+    /* background-color: @black; */
+    background-color: alpha(@black, 0.97);
     /* border-bottom: 3px solid rgba(100, 114, 125, 1); */
     color: @white;
     transition-property: background-color;
