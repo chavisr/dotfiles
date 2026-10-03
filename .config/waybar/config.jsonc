@@ -10,9 +10,9 @@
     "niri/workspaces"
     // "custom/tickers"
   ],
-  "modules-center": [
-    "niri/window"
-  ],
+  // "modules-center": [
+  //   "niri/window"
+  // ],
   "modules-right": [
     "tray",
     "keyboard-state",
