@@ -5,7 +5,7 @@ encryption; swap uses a new random key at every boot. `/boot` is unencrypted.
 Suspend-to-RAM works, but **hibernation is not supported**.
 
 Original installation steps confirmed working by the guide's author on
-2026-10-02. The added VM Ethernet option has not yet been tested in the VM.
+2026-10-02. The added Ethernet option has not yet been tested.
 
 ## Before you start
 
@@ -31,14 +31,34 @@ and timezone `Asia/Bangkok`; adjust these as needed.
 
 ## 1. Partition and format — live environment
 
-Inspect the disks, then create a GPT partition table with the three
-partitions above. Set partition 1 to **EFI System**, partition 2 to
-**Linux swap**, and partition 3 to **Linux filesystem**.
+Inspect the disks and confirm the target disk:
 
 ```sh
 lsblk
-cfdisk /dev/vda
 ```
+
+### Command-line partitioning with sfdisk
+
+This creates a new GPT partition table on `/dev/vda`, replacing its existing
+partition layout. The example allocates **1 GiB for EFI**, **4 GiB for swap**,
+and the remaining space for root. Adjust the sizes before running it:
+
+```sh
+sfdisk /dev/vda <<'EOF'
+label: gpt
+size=1GiB, type=U
+size=4GiB, type=S
+type=L
+EOF
+```
+
+Check the resulting partition layout:
+
+```sh
+fdisk -l /dev/vda
+```
+
+### Format and mount
 
 Create and unlock the root container, then format and mount its filesystem:
 
@@ -60,55 +80,91 @@ mount /dev/vda1 /mnt/boot
 Leave partition 2 unused for now. The installed system will create encrypted
 swap at boot. Do not run `mkswap` or `swapon` on the raw partition.
 
-## 2. Install the base system — live environment
+## 2. Install packages and enter the chroot
 
-Start time synchronization and install the packages:
+### Base system and kernel — live environment
+
+Time synchronization via chronyd is already enabled in the live environment.
+Use `basestrap` to install the base system into `/mnt`:
 
 ```sh
-dinitctl start chronyd
-
 basestrap /mnt base base-devel dinit elogind-dinit
-basestrap /mnt linux linux-firmware
-basestrap /mnt cryptsetup cryptsetup-dinit vim grub efibootmgr \
-  openresolv iwd-dinit sof-firmware intel-ucode linux-headers chrony-dinit
 ```
 
-Generate the filesystem table, then enter the installed system:
+Install the kernel and firmware into the same target:
+
+```sh
+basestrap /mnt linux linux-firmware
+```
+
+### Generate fstab and enter the chroot — live environment
+
+Generate the filesystem table:
 
 ```sh
 fstabgen -U /mnt > /mnt/etc/fstab
+```
+
+Enter the installed system:
+
+```sh
 artix-chroot /mnt
 ```
 
-**Run sections 3–7 inside this chroot.**
+### Additional packages — chroot
+
+**Run all remaining commands through section 7 inside this chroot.**
+Use `pacman` here to install packages directly into the installed system.
+
+Install encryption support, editing tools, the bootloader, time synchronization,
+Intel microcode, audio firmware, and kernel headers:
+
+```sh
+pacman -S cryptsetup cryptsetup-dinit vim grub efibootmgr chrony-dinit \
+  intel-ucode sof-firmware linux-headers
+```
+
+Install the packages for your chosen network connection. For Ethernet:
+
+```sh
+pacman -S dhcpcd-dinit
+```
+
+For Wi-Fi:
+
+```sh
+pacman -S iwd-dinit openresolv
+```
+
+Configure and enable the chosen network service in section 7.
 
 ## 3. Configure encrypted swap — chroot
 
-Get the swap partition's **PARTUUID**, then open `/etc/crypttab`:
+Store the swap partition's **PARTUUID**:
 
 ```sh
-blkid -s PARTUUID -o value /dev/vda2
-vim /etc/crypttab
+export SWAP_PARTUUID="$(blkid -s PARTUUID -o value /dev/vda2)"
 ```
 
-Add the following line, replacing `SWAP_PARTUUID_HERE` with that output:
+Append the encrypted swap entry to `/etc/crypttab`:
 
-```text
-swap PARTUUID=SWAP_PARTUUID_HERE /dev/urandom plain,swap,cipher=aes-xts-plain64,size=256
+```sh
+cat >> /etc/crypttab <<EOF
+swap PARTUUID=$SWAP_PARTUUID /dev/urandom plain,swap,cipher=aes-xts-plain64,size=256
+EOF
 ```
 
 Confirm the PARTUUID belongs to `/dev/vda2`: its encrypted mapping will be
 formatted at every boot. Use the PARTUUID because the swap filesystem UUID
 changes each time.
 
+Append the encrypted swap entry to `/etc/fstab`, keeping the generated root
+and `/boot` entries:
+
 ```sh
-vim /etc/fstab
-```
-
-Keep the root and `/boot` entries, and replace any swap entries with:
-
-```text
+cat >> /etc/fstab <<'EOF'
 /dev/mapper/swap none swap defaults 0 0
+EOF
 ```
 
 Enable automatic setup at boot:
@@ -142,17 +198,14 @@ LC_COLLATE="C"
 EOF
 ```
 
-Set the hostname:
+Set the hostname and append its `/etc/hosts` entry, keeping the existing
+localhost entries:
 
 ```sh
 echo artix-linux > /etc/hostname
-vim /etc/hosts
-```
-
-Add or update the `127.0.1.1` entry below, keeping the existing localhost entries:
-
-```text
+cat >> /etc/hosts <<'EOF'
 127.0.1.1        artix-linux.localdomain  artix-linux
+EOF
 ```
 
 ## 5. Configure the initramfs and GRUB — chroot
@@ -218,23 +271,21 @@ EDITOR=vim visudo
 
 ## 7. Configure networking and services — chroot
 
-Choose Ethernet for a VM or Wi-Fi for a wireless connection, then enable
-time synchronization below.
+Follow the Ethernet or Wi-Fi instructions for the packages installed in
+section 2, then enable time synchronization below.
 
-### Ethernet — VM
+### Ethernet
 
-In the VM settings, enable a virtual network adapter connected to a NAT
-network with DHCP. The guest sees it as Ethernet even if the host uses Wi-Fi.
+Connect an Ethernet cable to a network with DHCP.
 
-Install and enable the DHCP client inside the chroot:
+Enable the DHCP client:
 
 ```sh
-pacman -S dhcpcd-dinit
 dinitctl --offline enable dhcpcd
 ```
 
-This installs `dhcpcd` and its dinit service to configure the address, gateway,
-and DNS automatically at boot. Skip the Wi-Fi steps for this VM setup.
+The `dhcpcd` service configures the address, gateway, and DNS automatically
+at boot. Skip the Wi-Fi steps when using Ethernet.
 
 ### Wi-Fi
 
@@ -258,7 +309,7 @@ dinitctl --offline enable iwd
 
 ### Time synchronization
 
-Enable chrony for either network method:
+Enable chronyd in the installed system for either network method:
 
 ```sh
 dinitctl --offline enable chronyd
@@ -292,7 +343,7 @@ Check that `root` is mounted at `/`, `/dev/vda1` at `/boot`, and `swap`
 under `/dev/vda2` is marked `[SWAP]`. If `swapon` displays `/dev/dm-N`, use
 `lsblk` to match it to the encrypted swap mapping.
 
-For the VM Ethernet setup, also check the network:
+For the Ethernet setup, also check the network:
 
 ```sh
 dinitctl status dhcpcd
@@ -301,11 +352,10 @@ ip route
 ping -c 3 artixlinux.org
 ```
 
-Expect an address on the virtual Ethernet interface and a default route.
+Expect an address on the Ethernet interface and a default route.
 
 ## References
 
 - [Artix installation guide](https://wiki.artixlinux.org/Main/Installation)
 - [Arch Wiki: encrypting an entire system](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system)
-- [Debian crypttab documentation](https://manpages.debian.org/unstable/cryptsetup/crypttab.5.en.html) — the parser's `PARTUUID`, `plain`, and `swap` options.
-- [dhcpcd manual](https://man.archlinux.org/man/dhcpcd.8.en) — automatic network configuration for Ethernet.
+- [crypttab manual](https://man.archlinux.org/man/crypttab.5.en) — the parser's `PARTUUID`, `plain`, and `swap` options.
