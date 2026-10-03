@@ -61,7 +61,7 @@ __git_status() {
   fi
 }
 
-# spawning new terminal instances in the current working directory
+# spawning new foot in the current working directory
 osc7_cwd() {
     local strlen=${#PWD}
     local encoded=""
