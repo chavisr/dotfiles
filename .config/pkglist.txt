@@ -8,6 +8,8 @@ blueman
 bluez-dinit
 bluez-utils
 brightnessctl
+bun
+chrony-dinit
 cliphist
 cryptsetup
 cryptsetup-dinit
@@ -24,15 +26,14 @@ flameshot
 fprintd
 fuse2
 git
+go-yq
 grub
-helm
 htop
 imv
 intel-ucode
 iwd-dinit
 jq
 k9s
-kubectl
 kvantum
 libnotify
 libreoffice-fresh
@@ -40,7 +41,6 @@ libvirt-dinit
 linux
 linux-firmware
 linux-headers
-lvm2
 mako
 man-db
 mpv
@@ -49,12 +49,8 @@ niri
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
-npm
-ntp-dinit
 nwg-look
 obs-studio
-openai-codex
-opencode
 openresolv
 openssh
 pipewire-pulse
@@ -81,8 +77,8 @@ wget
 wiremix
 wireplumber
 wl-clipboard
+wl-mirror
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 xwayland-satellite
 yazi
-yq

@@ -10,7 +10,7 @@ esac
 # Put the cursor on the active profile
 [ -n "$current" ] && set -- -selected-row "$current"
 
-choice=$(printf "🐣 Low-power\n🐤 Balanced\n🐓 Performance\n" | rofi -dmenu "$@" | awk '{print $2}')
+choice=$(printf "  Low-power\n  Balanced\n󱋙  Performance\n" | rofi -dmenu "$@" | awk '{print $2}')
 
 case "$choice" in
   Low-power) sudo tlp power-saver ;;

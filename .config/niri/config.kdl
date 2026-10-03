@@ -102,7 +102,7 @@ output "eDP-1" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1200@60.003"
+    // mode "1920x1200@60.003"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1.0
@@ -352,13 +352,14 @@ animations {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 
-window-rule {
+/-window-rule {
     match app-id="firefox"
     match app-id="brave-browser"
     match app-id="brave-app.webull.*"
     match app-id="vesktop"
     match app-id=r"(libreoffice-.*|soffice)"
-    open-maximized true
+    // open-maximized true
+    open-maximized-to-edges true
     // open-floating false
     // tiled-state true
     // open-fullscreen true
@@ -434,10 +435,10 @@ binds {
     Alt+F8 hotkey-overlay-title="Power profile" { spawn "~/.script/tlp-menu.sh"; }
     Print { screenshot-screen; }
     Mod+Shift+S { screenshot; }
-    Alt+Print { screenshot-window; }
-    XF86LinkPhone hotkey-overlay-title="Lock screen" { spawn "swaylock"; }
-    XF86SelectiveScreenshot hotkey-overlay-title="Touchpad toggle" { spawn "~/.script/toggle-touchpad.sh"; }
-    XF86Favorites hotkey-overlay-title="Favorite" { spawn-sh "$TERMINAL -e $AI_AGENT ~/project/satellite"; }
+    XF86SelectiveScreenshot { screenshot; }
+    // Alt+Print { screenshot-window; }
+    XF86LinkPhone hotkey-overlay-title="Lock screen" { spawn "~/.script/toggle-mirror.sh"; }
+    // XF86Favorites hotkey-overlay-title="Favorite" { spawn-sh "$TERMINAL -e $AI_AGENT ~/project/satellite"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -629,7 +630,8 @@ binds {
     // Mod+R { switch-preset-column-width-back; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
-    Mod+F { maximize-column; }
+    // Mod+F { maximize-column; }
+    Mod+F { maximize-window-to-edges; }
     Mod+Shift+F { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.

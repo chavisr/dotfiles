@@ -11,7 +11,7 @@ choice=$(
     "Antigravity" "$icons/agy.svg" \
     "Grok" "$icons/grok.svg" \
     "OpenCode" "$icons/opencode.svg" |
-    rofi -dmenu -show-icons -format i
+    rofi -i -dmenu -show-icons -format i
 )
 
 # Match the zero-based menu position independently of labels and icons.

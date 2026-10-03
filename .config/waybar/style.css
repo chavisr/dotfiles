@@ -73,6 +73,7 @@ button:hover {
 
 #workspaces button.urgent {
     background-color: @red;
+    color: @black;
 }
 
 /* #clock, */

@@ -1,10 +1,17 @@
 #!/bin/sh
 
-choice=$(printf '%s\n' '🔐 Lock' '💤 Sleep' '♻️ Reboot' '⭕ Poweroff' | rofi -dmenu)
+choice=$(
+  printf '%s\n' \
+    '  Lock' \
+    '  Sleep' \
+    '  Reboot' \
+    '  Poweroff' |
+    rofi -dmenu -format i -no-custom
+) || exit 0
 
 case "$choice" in
-  '🔐 Lock') swaylock ;;
-  '💤 Sleep') loginctl suspend ;;
-  '♻️ Reboot') loginctl reboot ;;
-  '⭕ Poweroff') loginctl poweroff ;;
+  0) swaylock ;;
+  1) loginctl suspend ;;
+  2) loginctl reboot ;;
+  3) loginctl poweroff ;;
 esac
