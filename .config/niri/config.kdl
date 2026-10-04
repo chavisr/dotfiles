@@ -366,7 +366,7 @@ animations {
     // open-fullscreen true
 }
 
-window-rule {
+/-window-rule {
     match app-id="brave-music.youtube.*"
     default-column-width { proportion 0.2; }
 }
