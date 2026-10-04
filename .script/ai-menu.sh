@@ -8,7 +8,6 @@ choice=$(
     "Codex" "$icons/codex.svg" \
     "Claude" "$icons/claude.svg" \
     "Copilot" "$icons/copilot.svg" \
-    "Antigravity" "$icons/agy.svg" \
     "Grok" "$icons/grok.svg" \
     "OpenCode" "$icons/opencode.svg" |
     rofi -i -dmenu -show-icons -format i
@@ -19,9 +18,8 @@ case "$choice" in
   0) agent="codex --no-daemon" ;;
   1) agent="claude" ;;
   2) agent="copilot" ;;
-  3) agent="agy" ;;
-  4) agent="grok" ;;
-  5) agent="opencode" ;;
+  3) agent="grok" ;;
+  4) agent="opencode" ;;
   *) exit ;;
 esac
 

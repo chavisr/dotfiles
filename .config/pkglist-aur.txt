@@ -1,4 +1,3 @@
-antigravity-cli
 brave-bin
 dashbinsh
 iwmenu-git

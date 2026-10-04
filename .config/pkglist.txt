@@ -19,7 +19,6 @@ docker-compose
 docker-dinit
 efibootmgr
 elogind-dinit
-entr
 fastfetch
 flameshot
 foot
