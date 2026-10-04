@@ -61,7 +61,7 @@ __git_status() {
   fi
 }
 
-# spawning new foot in the current working directory
+# spawn new foot in the current working directory
 osc7_cwd() {
     local strlen=${#PWD}
     local encoded=""
