@@ -7,3 +7,13 @@ append_keymap = [
   { on = "<A-h>", run = "leave", desc = "Back to the parent directory" },
   { on = "<A-l>", run = "enter", desc = "Enter the child directory" },
 ]
+
+# [[mgr.prepend_keymap]]
+# on = ["g", "w"]
+# run = 'shell -- ln -sf %h ~/.wallpaper'
+# desc = "Set as wallpaper"
+
+[[mgr.prepend_keymap]]
+on = ["g", "w"]
+run = 'shell --orphan -- ln -sfnT %h "$HOME/.wallpaper" && { pkill -x wbg; exec wbg -s "$HOME/.wallpaper"; }'
+desc = "Set as wallpaper"

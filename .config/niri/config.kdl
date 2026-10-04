@@ -210,7 +210,7 @@ layout {
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        inactive-color "#1e222a"
+        // inactive-color "#1e222a"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -309,7 +309,6 @@ spawn-at-startup "pipewire"
 spawn-at-startup "wireplumber"
 spawn-at-startup "pipewire-pulse"
 spawn-at-startup "mini-polkit" "rofi -dmenu -password -theme askpass"
-spawn-at-startup "wbg" "-s" "/usr/share/wallpaper"
 spawn-at-startup "waybar"
 spawn-at-startup "cliphist" "wipe"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
@@ -317,6 +316,7 @@ spawn-at-startup "rfkill" "block" "bluetooth"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
+spawn-sh-at-startup "wbg -s ~/.wallpaper"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
