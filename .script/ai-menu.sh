@@ -23,8 +23,8 @@ case "$choice" in
   *) exit ;;
 esac
 
-sed -i \
-  '/^environment {/,/^}/ s/AI_AGENT "[^"]*"/AI_AGENT "'"$agent"'"/' \
-  "$config"
+# sed -i \
+#   '/^environment {/,/^}/ s/AI_AGENT "[^"]*"/AI_AGENT "'"$agent"'"/' \
+#   "$config"
 
 $TERMINAL -e $agent
