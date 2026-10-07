@@ -44,7 +44,6 @@ mako
 man-db
 mpv
 neovim
-niri
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -57,6 +56,7 @@ qemu-full
 qt6ct
 ripgrep
 rofi
+seatd
 sof-firmware
 swaylock
 tailscale-dinit
