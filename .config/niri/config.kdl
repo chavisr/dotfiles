@@ -120,7 +120,7 @@ output "eDP-1" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=0 y=0
+    position x=0 y=1080
     hot-corners {
         // off
         bottom-left
@@ -430,7 +430,6 @@ binds {
     Mod+Shift+N hotkey-overlay-title="Browser — private" { spawn-sh "$BROWSER --incognito"; }
     Mod+E hotkey-overlay-title="Emoji picker" { spawn "rofi" "-show" "emoji" "-modi" "emoji" "-emoji-mode" "copy"; }
     Alt+F1 hotkey-overlay-title="Man pages (PDF)" { spawn "~/.script/manpdf.sh"; }
-    Mod+P hotkey-overlay-title="Audio mixer" { spawn-sh "$TERMINAL -e wiremix -v output"; }
     Alt+F4 hotkey-overlay-title="Power menu" { spawn "~/.script/power-menu.sh"; }
     Mod+Shift+F23 hotkey-overlay-title="AI agent" { spawn-sh "$TERMINAL -e $AI_AGENT"; }
     Alt+Mod+Shift+F23 hotkey-overlay-title="AI agent menu" { spawn "~/.script/ai-menu.sh"; }
@@ -442,7 +441,8 @@ binds {
     Mod+Shift+S { screenshot; }
     XF86SelectiveScreenshot { screenshot; }
     // Alt+Print { screenshot-window; }
-    XF86LinkPhone hotkey-overlay-title="Lock screen" { spawn "~/.script/toggle-mirror.sh"; }
+    XF86LinkPhone hotkey-overlay-title="Mirror Screen" { spawn "~/.script/toggle-mirror.sh"; }
+    // XF86LinkPhone hotkey-overlay-title="Mirror Screen" repeat=false { spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"; }
     XF86Favorites hotkey-overlay-title="Favorites" { spawn "notify-send" "XF86Favorites" "No action assigned"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -622,13 +622,13 @@ binds {
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
     // If the window is already in a column, they will expel it out.
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Comma  { consume-or-expel-window-left; }
+    Mod+Period { consume-or-expel-window-right; }
 
     // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
+    Mod+BracketLeft  { consume-window-into-column; }
     // Expel the bottom window from the focused column to the right.
-    Mod+Period { expel-window-from-column; }
+    Mod+BracketRight { expel-window-from-column; }
 
     // Mod+R { switch-preset-column-width; }
     // Cycling through the presets in reverse order is also possible.

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if pkill -u "$UID" -x wl-mirror; then
+    niri msg action focus-monitor eDP-1
     notify-send "Mirror eDP-1" "Disabled"
     exit 0
 fi
@@ -11,6 +12,7 @@ mirror_pid=$!
 # Catch immediate failures, such as a missing or disconnected output.
 sleep 0.3
 if kill -0 "$mirror_pid" 2>/dev/null; then
+    niri msg action focus-monitor eDP-1
     notify-send "Mirror eDP-1" "Enabled"
     wait "$mirror_pid"
 else

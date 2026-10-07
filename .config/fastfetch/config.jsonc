@@ -16,8 +16,11 @@
     // "wmtheme",
     // "theme",
     "terminal",
-    // "terminalfont",
-    "cpu",
+    "terminalfont",
+    {
+      "type": "cpu",
+      "format": "{name} @ {freq-max}"
+    },
     "gpu",
     "memory",
     "disk",

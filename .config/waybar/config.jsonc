@@ -253,7 +253,7 @@
     },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-    "on-click-middle": "$TERMINAL -e wiremix -v output"
+    "on-click-middle": "$TERMINAL -e wiremix"
   },
   // "pulseaudio": {
   //   // "scroll-step": 1, // %, can be a float
