@@ -24,6 +24,7 @@ flameshot
 foot
 fprintd
 fuse2
+galculator
 git
 go-yq
 grub
