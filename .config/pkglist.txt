@@ -8,6 +8,7 @@ bluez-dinit
 bluez-utils
 brightnessctl
 bun
+chromium
 chrony-dinit
 cliphist
 cryptsetup

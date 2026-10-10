@@ -1,4 +1,3 @@
-brave-bin
 dashbinsh
 iwmenu-git
 paru

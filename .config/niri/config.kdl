@@ -3,7 +3,7 @@ environment {
     XDG_SESSION_TYPE "wayland"
     QT_QPA_PLATFORMTHEME "qt6ct"
     AI_AGENT "codex --no-daemon"
-    BROWSER "brave"
+    BROWSER "chromium"
     TERMINAL "foot"
     SUDO_ASKPASS "/usr/bin/askpass" // needs absolute path
 }
