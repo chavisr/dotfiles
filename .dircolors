@@ -223,7 +223,7 @@ EXEC 01;32
 *~ 00;90
 *# 00;90
 .bak 00;37
-.crdownload 00;90
+.crdownload 00;37
 .dpkg-dist 00;90
 .dpkg-new 00;90
 .dpkg-old 00;90

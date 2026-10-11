@@ -26,10 +26,15 @@ alias mv="mv -iv"
 alias rm="rm -iv"
 alias t="trashy"
 alias i="imv"
-alias f="yazi"
 alias clip="wl-copy --trim-newline"
 alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
+# open file manager
+f() {
+  pcmanfm "${1:-.}" >/dev/null 2>&1 &
+  disown
+}
 
 # show usage for a process by exact name
 psu() {

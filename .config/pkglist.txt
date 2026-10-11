@@ -7,7 +7,6 @@ blueman
 bluez-dinit
 bluez-utils
 brightnessctl
-btop
 bun
 chromium
 chrony-dinit
@@ -54,6 +53,7 @@ nwg-look
 obs-studio
 openresolv
 openssh
+pcmanfm
 pipewire-pulse
 qemu-full
 qt6ct
@@ -85,4 +85,3 @@ wl-mirror
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
 xwayland-satellite
-yazi
