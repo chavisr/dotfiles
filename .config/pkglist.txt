@@ -58,8 +58,10 @@ qemu-full
 qt6ct
 ripgrep
 rofi
+rofi-emoji
 seatd
 sof-firmware
+sunshine
 swaylock
 tailscale-dinit
 tlp

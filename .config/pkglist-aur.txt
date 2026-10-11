@@ -1,8 +1,6 @@
 dashbinsh
-iwmenu-git
+iwmenu
 paru
-rofi-emoji-git
-sunshine
 trashy
 vesktop
 wbg
