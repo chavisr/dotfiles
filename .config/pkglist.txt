@@ -54,6 +54,7 @@ obs-studio
 openresolv
 openssh
 pcmanfm
+pipewire-alsa
 pipewire-pulse
 qemu-full
 qt6ct

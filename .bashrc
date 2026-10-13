@@ -25,10 +25,25 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"
 alias t="trashy"
-alias i="imv"
 alias clip="wl-copy --trim-newline"
 alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
+# open image
+i() {
+  command imv "$@" </dev/null >/dev/null 2>&1 &
+  disown "$!"
+}
+
+# hacked - render markdown in github style
+md() {
+  (
+    go-grip --no-reload "$@" >/dev/null 2>&1 &
+    sleep 3
+    kill $! 2>/dev/null
+  ) &>/dev/null &
+  disown
+}
 
 # open file manager
 f() {

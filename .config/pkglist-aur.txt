@@ -1,4 +1,5 @@
 dashbinsh
+go-grip
 iwmenu
 paru
 trashy
