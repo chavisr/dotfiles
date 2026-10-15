@@ -1,6 +1,5 @@
 #!/bin/sh
 
-config="$HOME/.config/niri/config.kdl"
 icons="$HOME/.local/share/icons/ai-menu"
 
 choice=$(
@@ -23,8 +22,4 @@ case "$choice" in
   *) exit ;;
 esac
 
-# sed -i \
-#   '/^environment {/,/^}/ s/AI_AGENT "[^"]*"/AI_AGENT "'"$agent"'"/' \
-#   "$config"
-
-$TERMINAL -e $agent
+exec $TERMINAL -e $agent

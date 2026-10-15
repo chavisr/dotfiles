@@ -2,6 +2,7 @@ dashbinsh
 go-grip
 iwmenu
 paru
+steamcmd
 trashy
 vesktop
 wbg

@@ -2,7 +2,7 @@
 TERM = "xterm-256color"
 
 [font]
-size = 14
+size = 12
 
 [font.normal]
 family = "JetBrains Mono Nerd Font"
@@ -22,7 +22,7 @@ save_to_clipboard = true
 [window]
 opacity = 0.97
 dynamic_padding = false
-padding = { x = 9, y = 6 }
+padding = { x = 5, y = 3 }
 
 [general]
 import = ["~/.config/alacritty/themes/one_dark_chad.toml"]

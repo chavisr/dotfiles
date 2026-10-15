@@ -7,6 +7,7 @@ blueman
 bluez-dinit
 bluez-utils
 brightnessctl
+btop
 bun
 chromium
 chrony-dinit
@@ -29,7 +30,6 @@ galculator
 git
 go-yq
 grub
-htop
 imv
 intel-ucode
 iwd-dinit

@@ -481,8 +481,8 @@ binds {
     // Mod+Backslash repeat=false { close-window; }
 
     Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
+    // Mod+Down  { focus-window-down; }
+    // Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
     Mod+H     { focus-column-left; }
     // Mod+J     { focus-window-down; }
@@ -500,6 +500,8 @@ binds {
 
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
+    Mod+Down     { focus-window-or-workspace-down; }
+    Mod+Up     { focus-window-or-workspace-up; }
     Mod+J     { focus-window-or-workspace-down; }
     Mod+K     { focus-window-or-workspace-up; }
     Mod+Shift+J     { move-window-down-or-to-workspace-down; }

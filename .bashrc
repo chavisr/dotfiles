@@ -29,13 +29,7 @@ alias clip="wl-copy --trim-newline"
 alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
-# open image
-i() {
-  command imv "$@" </dev/null >/dev/null 2>&1 &
-  disown "$!"
-}
-
-# hacked - render markdown in github style
+# render markdown in github style - hack
 md() {
   (
     go-grip --no-reload "$@" >/dev/null 2>&1 &
@@ -45,19 +39,16 @@ md() {
   disown
 }
 
+# open image
+i() {
+  command imv "$@" </dev/null >/dev/null 2>&1 &
+  disown "$!"
+}
+
 # open file manager
 f() {
   pcmanfm "${1:-.}" >/dev/null 2>&1 &
   disown
-}
-
-# show usage for a process by exact name
-psu() {
-  [[ $1 ]] || {
-    echo "Usage: psu PROCESS_NAME" >&2
-    return 1
-  }
-  ps -C "$1" -o user,pid,stime,comm,%cpu,%mem,rss
 }
 
 # git ref
