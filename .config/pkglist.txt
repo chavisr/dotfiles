@@ -8,7 +8,6 @@ bluez-dinit
 bluez-utils
 brightnessctl
 btop
-bun
 chromium
 chrony-dinit
 cliphist
@@ -51,6 +50,7 @@ neovim
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
+npm
 nwg-look
 obs-studio
 openresolv
@@ -75,7 +75,6 @@ tree
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
 unzip
-uv
 virt-manager
 waybar
 wdisplays

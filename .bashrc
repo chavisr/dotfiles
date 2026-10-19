@@ -18,6 +18,7 @@ export XDG_STATE_HOME=$HOME/.local/state
 export BUN_INSTALL=$HOME/.bun
 export PATH=$BUN_INSTALL/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/npm/bin:$PATH
 
 # alias
 alias l="ls -lh"
