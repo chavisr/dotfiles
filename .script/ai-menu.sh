@@ -9,7 +9,7 @@ choice=$(
     "Copilot" "$icons/copilot.svg" \
     "Grok" "$icons/grok.svg" \
     "OpenCode" "$icons/opencode.svg" |
-    rofi -i -dmenu -show-icons -format i
+    fuzzel --dmenu --index
 )
 
 # Match the zero-based menu position independently of labels and icons.

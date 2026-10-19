@@ -26,6 +26,7 @@ flameshot
 foot
 fprintd
 fuse2
+fuzzel
 galculator
 git
 go-yq
@@ -53,14 +54,14 @@ nwg-look
 obs-studio
 openresolv
 openssh
+papirus-icon-theme
 pcmanfm
 pipewire-alsa
 pipewire-pulse
 qemu-full
 qt6ct
 ripgrep
-rofi
-rofi-emoji
+rofimoji
 seatd
 sof-firmware
 sunshine

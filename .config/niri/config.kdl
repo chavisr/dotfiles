@@ -308,15 +308,14 @@ layout {
 spawn-at-startup "pipewire"
 spawn-at-startup "wireplumber"
 spawn-at-startup "pipewire-pulse"
-spawn-at-startup "mini-polkit" "rofi -dmenu -password -theme askpass"
 spawn-at-startup "waybar"
 spawn-at-startup "cliphist" "wipe"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "rfkill" "block" "bluetooth"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
-spawn-sh-at-startup "wbg -s ~/.wallpaper"
+spawn-sh-at-startup "wbg -s $HOME/.wallpaper"
+spawn-sh-at-startup "mini-polkit fuzzel --config=$HOME/.config/fuzzel/askpass.ini --dmenu --password --prompt-only="
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
@@ -425,15 +424,15 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Terminal" { spawn-sh "$TERMINAL"; }
-    Mod+D hotkey-overlay-title="App launcher" { spawn "rofi" "-i" "-show" "drun" "-show-icons" "true"; }
+    Mod+D hotkey-overlay-title="App launcher" { spawn "fuzzel"; }
     Mod+B hotkey-overlay-title="Browser" { spawn-sh "$BROWSER"; }
     Mod+Shift+N hotkey-overlay-title="Browser — private" { spawn-sh "$BROWSER --incognito"; }
-    Mod+E hotkey-overlay-title="Emoji picker" { spawn "rofi" "-show" "emoji" "-modi" "emoji" "-emoji-mode" "copy"; }
+    Mod+E hotkey-overlay-title="Emoji picker" { spawn "rofimoji" "--selector" "fuzzel" "--action" "copy" "--clipboarder" "wl-copy" "--prompt" ""; }
     Alt+F1 hotkey-overlay-title="Man pages (PDF)" { spawn "~/.script/manpdf.sh"; }
     Alt+F4 hotkey-overlay-title="Power menu" { spawn "~/.script/power-menu.sh"; }
     Mod+Shift+F23 hotkey-overlay-title="AI agent" { spawn-sh "$TERMINAL -e $AI_AGENT"; }
     Alt+Mod+Shift+F23 hotkey-overlay-title="AI agent menu" { spawn "~/.script/ai-menu.sh"; }
-    Mod+V hotkey-overlay-title="Clipboard history" { spawn-sh "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"; }
+    Mod+V hotkey-overlay-title="Clipboard history" { spawn-sh "cliphist list | fuzzel --dmenu --with-nth=2 | cliphist decode | wl-copy"; }
     Mod+Shift+D hotkey-overlay-title="Flameshot" { spawn-sh "flameshot gui --region all"; }
     XF86Display hotkey-overlay-title="Display settings" { spawn "wdisplays"; }
     Alt+F8 hotkey-overlay-title="Power profile" { spawn "~/.script/tlp-menu.sh"; }

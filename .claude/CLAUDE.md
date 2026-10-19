@@ -1,1 +1,1 @@
-/home/chavi/.config/MEMORY.md
+/home/chavi/.config/AGENTS.md

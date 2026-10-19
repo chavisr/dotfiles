@@ -6,7 +6,7 @@ choice=$(
     '  Sleep' \
     '  Reboot' \
     '  Poweroff' |
-    rofi -dmenu -format i -no-custom
+    fuzzel --dmenu --index --no-sort
 ) || exit 0
 
 case "$choice" in
