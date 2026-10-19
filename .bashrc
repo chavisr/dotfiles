@@ -17,8 +17,8 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 export BUN_INSTALL=$HOME/.bun
 export PATH=$BUN_INSTALL/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.local/npm/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # alias
 alias l="ls -lh"
@@ -29,16 +29,6 @@ alias t="trashy"
 alias clip="wl-copy --trim-newline"
 alias rand="openssl rand -base64 12"
 alias dots="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-
-# render markdown in github style - hack
-md() {
-  (
-    go-grip --no-reload "$@" >/dev/null 2>&1 &
-    sleep 3
-    kill $! 2>/dev/null
-  ) &>/dev/null &
-  disown
-}
 
 # open image
 i() {
