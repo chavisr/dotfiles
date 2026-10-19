@@ -1,12 +1,12 @@
 #!/bin/sh
 
-# Pick a man page (name + section) with rofi, render it to PDF, view it.
+# Pick a man page (name + section) with Fuzzel, render it to PDF, view it.
 
 page=$(
 	man -k . 2>/dev/null |
 		sed 's/ *(/(/; s/).*/)/' |
 		sort -u |
-		rofi -dmenu -i -p man
+		fuzzel --dmenu --prompt=
 ) || exit 0
 
 [ -n "$page" ] || exit 0

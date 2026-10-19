@@ -227,7 +227,7 @@
     // "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "disconnected 󰤮",
     // "format-alt": "{ipaddr} ({signalStrength}%)",
-    "on-click": "iwmenu --launcher rofi"
+    "on-click": "iwmenu --launcher fuzzel"
   },
   "wireplumber": {
     "scroll-step": 1, // %, can be a float
