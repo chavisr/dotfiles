@@ -16,6 +16,7 @@ cryptsetup
 cryptsetup-dinit
 dash
 dinit
+discord
 dnsmasq-dinit
 docker-compose
 docker-dinit
