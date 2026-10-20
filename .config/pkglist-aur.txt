@@ -1,4 +1,5 @@
 dashbinsh
+filmcraft-bin
 go-grip
 iwmenu
 paru
