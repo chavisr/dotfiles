@@ -53,6 +53,8 @@ noto-fonts-emoji
 npm
 nwg-look
 obs-studio
+openai-codex
+opencode
 openresolv
 openssh
 papirus-icon-theme
