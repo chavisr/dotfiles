@@ -2,4 +2,4 @@
 "\ek": previous-history       # Alt+k - move up (previous command)
 "\eh": backward-word          # Alt+h - move one word left
 "\el": forward-word           # Alt+l - move one word right
-"\ed": kill-line              # Alt+D - delete to the end of line
+"\ed": kill-line              # Alt+d - delete to the end of line
