@@ -1,1 +1,0 @@
-/home/chavi/.config/AGENTS.md

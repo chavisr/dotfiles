@@ -1,9 +1,0 @@
-# Also reads from WEBULL_SYMBOL_WHITELIST in ~/.webull/.env
-
-BTC-USD
-# ETH-USD
-GC=F
-# SCB.BK
-THB=X
-VOO
-QQQM

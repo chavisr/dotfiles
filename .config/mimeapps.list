@@ -1,11 +1,9 @@
-
 [Default Applications]
-text/html=brave-browser.desktop
-x-scheme-handler/http=brave-browser.desktop
-x-scheme-handler/https=brave-browser.desktop
-x-scheme-handler/about=brave-browser.desktop
-x-scheme-handler/unknown=brave-browser.desktop
-x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+text/html=chromium.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
+x-scheme-handler/about=chromium.desktop
+x-scheme-handler/unknown=chromium.desktop
 image/jpeg=imv.desktop
 image/png=imv.desktop
 image/gif=imv.desktop
@@ -13,5 +11,5 @@ image/webp=imv.desktop
 image/bmp=imv.desktop
 image/tiff=imv.desktop
 image/svg+xml=imv.desktop
-x-scheme-handler/discord=vesktop.desktop
-x-scheme-handler/terminal=Alacritty.desktop
+x-scheme-handler/discord=discord.desktop
+x-scheme-handler/terminal=foot.desktop
