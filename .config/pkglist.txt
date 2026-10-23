@@ -73,6 +73,7 @@ tailscale-dinit
 tlp
 tlp-dinit
 transmission-qt
+trash-cli
 tree
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd

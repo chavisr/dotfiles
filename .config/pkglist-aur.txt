@@ -4,6 +4,5 @@ go-grip
 iwmenu
 paru
 steamcmd
-trashy
 wbg
 xcursor-simp1e-dark
