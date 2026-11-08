@@ -15,7 +15,6 @@
   // ],
   "modules-right": [
     "tray",
-    "keyboard-state",
     "niri/language",
     "custom/platform-profile",
     // "mpd",
@@ -89,15 +88,6 @@
     "format-en": "us ",
     "format-th": "th ",
     "on-click": "niri msg action switch-layout next"
-  },
-  "keyboard-state": {
-    "numlock": false,
-    "capslock": true,
-    "format": "{icon}",
-    "format-icons": {
-      "locked": "CAPS",
-      "unlocked": ""
-    }
   },
   // "mpd": {
   //   "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -185,6 +175,8 @@
   //   ]
   // },
   "battery": {
+    "bat": "BAT0",
+    "adapter": "AC",
     // "states": {
     //   // "good": 95,
     //   "warning": 30,
