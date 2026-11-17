@@ -8,12 +8,12 @@
 
 * {
     font-family: 'JetBrains Mono Nerd Font', 'Noto Sans Thai', 'Noto Sans Mono CJK JP';
-    font-size: 13px;
+    font-size: 12px;
 }
 
 window#waybar {
     /* background-color: @black; */
-    background-color: alpha(@black, 0.97);
+    background-color: @black;
     /* border-bottom: 3px solid rgba(100, 114, 125, 1); */
     color: @white;
     transition-property: background-color;
@@ -63,6 +63,13 @@ button:hover {
 #workspaces button {
     /* background-color: transparent; */
     color: @white;
+    padding: 0;
+    min-width: 0;
+    min-height: 0;
+}
+
+#workspaces button label {
+    min-width: 24px;
 }
 
 #workspaces button.focused,
@@ -103,34 +110,34 @@ button:hover {
 #custom-power {
     color: @white;
     /* font-weight: 700; */
-    padding: 0 6px;
+    padding: 0 8px;
     /* background-color: @white; */
 }
 
 #clock {
     color: @white;
-    padding: 0 10px;
+    padding: 0 8px;
 }
 
 #battery {
     color: @white;
-    padding: 0 10px;
+    padding: 0 8px;
 }
 
 #network {
     color: @white;
-    padding: 0 10px;
+    padding: 0 8px;
     /* background-color: #2980b9; */
 }
 
 #network.disconnected {
     color: @white;
-    padding: 0 10px;
+    padding: 0 8px;
     /* background-color: @red; */
 }
 
 #wireplumber {
-    padding: 0 10px;
+    padding: 0 8px;
     color: @white;
 }
 
@@ -141,7 +148,7 @@ button:hover {
 
 #custom-platform-profile {
     color: @white;
-    padding: 0 10px;
+    padding: 0 8px;
 }
 
 #language {
@@ -161,7 +168,7 @@ button:hover {
 
 
 #tray {
-    padding: 0 10px;
+    padding: 0 8px;
 }
 
 #tray>.passive {
@@ -188,4 +195,15 @@ button:hover {
 
 #custom-tickers.neutral {
     color: @yellow;
+}
+
+/* Opaque tooltip (Adwaita defaults to rgba(0,0,0,0.8)) */
+tooltip.background {
+    background-color: @black;
+    border: 1px solid @grey;
+}
+
+tooltip,
+tooltip * {
+    color: @white;
 }

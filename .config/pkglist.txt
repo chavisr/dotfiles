@@ -64,6 +64,9 @@ pipewire-alsa
 pipewire-pulse
 qemu-full
 qt6ct
+retroarch
+retroarch-assets-ozone
+retroarch-assets-xmb
 ripgrep
 rofimoji
 seatd
