@@ -13,3 +13,4 @@ image/tiff=imv.desktop
 image/svg+xml=imv.desktop
 x-scheme-handler/discord=discord.desktop
 x-scheme-handler/terminal=foot.desktop
+x-scheme-handler/mailto=chromium.desktop
