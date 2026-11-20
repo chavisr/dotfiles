@@ -284,7 +284,8 @@
   "custom/power": {
     "format": "󰐥 ",
     "tooltip": false,
-    "on-click": "$HOME/.script/power-menu.sh"
+    "on-click": "$HOME/.script/power-menu.sh",
+    "on-click-right": "niri msg action close-window"
     // "menu": "on-click",
     // "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
     // "menu-actions": {
