@@ -51,7 +51,7 @@ __git_ref() {
         git describe --tags --exact-match 2>/dev/null ||
         git rev-parse --short HEAD
     )
-    echo " ($REF)" | awk -v len=15 '{ if (length($0) > len) print substr($0, 1, len-3) ".."; else print; }'
+    echo " $REF" | awk -v len=15 '{ if (length($0) > len) print substr($0, 1, len-3) ".."; else print; }'
   fi
 }
 
@@ -84,4 +84,5 @@ osc7_cwd() {
 PROMPT_COMMAND=${PROMPT_COMMAND:+${PROMPT_COMMAND%;}; }osc7_cwd
 
 # ps1
+PROMPT_DIRTRIM=2
 export PS1='\[\033[31m\]\u@\h \[\e[34m\]\w\[\e[33m\]$(__git_ref)$(__git_status) \[\e[35m\]>\[\e[0m\] '

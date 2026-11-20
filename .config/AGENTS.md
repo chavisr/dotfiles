@@ -6,3 +6,4 @@
 - **Search** — Use `rg` instead of `grep`.
 - **File deletion** — Use `trash-put` instead of `rm`.
 - **Images** — Use `imv` to show images; it updates automatically, so there is no need to reopen them.
+- **Git** — Always work in a Git worktree under `.wt/<name>` and use the exact same `<name>` for its branch.
